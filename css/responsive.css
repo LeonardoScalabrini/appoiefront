@@ -1,0 +1,53 @@
+@media (max-width: 768px){
+  .content {
+	padding: 40% 0 0;
+	}
+}
+
+@media (max-width: 603px) {
+    #tf-menu.navbar-default {
+	   background-color: rgba(0, 0, 0, 0.79);
+	}
+    #tf-works li.pull-right, #tf-works li.pull-left {
+        margin-top: 10px;
+        float: none !important;
+        text-align: center;
+        display: block;
+    }
+    label{
+        float: none !important
+    }
+    .pull-left.fnav,
+    .pull-right.fnav {
+        float: none !important;
+        text-align: center;
+    }
+
+    .hover-bg .hover-text {
+        padding: 12% 10%;
+    }
+}
+
+@media (max-width: 440px){
+    .title-mobile {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 380px){
+    .hover-bg .hover-text {
+        padding: 22% 10%;
+    }
+
+    .navbar-header img {
+        width: 100px;
+    }
+
+    .msg-mobile {
+        margin-top: 10px;
+    }
+
+    .title-mobile {
+        margin-top: 50px;
+    }
+}

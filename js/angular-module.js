@@ -1,0 +1,1 @@
+application = angular.module("appoie-application", ["ui.router"]);
