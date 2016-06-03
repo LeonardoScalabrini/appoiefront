@@ -4,5 +4,10 @@ application.service('loginService', ['$http', function ($http) {
 	{
 		return $http.post("/login", usuario);
 	};
+
+	this.recuperarSenha = function ()
+	{
+		// Requisição para recuperação de senha.
+	};
 	
 }]);

@@ -28,9 +28,9 @@
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" ng-controller="loginController">
         <div class="modal-dialog">
             <div class="loginmodal-container">
-                <h1>Entre com sua conta</h1><br>
+                <h1>{{modalTitle}}</h1><br>
 
-                <form name="login" ng-submit="logar(usuario)">
+                <form name="login" ng-submit="logar(usuario)" ng-if="!senhaPerdida">
 
                     <input type="text" name="user" placeholder="Email" ng-model="usuario.email">
 
@@ -47,8 +47,29 @@
 
                 </form>
 
+                <form name="enviarEmail" ng-submit="enviar(email)" ng-if="senhaPerdida">
+
+                    <h6>Informe seu email para redefinir sua senha:</h6>
+
+                    <input type="text" name="user" placeholder="Email" ng-model="email">
+
+                    <button name="login" class="button-enter" value="Login" data-text="Enviar">
+                        <span>E</span>
+                        <span>N</span>
+                        <span>V</span>
+                        <span>I</span>
+                        <span>A</span>
+                        <span>R</span>
+                    </button>
+
+                    <div class="login-help-back">
+                        <a href="#" ng-click="recuperarSenha()" ng-if="senhaPerdida">Cancelar</a>
+                    </div>
+
+                </form>
+
                 <div class="login-help">
-                    <a href="#">Esqueci minha senha</a>
+                    <a href="#" ng-click="recuperarSenha()" ng-if="!senhaPerdida">Esqueci minha senha</a>
                 </div>
 
                 <h1>Crie sua conta</h1><br>

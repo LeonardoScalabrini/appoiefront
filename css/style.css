@@ -31,7 +31,7 @@ content {
 
 	src: url("../fonts/fonts/Softline.otf");
 	font-style: normal;
-}}
+}
 
 
 h1{
@@ -772,6 +772,12 @@ nav#footer p{
   margin-top: 5px;
   padding-bottom: 30px;
   border-bottom: 1px solid #ccc;
+}
+
+.login-help-back {
+  font-size: 12px;
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
 
 .box-entrar {
