@@ -164,19 +164,19 @@
                         <div id="email" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.email.$invalid && cadastro.email.$dirty || confirmaEmail != usuario.email.email}">
                             
                             <label for="email"><strong>E-mail</strong></label>
-                            <input type="email" class="input-cadastro" name="email" ng-model="usuario.email.email" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
+                            <input type="email" class="input-cadastro" name="email" ng-model="usuario.email" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
 
                             <h6 ng-if="cadastro.email.$invalid && cadastro.email.$dirty" class="help-block">Informe um email válido</h6>
                         
                         </div>
 
-                        <div id="confirmaEmail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaEmail.$invalid && cadastro.confirmaEmail.$dirty || confirmaEmail != usuario.email.email}">
+                        <div id="confirmaEmail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaEmail.$invalid && cadastro.confirmaEmail.$dirty || usuario.confirmaEmail != usuario.email}">
                             
                             <label for="emailConfirm"><strong>Confirme o e-mail</strong></label>
-                            <input type="email" class="input-cadastro" name="confirmaEmail" ng-model="confirmaEmail" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
+                            <input type="email" class="input-cadastro" name="confirmaEmail" ng-model="usuario.confirmaEmail" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
 
                             <h6 ng-if="cadastro.confirmaEmail.$error.required && cadastro.confirmaEmail.$dirty" class="help-block">Confirme seu email</h6>
-                            <h6 ng-if="confirmaEmail != usuario.email.email && cadastro.confirmaEmail.$dirty && !cadastro.confirmaEmail.$error.required" class="help-block">Email inválido</h6>
+                            <h6 ng-if="usuario.confirmaEmail != usuario.email && cadastro.confirmaEmail.$dirty && !cadastro.confirmaEmail.$error.required" class="help-block">Email inválido</h6>
                         
                         </div>
 
@@ -194,14 +194,14 @@
                         
                         </div>
 
-                        <div id="confirmaSenha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaSenha.$invalid && cadastro.confirmaSenha.$dirty || confirmaSenha != usuario.senha}">
+                        <div id="confirmaSenha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaSenha.$invalid && cadastro.confirmaSenha.$dirty || usuario.confirmaSenha != usuario.senha}">
                             
                             <label for="senhaConfirm"><strong>Confirme sua senha</strong></label>
-                            <input type="password" class="input-cadastro" name="confirmaSenha" ng-model="confirmaSenha" ng-required="true" ng-minlength="6">
+                            <input type="password" class="input-cadastro" name="confirmaSenha" ng-model="usuario.confirmaSenha" ng-required="true" ng-minlength="6">
 
                             <h6 ng-if="cadastro.confirmaSenha.$error.minlength" class="help-block">Mínimo seis caracteres</h6>
                             <h6 ng-if="cadastro.confirmaSenha.$error.required && cadastro.confirmaSenha.$dirty" class="help-block">Confirme a senha</h6>
-                            <h6 ng-if="confirmaSenha != usuario.senha && cadastro.confirmaSenha.$dirty && !cadastro.confirmaSenha.$error.required && !cadastro.confirmaSenha.$error.minlength" class="help-block">Senha inválida</h6>
+                            <h6 ng-if="usuario.confirmaSenha != usuario.senha && cadastro.confirmaSenha.$dirty && !cadastro.confirmaSenha.$error.required && !cadastro.confirmaSenha.$error.minlength" class="help-block">Senha inválida</h6>
                         
                         </div>
 
@@ -233,7 +233,7 @@
                             </button>
                         </div>
                     </div>
-
+{{usuario}}
                 </form>
 
             </div>

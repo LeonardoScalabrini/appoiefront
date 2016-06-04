@@ -53,5 +53,5 @@ application.controller('cadastroController', ['$scope', 'cadastroService', 'mens
 		$scope.cadastro.$setPristine();
 		$('.error-message').addClass('hide');
 	}
-	
+
 }]);
