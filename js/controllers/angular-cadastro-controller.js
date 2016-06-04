@@ -53,16 +53,5 @@ application.controller('cadastroController', ['$scope', 'cadastroService', 'mens
 		$scope.cadastro.$setPristine();
 		$('.error-message').addClass('hide');
 	}
-
-	// var alertMessage = function (p)
-	// {
-	// 	swal({
- //          title: p.titulo,
- //          text: p.mensagem,
- //          type: p.tipo,
- //          confirmButtonClass: p.botao,
- //          confirmButtonText: 'Ok!'
- //        });
-	// }
-
+	
 }]);
