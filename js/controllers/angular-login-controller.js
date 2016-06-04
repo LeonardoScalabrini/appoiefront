@@ -23,7 +23,7 @@ application.controller('loginController', ['$scope', 'loginService', 'mensagemFa
 			// Capturar token do backend
 			window.location.href = "#/home";
 		},
-		function ()
+		function (response)
 		{
 			propriedades = { titulo: "Ooops!", mensagem: "Login ou senha inválido!"};
 			mensagemFactory.erro(propriedades);

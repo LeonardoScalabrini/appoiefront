@@ -33,7 +33,7 @@ application.controller('cadastroController', ['$scope', 'cadastroService', 'mens
 
 				mensagemFactory.sucesso(propriedades);
 			},
-			function () 
+			function (response) 
 			{
 				propriedades = {
 					titulo: "Ooops!",
