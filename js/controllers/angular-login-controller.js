@@ -25,7 +25,7 @@ application.controller('loginController', ['$scope', 'loginService', 'mensagemFa
 		},
 		function (response)
 		{
-			propriedades = { titulo: "Ooops!", mensagem: "Login ou senha inválido!"};
+			propriedades = { titulo: "Ooops!", mensagem: response.data.message};
 			mensagemFactory.erro(propriedades);
 		});
 	};

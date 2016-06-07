@@ -1,11 +1,11 @@
-application.controller('cadastroController', ['$scope', 'cadastroService', 'mensagemFactory', function ($scope, cadastroService, mensagemFactory) {
+application.controller('cadastroController', ['$scope', 'cadastroService', 'mensagemFactory', '$filter', function ($scope, cadastroService, mensagemFactory, $filter) {
 
 	var propriedades = {};
-
+	
 	$scope.cadastrar = function (usuario)
-	{
+	{	
 		if ($scope.cadastro.$invalid)
-		{
+		{	
 			propriedades = {
 				titulo: "Ooops!",
 				mensagem: "Preencha todos os campos corretamente!"
@@ -37,7 +37,7 @@ application.controller('cadastroController', ['$scope', 'cadastroService', 'mens
 			{
 				propriedades = {
 					titulo: "Ooops!",
-					mensagem: "Usuário já existe no sistema!"
+					mensagem: response.data.message
 				};
 
 				mensagemFactory.erro(propriedades);
