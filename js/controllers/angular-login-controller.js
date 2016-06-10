@@ -18,6 +18,8 @@ application.controller('loginController', ['$scope', 'loginService', 'mensagemFa
 
 	$scope.logar = function (usuario)
 	{
+		if (!usuario) usuario = {};
+
 		loginService.logar(usuario).then(function (response)
 		{
 			// Capturar token do backend
@@ -25,7 +27,7 @@ application.controller('loginController', ['$scope', 'loginService', 'mensagemFa
 		},
 		function (response)
 		{
-			propriedades = { titulo: "Ooops!", mensagem: response.data.message};
+			propriedades = { titulo: "Ooops!", mensagem: response.data.message };
 			mensagemFactory.erro(propriedades);
 		});
 	};

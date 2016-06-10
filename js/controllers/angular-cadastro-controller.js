@@ -35,11 +35,7 @@ application.controller('cadastroController', ['$scope', 'cadastroService', 'mens
 			},
 			function (response) 
 			{
-				propriedades = {
-					titulo: "Ooops!",
-					mensagem: response.data.message
-				};
-
+				propriedades = { titulo: "Ooops!", mensagem: response.data.message };
 				mensagemFactory.erro(propriedades);
 			});
 		}

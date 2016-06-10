@@ -23,7 +23,7 @@ application.config(function ($stateProvider, $urlRouterProvider) {
 		views: 
 		{
 			'': {templateUrl: "views/home.html"},
-			'system-pages@chamados': {templateUrl: "views/outromain.html"}
+			'system-pages@chamados': {templateUrl: "views/chamados.html"}
 		}
 	})
 	

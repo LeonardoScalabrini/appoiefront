@@ -184,7 +184,7 @@
 
                     <div class="row">
 
-                        <div id="senha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.senha.$invalid && cadastro.senha.$dirty || confirmaSenha != usuario.senha}">
+                        <div id="senha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.senha.$invalid && cadastro.senha.$dirty || usuario.confirmaSenha != usuario.senha}">
                             
                             <label for="senha"><strong>Senha</strong></label>
                             <input type="password" class="input-cadastro" name="senha" ng-model="usuario.senha" ng-required="true" ng-minlength="6">
