@@ -1,0 +1,58 @@
+/**{
+	margin: 0px;
+	padding: 0px;
+}
+/*.container {
+	text-indent: center;
+	width: 1000px;
+}*/
+.header{
+	background-color: #fc8645;
+	height: 60px;
+}
+.iconeMenu{
+	margin-top: 15px;
+	padding-left: 1px;
+
+}
+.iconeMenu button {
+
+	border: none;
+	background: none;
+
+}
+.logo {
+	margin-top: 8px;
+}
+.pesquisa{
+	text-align: center;
+
+}
+.pesquisa input{
+	text-align: center;
+	border-radius: 20px;
+	margin-top: 13px;
+	border: none;
+}
+.pesquisa input {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 350px;
+}
+.perfil{
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 15px;
+}
+.notificacoes {
+	margin-top: 16px;
+	margin-left: 15px;
+}
+.mensagens {
+	margin-top: 16px;
+	
+}
+.pessoal {
+	text-align: right;
+
+/*-------------- CSS MENU ---------------*/
