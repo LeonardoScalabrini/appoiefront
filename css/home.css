@@ -1,58 +1,198 @@
-/**{
-	margin: 0px;
-	padding: 0px;
+body{
+    background-color: #f6f6f6;
+
 }
-/*.container {
-	text-indent: center;
-	width: 1000px;
-}*/
+
 .header{
-	background-color: #fc8645;
-	height: 60px;
+    background-color: #fc8645;
+    height: 60px;
+}
+.iconeMenu a {
+    background: none;
+    border: none;
+    text-decoration: none;
+}
+.btn {
+    padding: 0px;
+    margin-top: 2px;
+}
+.iconeMenu a:hover {
+    background: none;
+    border: none;
+    text-decoration: none;
+}
+
+.logo {
+    margin-top: 8px;
+}
+
+.pesquisa input{
+    text-align: left;
+    border-radius: 20px;
+    margin-top: 13px;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 350px;
+    padding-left: 35px;
+
+}
+.perfil{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.notificacoes {
+    margin-top: 16px;
+}
+.mensagens {
+    margin-top: 16px;
+    
+}
+.find{
+    background-image: url(../img/iconePesquisar.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+
+    
+}
+
+
+-------------------------CSS------------------------
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #777;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+---------------meu css------------------------
+
+.header{
+    background-color: #fc8645;
+    height: 60px;
 }
 .iconeMenu{
-	margin-top: 15px;
-	padding-left: 1px;
-
+    padding-top: 15px;
+    padding-bottom: 17px;
+}
+.iconeMenu:hover{
+    background-color: #dd5f1a;
 }
 .iconeMenu button {
 
-	border: none;
-	background: none;
+    border: none;
+    background: none;
+    
 
 }
 .logo {
-	margin-top: 8px;
-}
-.pesquisa{
-	text-align: center;
-
+    margin-top: 8px;
+    padding: 0;
+    padding-left: 5px;
 }
 .pesquisa input{
-	text-align: center;
-	border-radius: 20px;
-	margin-top: 13px;
-	border: none;
-}
-.pesquisa input {
-	padding-top: 7px;
-	padding-bottom: 7px;
-	width: 350px;
+    text-align: left;
+    border-radius: 20px;
+    margin-top: 13px;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 350px;
+    padding-left: 35px;
+
 }
 .perfil{
-	margin-top: 10px;
-	margin-right: 10px;
-	margin-left: 15px;
+    margin-top: 10px;
 }
 .notificacoes {
-	margin-top: 16px;
-	margin-left: 15px;
+    margin-top: 18px;
+    margin-left: 5px;
 }
 .mensagens {
-	margin-top: 16px;
-	
+    margin-top: 18px;
+
+    
 }
-.pessoal {
-	text-align: right;
+.find{
+    background-image: url(../img/iconePesquisar.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+
+    
+}
 
 /*-------------- CSS MENU ---------------*/
+
+.menu{
+    padding-left: 15px;
+    width: 200px;
+    background: #505050;
+    height: 665px;
+    padding-top: 20;
+    position: fixed;
+}
+.menu ul li{
+    list-style: none;
+    padding: 20px 0px 20px 0px;
+}
+.menu ul{
+    padding-top: 20px;
+}
+.list-group li{
+    border: none;
+   background-color: #f6f6f6;
+    padding-left: 40px;
+
+}
+.list-group{
+    margin-bottom: 0px;
+}
+.list-group-item{
+    padding-left: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.ancora{
+    cursor: pointer;
+    padding: 20px 0px 20px 0px;
+
+}
+.ancora a {
+    padding: 20px 170px 20px 20px;
+    color: #999999;
+}
+.ancora a:hover {
+    color: #fff;
+}
+
+.ancora:hover{
+    background-color: #ffb14d;
+    text-decoration: #fff;
+}
+.panel-collapse{
+    background-color: #f6f6f6;
+
+}
+
