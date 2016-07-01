@@ -17,14 +17,5 @@ application.config(function ($stateProvider, $urlRouterProvider) {
 			'system-pages@home': {templateUrl: "views/main.html"}
 		}
 	})
-
-	.state("chamados", {
-		url: "/chamados",
-		views: 
-		{
-			'': {templateUrl: "views/home.html"},
-			'system-pages@chamados': {templateUrl: "views/chamados.html"}
-		}
-	})
 	
 });

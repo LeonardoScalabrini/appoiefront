@@ -1,6 +1,42 @@
+textarea {
+  resize: none;
+}
+
+.container {
+  padding: 0;
+}
+
+.no-padding-lateral {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 0px;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
+#carousel-example-generic {
+  height: 125px;
+}
+
+.modal.in .modal-dialog {
+  -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+    transform: translateY(50px);
+}
+
 body{
     background-color: #f6f6f6;
+}
 
+.container {
+    padding-top: 20px;
 }
 
 .header{
@@ -51,13 +87,11 @@ body{
 .find{
     background-image: url(../img/iconePesquisar.png);
     background-repeat: no-repeat;
-    background-position: 10px center;
-
-    
+    background-position: 10px center;  
 }
 
 
--------------------------CSS------------------------
+/*-------------------------CSS------------------------*/
 
 
 #wrapper {
@@ -73,7 +107,7 @@ body{
 }
 
 #sidebar-wrapper {
-    z-index: 1000;
+    z-index: 99;
     position: fixed;
     left: 250px;
     width: 0;
@@ -89,9 +123,12 @@ body{
 
 ---------------meu css------------------------
 
-.header{
+#header{
     background-color: #fc8645;
     height: 60px;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
 }
 .iconeMenu{
     padding-top: 15px;
@@ -101,11 +138,8 @@ body{
     background-color: #dd5f1a;
 }
 .iconeMenu button {
-
     border: none;
     background: none;
-    
-
 }
 .logo {
     margin-top: 8px;
@@ -145,21 +179,6 @@ body{
 
 /*-------------- CSS MENU ---------------*/
 
-.menu{
-    padding-left: 15px;
-    width: 200px;
-    background: #505050;
-    height: 665px;
-    padding-top: 20;
-    position: fixed;
-}
-.menu ul li{
-    list-style: none;
-    padding: 20px 0px 20px 0px;
-}
-.menu ul{
-    padding-top: 20px;
-}
 .list-group li{
     border: none;
    background-color: #f6f6f6;
@@ -177,10 +196,10 @@ body{
 .ancora{
     cursor: pointer;
     padding: 20px 0px 20px 0px;
-
 }
+
 .ancora a {
-    padding: 20px 170px 20px 20px;
+    padding: 20px 163px 20px 20px;
     color: #999999;
 }
 .ancora a:hover {
@@ -196,3 +215,227 @@ body{
 
 }
 
+/*ESTILO DO BOX DE POST*/
+
+.box-post {
+  height: 80px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.100);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.100);
+  cursor: pointer;
+}
+
+.box-post .person > img {
+  width: 100px;
+  height: 100px;
+  margin: 5px 0 0 3px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 997;
+  top: -15px;
+  right: -23px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.box-post .question {
+  padding: 30px 0 0 50px;
+  color: #ccc;
+}
+
+.box-post .icon-post {
+  padding: 25px 40px 0 0;
+}
+
+/*ESTILO DO MODAL DE POST*/
+
+.container-info {
+  border-left: 1px solid #ccc;
+}
+
+.person-post img {
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.name-post {
+  padding-top: 14px;
+}
+
+.name-post span {
+  font-weight: bold;
+}
+
+.title-post {
+  margin-top: 12px;
+}
+
+.title-post input, .description-post textarea {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.category-post, .local-post {
+  padding-right: 0;
+}
+
+.category-post select, .local-post input {
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #eeeeee;
+  color: #a1a1a1;
+}
+
+.btn-post button, .btn-local button {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  border: none;
+  background-color: #fc8645;
+  outline: none;
+  color: #fff;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.100);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.100);
+}
+
+.btn-post button:hover {
+  background-color: #fc782f;
+}
+
+.btn-local button {
+  background-color: #a1a1a1;
+}
+
+.btn-local button:hover {
+  background-color: #8a8989;
+}
+
+.box-local {
+  margin-bottom: 10px;
+}
+
+.pic {
+  border: 1px solid #ccc;
+  margin-top: 15px;
+  height: 290px;
+  background-image: url(../img/teste.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.title-post-uploading {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.title-post-uploading span {
+  font-weight: bold;
+}
+
+.default-image {
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.image-loaded {
+  cursor: pointer;
+  z-index: 999;
+}
+
+.add {
+    width: 65px;
+    height: 65px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 45px;
+    color: #fff;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.add::after {
+  content: "+";
+}
+
+.back, .forward {
+  margin-top: 135px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.back::after {
+  content: "<";
+}
+
+.forward::after {
+  content: ">";
+}
+
+#carousel-example-generic {
+  height: 290px;
+  background-color: #a1a1a1;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: 290px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-inner .item {
+  background-image: url(../img/camera-ico.png);
+  background-size: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.post-alternativo {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #fc8645;
+  -webkit-box-shadow: 0 5px 6px rgba(0, 0, 0, 0.100);
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.100);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.post-alternativo img {
+  margin-top: 18px;
+  margin-left: 22px;
+}
+
+.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #000;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  padding: 2px 0 2px 0;
+  opacity: 0.5;
+}
+
+.remove span {
+  color: #fff;
+}
