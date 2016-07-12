@@ -68,10 +68,10 @@
                         <div class="container-info col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="row">
                                 <div class="person-post col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                    <img ng-src="img/perfil.png" height="50" width="50">
+                                    <img ng-src="img/user-photo.jpg" height="50" width="50">
                                 </div>
                                 <div class="name-post col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                    <span>Alan Freitas</span>
+                                    <span>Maria Santos</span>
                                 </div>
                             </div>
 
@@ -116,7 +116,7 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid container-header-fixed">
 
     <div class="row header">
 
@@ -153,22 +153,14 @@
         <div class="col-lg-3 col-md-3 col-sm-3">
 
             <div class="row">
-                
-                <div class="pessoal col-lg-offset-7 col-md-offset-6 col-sm-offset-4"> 
+
+                <ul class="pessoal pull-right">
                     
-                    <div class="mensagens col-lg-2 col-md-2 col-sm-2">
-                        <img src="../img/iconeMensagens.png" height="15" width="20">
-                    </div>
+                    <li><img src="../img/iconeMensagens.png" height="15" width="20"></li>
+                    <li><img src="../img/iconeNotificacoes.png" height="20" width="20"></li>
+                    <li><img src="../img/user-photo.jpg" height="35" width="35"></li>
 
-                    <div class="notificacoes col-lg-2 col-md-2 col-sm-2">
-                        <img src="../img/iconeNotificacoes.png" height="20" width="20">
-                    </div>
-
-                    <div class="perfil col-lg-2 col-md-2 col-sm-2">
-                        <img src="../img/perfil.png" height="35" width="35">
-                    </div>
-                
-                </div>
+                </ul>
 
             </div>  
                 
@@ -178,10 +170,33 @@
 
 </div>
 
+<div id="block" class="hide"></div>
+
 <div id="wrapper" class="toggled" ng-controller="homeController">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <ul>
+                <div class="logo-menu">
+                    <img src="../img/favicon.ico" width="30px" alt="">
+                </div>
+
+                <div class="row user-pic-menu">
+                    <div class="col-lg-5 img-user">
+                        <img src="../img/user-photo.jpg" height="100px" width="100px" alt="">
+                    </div>
+                    
+                    <div class="col-lg-7 info-user-menu">
+                        <div>
+                            <p><strong>Olá, Maria Santos</strong></p>
+                        </div>
+                        <p><strong>Maringá - PR</strong></p>
+                        <select name="cidades" id="cidades">
+                            <option value="">Trocar cidade</option>
+                        </select>
+                        <a href=""><h6>Alterar perfil</h6></a>
+                    </div>
+                </div>
+
                 <li>
                     <a href=""><p>Minhas Publicações</p></a>
                 </li>
@@ -205,4 +220,4 @@
 </div>
 
 
-<div ui-view="system-pages" class="container"></div>
+<div ui-view="system-pages" class="container container-geral"></div>

@@ -6,6 +6,15 @@ textarea {
   padding: 0;
 }
 
+.container-geral {
+  padding-top: 120px;
+}
+
+.container-header-fixed {
+  position: fixed;
+  width: 100%;
+}
+
 .no-padding-lateral {
   padding-left: 0;
   padding-right: 0;
@@ -35,12 +44,8 @@ body{
     background-color: #f6f6f6;
 }
 
-.container {
-    padding-top: 20px;
-}
-
 .header{
-    background-color: #fc8645;
+    background-color: #00796B;
     height: 60px;
 }
 .iconeMenu a {
@@ -109,8 +114,8 @@ body{
 #sidebar-wrapper {
     z-index: 99;
     position: fixed;
-    left: 250px;
-    width: 0;
+    left: 0px;
+    width: 300px;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -123,19 +128,22 @@ body{
 
 ---------------meu css------------------------
 
-#header{
-    background-color: #fc8645;
+.header{
+    background-color: #00796B;
     height: 60px;
     position: fixed;
     z-index: 999;
     width: 100%;
+    -webkit-box-shadow: 0 1px 10px 1px #cccccc;
+    box-shadow: 0 1px 10px 1px #cccccc;
 }
 .iconeMenu{
     padding-top: 15px;
     padding-bottom: 17px;
+    cursor: pointer;
 }
 .iconeMenu:hover{
-    background-color: #dd5f1a;
+    background-color: #009688;
 }
 .iconeMenu button {
     border: none;
@@ -148,7 +156,7 @@ body{
 }
 .pesquisa input{
     text-align: left;
-    border-radius: 20px;
+    border-radius: 2px;
     margin-top: 13px;
     border: none;
     padding-top: 7px;
@@ -166,15 +174,71 @@ body{
 }
 .mensagens {
     margin-top: 18px;
-
-    
 }
 .find{
     background-image: url(../img/iconePesquisar.png);
     background-repeat: no-repeat;
     background-position: 10px center;
+}
 
-    
+.pessoal {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.pessoal li {
+  display: inline;
+  margin: 0 15px 0 10px;
+}
+
+.pessoal:last-child > img {
+  border-radius: 50%;
+}
+
+#block {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  z-index: 999;
+}
+
+.logo-menu {
+  padding: 15px 20px 15px 20px;
+  background-color: #00796B;
+}
+
+.user-pic-menu {
+  padding: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.img-user {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.user-pic-menu img {
+  border-radius: 50%;
+}
+
+.info-user-menu p {
+  margin-bottom: 0px;
+}
+
+.info-user-menu {
+  margin-right: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.info-user-menu select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  color: #a1a1a1;
+  border: 1px solid #ccc;
 }
 
 /*-------------- CSS MENU ---------------*/
@@ -207,11 +271,11 @@ body{
 }
 
 .ancora:hover{
-    background-color: #ffb14d;
+    background-color: #009688;
     text-decoration: #fff;
 }
 .panel-collapse{
-    background-color: #f6f6f6;
+    background-color: #B2DFDB;
 
 }
 

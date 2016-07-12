@@ -19,7 +19,7 @@
 }
 
 #sidebar-wrapper {
-    z-index: 99;
+    z-index: 9999;
     position: fixed;
     left: 150px;
     width: 0;
@@ -57,7 +57,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 330px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -118,7 +118,7 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 330px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
