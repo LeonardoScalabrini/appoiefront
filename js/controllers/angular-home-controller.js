@@ -23,6 +23,29 @@ application.controller('homeController', ['$scope', function ($scope) {
 
     });
 
-    
+	$(".list-group-item").on('click', function(event) {
+
+		if ($(this).hasClass('item-checked'))
+		{
+			$(this).removeClass('item-checked');
+			$(this).find("span").remove();
+		}
+		else
+		{
+			$(this).addClass('item-checked');
+			$(this).find("p").after("<span><img src='../img/checked.png' height='20' width='20'></span>");
+		}
+
+	});
+
+	$(".img-user-logged").on('click', function(event) {
+		
+		if ($("#info-user-action").hasClass('hide'))
+			$("#info-user-action").removeClass('hide');
+		else
+			$("#info-user-action").addClass('hide');
+
+	});
+
 
 }]);
