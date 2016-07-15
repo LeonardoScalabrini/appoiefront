@@ -3,19 +3,19 @@ application.controller('timelineController', ['$scope', function ($scope) {
 	$scope.remove = false;
 	var nFotos = 0;
 
-	$(".add").on('click', function()
+	$(".add").click(function (e)
 	{
 		for (var i = 1; i <= 3; i++)
 		{
 			var input = ".img" + i;
 			if (!$(input).val())
 			{
-				$(input).click();
+				clickInput($(input));
 				break;
 			};
 		};
 
-		$(input).on('change', function()
+		$(input).on('change', function (e)
 		{
 			var image = "#img" + i;
 			ImagePreview(this, image);
@@ -25,12 +25,16 @@ application.controller('timelineController', ['$scope', function ($scope) {
 			{
 				$(".add").addClass('hide');
 			};
+
+			e.stopImmediatePropagation();
 		});	
+
+		e.stopImmediatePropagation();
 	});
 
 	function ImagePreview (input, image)
 	{
-		debugger;
+		
 	    if (input.files && input.files[0])
 		{
 	        var fileHeader = new FileReader();
@@ -45,15 +49,21 @@ application.controller('timelineController', ['$scope', function ($scope) {
 	    }
 	};
 
-	$(".remove").on('click', function(event)
+	var clickInput = function (input)
 	{
-		debugger;
+		input.click();
+	}
+
+	$(".remove").click(function (e)
+	{
 		$(this).prev().attr('src', '');
 		var input = "." + $(this).parent().find('img').attr("id");
 		$(this).addClass('hide');
 		$(input).val("");
 		$(".add").removeClass('hide');
 		nFotos--;
+
+		e.stopImmediatePropagation();
 
 	});
 
@@ -71,6 +81,12 @@ application.controller('timelineController', ['$scope', function ($scope) {
 				$(this).addClass('hide');
 			});
 		};
+	});
+
+	$(".show-menu-actions, .share, .delate").hover(function() {
+		$(".menu-actions").removeClass('hide');
+	}, function() {
+		$(".menu-actions").addClass('hide');
 	});
 	
 }]);

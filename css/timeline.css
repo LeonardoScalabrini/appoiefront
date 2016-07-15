@@ -198,6 +198,52 @@ small > img {
   color: #fff;
 }
 
+.menu-actions {
+  background-color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 38px;
+  z-index: 999;
+  width: 150px;
+  -webkit-box-shadow: 0 0 5px 0 #ccc;
+  box-shadow: 0 0 5px 0 #ccc;
+}
+
+.menu-actions div {
+  cursor: pointer;
+}
+
+.menu-actions div:hover {
+  background-color: #B2DFDB;
+  color: #fff;
+}
+
+.menu-actions .share, .menu-actions .delate {
+  padding: 10px;
+}
+
+.show-img-post img {
+  width: 100%;
+}
+
+.img-post-02, .img-post-03 {
+  position: absolute;
+  z-index: 999;
+  width: 100px !important;
+  height: 100px !important;
+  bottom: 170px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.img-post-03 {
+  right: 30px;
+}
+
+.img-post-02 {
+  right: 140px;
+}
+
 /*RESPONSIVE STYLES*/
 
 @media (max-width: 767px) {
