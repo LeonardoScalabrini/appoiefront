@@ -112,11 +112,11 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 			titulo: post.titulo,
 			descricao: post.descricao,
 			categoria: "ILUMINICACAO",
-			imagens: {
-				imagem01: img01,
-				imagem02: img02,
-				imagem03: img03
-			}
+			fotos: [
+				img01,
+				img02,
+				img03
+			]
 
 		}
 
