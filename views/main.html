@@ -47,7 +47,8 @@
 		<div class="no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-lg-sm col-sm-offset-2 col-xs-8 col-xs-offset-2">		
 			<ul class="timeline">
 
-				<li>		
+				<li ng-repeat="post in posts">	
+
 					<div class="timeline-badge">
 						<img src="../img/iluminacao-ico-categoria.png" height="30" width="30">
 					</div>
@@ -79,15 +80,15 @@
 						</div>
 						<div class="body">
 						    <div class="box-img-post">
-						    	<img src="../img/teste-post.JPG" alt="">
+						    	<img src="" alt="">
 								
-								<img src="../img/teste-post-02.jpg" class="img-post-02" data-toggle="modal" data-target="#show-pic-modal">
+								<img src="" class="img-post-02" data-toggle="modal" data-target="#show-pic-modal">
 
-								<img src="../img/teste-post-03.jpg" class="img-post-03" data-toggle="modal" data-target="#show-pic-modal">
+								<img src="" class="img-post-03" data-toggle="modal" data-target="#show-pic-modal">
 						    </div>
 
 						    <div class="box-coment-post">
-						    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis provident molestias beatae expedita asperiores vitae voluptatibus nostrum voluptates aut accusantium sunt, placeat officiis laudantium, necessitatibus, autem hic aliquid illo!</p>
+						    	<p>{{post.descricao}}</p>
 						    </div>
 
 						    <div class="box-interact-post">
@@ -102,6 +103,7 @@
 						    </div>
 						</div>
 					</div>
+
 				</li>
 
 			</ul>

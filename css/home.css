@@ -34,13 +34,6 @@ textarea {
   height: 125px;
 }
 
-.modal.in .modal-dialog {
-  -webkit-transform: translateY(50px);
-    -ms-transform: translateY(50px);
-    -o-transform: translateY(50px);
-    transform: translateY(50px);
-}
-
 body{
     background-color: #f6f6f6;
 }

@@ -1,7 +1,11 @@
-application.controller('timelineController', ['$scope', function ($scope) {
+application.controller('timelineController', ['$scope', '$http', function ($scope, $http) {
 
 	$scope.remove = false;
 	var nFotos = 0;
+
+	var img01 = "";
+	var img02 = "";
+	var img03 = "";
 
 	$(".add").click(function (e)
 	{
@@ -18,7 +22,7 @@ application.controller('timelineController', ['$scope', function ($scope) {
 		$(input).on('change', function (e)
 		{
 			var image = "#img" + i;
-			ImagePreview(this, image);
+			ImagePreview(this, image, i);
 			nFotos++;
 
 			if (nFotos == 3)
@@ -27,12 +31,12 @@ application.controller('timelineController', ['$scope', function ($scope) {
 			};
 
 			e.stopImmediatePropagation();
-		});	
+		});
 
 		e.stopImmediatePropagation();
 	});
 
-	function ImagePreview (input, image)
+	function ImagePreview (input, image, i)
 	{
 		
 	    if (input.files && input.files[0])
@@ -40,13 +44,21 @@ application.controller('timelineController', ['$scope', function ($scope) {
 	        var fileHeader = new FileReader();
 
 	        fileHeader.onload = function(e)
-			{	
+			{
 	            $(image).attr("src", e.target.result);
 	            $(image).next().removeClass('hide');
+
+	            if (i == 1)
+					img01 = e.target.result;
+				else if (i == 2)
+					img02 = e.target.result;
+				else if (i == 3)
+					img03 = e.target.result;
 	        }
 
 	        fileHeader.readAsDataURL(input.files[0]);
 	    }
+
 	};
 
 	var clickInput = function (input)
@@ -88,5 +100,26 @@ application.controller('timelineController', ['$scope', function ($scope) {
 	}, function() {
 		$(".menu-actions").addClass('hide');
 	});
+
+	// ==========================================================================
+
+	$scope.posts = [];
+	$scope.post = {};
+
+	$scope.publicar = function (post) 
+	{debugger;
+		// $scope.post.id = null;
+		// $scope.post.idUsuario = null;
+		$scope.post.titulo = post.titulo;
+		$scope.post.descricao = post.descricao;
+		// $scope.post.dataPublicacao = null;
+		// $scope.post.localizacao = null;
+		// $scope.post.categoria = null;
+		$scope.post.img01 = img01;
+		$scope.post.img02 = img02;
+		$scope.post.img03 = img03;
+
+		$scope.posts.push($scope.post);
+	}
 	
 }]);

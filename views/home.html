@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body"> 
 
-                <form name="postForm">  
+                <form name="postForm" ng-submit="publicar(post)">  
                     <div class="row">
                         <div class="container-preview col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="row">
@@ -23,9 +23,9 @@
 
                                         <div class="carousel-inner" role="listbox">
 
-                                            <input type="file" class="img1 hide" ng-model="usuario.img01">
-                                            <input type="file" class="img2 hide" ng-model="usuario.img02">
-                                            <input type="file" class="img3 hide" ng-model="usuario.img03">
+                                            <input type="file" class="img1 hide">
+                                            <input type="file" class="img2 hide">
+                                            <input type="file" class="img3 hide">
 
                                             <div class="item active">
                                                 <img class="img-post" id="img1" src="">
@@ -77,19 +77,19 @@
 
                             <div class="row">
                                 <div class="title-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <input type="text" placeholder="Insira o título" ng-model="usuario.titulo">
+                                    <input type="text" placeholder="Insira o título" ng-model="post.titulo">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="description-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea name="" id="" rows="6" placeholder="Insira a descrição" ng-model="usuario.descricao"></textarea>
+                                    <textarea name="" id="" rows="6" placeholder="Insira a descrição" ng-model="post.descricao"></textarea>
                                 </div>
                             </div>
 
                             <div class="row box-local">
                                 <div class="local-post col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                    <input type="text" value="Informe a localização do problema" ng-model="usuario.localizacao" readonly>
+                                    <input type="text" value="Informe a localização do problema" ng-model="post.localizacao" readonly>
                                 </div>
                                 <div class="btn-local col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button type="button">Localização</button>
@@ -98,7 +98,7 @@
 
                             <div class="row">
                                 <div class="category-post col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                    <select name="" id="" ng-model="usuario.categoria">
+                                    <select name="" id="" ng-model="post.categoria">
                                         <option value="">Insira uma categoria</option>
                                     </select>
                                 </div>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
