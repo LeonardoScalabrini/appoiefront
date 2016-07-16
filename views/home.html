@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body"> 
 
-                <form name="postForm" ng-submit="publicar(post)">  
+                <form name="postForm">  
                     <div class="row">
                         <div class="container-preview col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="row">
@@ -103,7 +103,7 @@
                                     </select>
                                 </div>
                                 <div class="btn-post col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <button type="submit">Publicar</button>
+                                    <button ng-click="publicar(post)" data-toggle="modal" data-target="#postar">Publicar</button>
                                 </div>
                             </div>
                         </div>
@@ -300,4 +300,4 @@
 </div>
 
 
-<div ui-view="system-pages" class="container container-geral"></div>
+<div ui-view="system-pages" class="container container-geral" ng-controller="timelineController"></div>

@@ -1,4 +1,4 @@
-application.controller('timelineController', ['$scope', '$http', function ($scope, $http) {
+application.controller('timelineController', ['$scope', 'timelineService', function ($scope, timelineService) {
 
 	$scope.remove = false;
 	var nFotos = 0;
@@ -104,22 +104,32 @@ application.controller('timelineController', ['$scope', '$http', function ($scop
 	// ==========================================================================
 
 	$scope.posts = [];
-	$scope.post = {};
 
-	$scope.publicar = function (post) 
-	{debugger;
-		// $scope.post.id = null;
-		// $scope.post.idUsuario = null;
-		$scope.post.titulo = post.titulo;
-		$scope.post.descricao = post.descricao;
-		// $scope.post.dataPublicacao = null;
-		// $scope.post.localizacao = null;
-		// $scope.post.categoria = null;
-		$scope.post.img01 = img01;
-		$scope.post.img02 = img02;
-		$scope.post.img03 = img03;
+	$scope.publicar = function (post)
+	{
+		var post = {
 
-		$scope.posts.push($scope.post);
+			titulo: post.titulo,
+			descricao: post.descricao,
+			categoria: "Falta de iluminação",
+			imagens: {
+				imagem01: img01,
+				imagem02: img02,
+				imagem03: img03
+			}
+
+		}
+
+		$scope.timelineService.publicar(post).then(function (data) {
+
+			alert("foi");
+
+		}, function (e) {
+
+			
+
+		});
+
 	}
 	
 }]);
