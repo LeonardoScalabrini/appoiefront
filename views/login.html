@@ -90,10 +90,12 @@
                     <h6>ou</h6>
                 </div>
 
-                <div class="facebook-interations">
-                    <img src="img/face_ico_button.png" height="22" width="22" alt="">
-                    <span>Entrar com facebook</span>
-                </div>
+
+                <div class="facebook-button">
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                Entre com o Facebook
+              </fb:login-button>
+              </div>
             </div>
         </div>
     </div>
@@ -114,21 +116,21 @@
                     <div class="row">
 
                         <div id="nome" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.nome.$invalid && cadastro.nome.$dirty}">
-                            
+
                             <label for="nome"><strong>Nome</strong></label>
                             <input type="text" class="input-cadastro" name="nome" ng-model="usuario.nome" ng-focus="removerClasseDeErro()" ng-required="true">
 
                             <h6 ng-if="cadastro.nome.$invalid && cadastro.nome.$dirty" class="help-block">Informe seu nome</h6>
-                        
+
                         </div>
 
                         <div id="sobrenome" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.sobrenome.$invalid && cadastro.sobrenome.$dirty}">
-                            
+
                             <label for="sobrenome"><strong>Sobrenome</strong></label>
                             <input type="text" class="input-cadastro" name="sobrenome" ng-model="usuario.sobrenome" ng-required="true">
 
                             <h6 ng-if="cadastro.sobrenome.$invalid && cadastro.sobrenome.$dirty" class="help-block">Informe seu sobrenome</h6>
-                        
+
                         </div>
 
                     </div>
@@ -136,16 +138,16 @@
                     <div class="row">
 
                         <div id="nascimento" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.nascimento.$invalid && cadastro.nascimento.$dirty}">
-                            
+
                             <label for="nascimento"><strong>Data de nascimento</strong></label>
                             <input type="date" class="input-cadastro" name="nascimento" ng-model="usuario.nascimento" ng-required="true">
 
                             <h6 ng-if="cadastro.nascimento.$invalid && cadastro.nascimento.$dirty" class="help-block">Informe uma data válida</h6>
-                        
+
                         </div>
 
                         <div id="sexo" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.sexo.$invalid && cadastro.sexo.$dirty}">
-                            
+
                             <label for="sexo"><strong>Sexo</strong></label>
                             <select class="input-cadastro" name="sexo" ng-model="usuario.sexo" ng-required="true">
                                 <option value="">Selecione</option>
@@ -154,7 +156,7 @@
                             </select>
 
                             <h6 ng-if="cadastro.sexo.$invalid && cadastro.sexo.$dirty" class="help-block">Informe seu sexo</h6>
-                        
+
                         </div>
 
                     </div>
@@ -162,22 +164,22 @@
                     <div class="row">
 
                         <div id="email" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.email.$invalid && cadastro.email.$dirty || confirmaEmail != usuario.email.email}">
-                            
+
                             <label for="email"><strong>E-mail</strong></label>
                             <input type="email" class="input-cadastro" name="email" ng-model="usuario.email" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
 
                             <h6 ng-if="cadastro.email.$invalid && cadastro.email.$dirty" class="help-block">Informe um email válido</h6>
-                        
+
                         </div>
 
                         <div id="confirmaEmail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaEmail.$invalid && cadastro.confirmaEmail.$dirty || usuario.confirmaEmail != usuario.email}">
-                            
+
                             <label for="emailConfirm"><strong>Confirme o e-mail</strong></label>
                             <input type="email" class="input-cadastro" name="confirmaEmail" ng-model="usuario.confirmaEmail" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
 
                             <h6 ng-if="cadastro.confirmaEmail.$error.required && cadastro.confirmaEmail.$dirty" class="help-block">Confirme seu email</h6>
                             <h6 ng-if="usuario.confirmaEmail != usuario.email && cadastro.confirmaEmail.$dirty && !cadastro.confirmaEmail.$error.required" class="help-block">Email inválido</h6>
-                        
+
                         </div>
 
                     </div>
@@ -185,37 +187,37 @@
                     <div class="row">
 
                         <div id="senha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.senha.$invalid && cadastro.senha.$dirty || confirmaSenha != usuario.senha}">
-                            
+
                             <label for="senha"><strong>Senha</strong></label>
                             <input type="password" class="input-cadastro" name="senha" ng-model="usuario.senha" ng-required="true" ng-minlength="6">
 
                             <h6 ng-if="cadastro.senha.$error.minlength" class="help-block">Mínimo seis caracteres</h6>
                             <h6 ng-if="cadastro.senha.$error.required && cadastro.senha.$dirty" class="help-block">Informe a senha</h6>
-                        
+
                         </div>
 
                         <div id="confirmaSenha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaSenha.$invalid && cadastro.confirmaSenha.$dirty || usuario.confirmaSenha != usuario.senha}">
-                            
+
                             <label for="senhaConfirm"><strong>Confirme sua senha</strong></label>
                             <input type="password" class="input-cadastro" name="confirmaSenha" ng-model="usuario.confirmaSenha" ng-required="true" ng-minlength="6">
 
                             <h6 ng-if="cadastro.confirmaSenha.$error.minlength" class="help-block">Mínimo seis caracteres</h6>
                             <h6 ng-if="cadastro.confirmaSenha.$error.required && cadastro.confirmaSenha.$dirty" class="help-block">Confirme a senha</h6>
                             <h6 ng-if="usuario.confirmaSenha != usuario.senha && cadastro.confirmaSenha.$dirty && !cadastro.confirmaSenha.$error.required && !cadastro.confirmaSenha.$error.minlength" class="help-block">Senha inválida</h6>
-                        
+
                         </div>
 
                     </div>
 
                     <div class="row">
-                        
+
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
                             <input type="checkbox" name="termo" class="terms pull-right" ng-model="usuario.termo" ng-required="true" />
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 no-padding">
                             <h6 class="accept-terms">Aceito os <a href="">termos de privacidade e licença</a>.</h6>
                         </div>
-                    
+
                     </div>
 
                     <div class="row">
