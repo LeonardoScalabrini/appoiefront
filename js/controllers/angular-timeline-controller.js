@@ -111,7 +111,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 			titulo: post.titulo,
 			descricao: post.descricao,
-			categoria: "Falta de iluminação",
+			categoria: "ILUMINICACAO",
 			imagens: {
 				imagem01: img01,
 				imagem02: img02,
@@ -120,13 +120,13 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 		}
 
-		$scope.timelineService.publicar(post).then(function (data) {
+		timelineService.publicar(post).then(function (data) {
 
 			alert("foi");
 
 		}, function (e) {
 
-			
+
 
 		});
 
