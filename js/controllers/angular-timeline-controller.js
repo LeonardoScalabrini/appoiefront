@@ -120,16 +120,29 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 		}
 
-		timelineService.publicar(post).then(function (data) {
+		timelineService.publicar(post).then(function (response) {
 
 			alert("foi");
 
 		}, function (e) {
 
-
-
 		});
 
 	}
+
+	$scope.listar = function ()
+	{
+		timelineService.listar().then(function (response) {
+
+			$scope.posts = response.data;
+			console.log(response.data);
+
+		}, function (e) {
+
+		});
+	}
+
+	$scope.listar();
+
 	
 }]);

@@ -4,5 +4,10 @@ application.service('timelineService', ['$http', function ($http) {
 	{
 		return $http.post("/publicacao/salvar", post);
 	};
+
+	this.listar = function ()
+	{
+		return $http.get("/publicacao/recuperar");
+	};
 	
 }])
