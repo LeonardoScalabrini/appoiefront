@@ -26,46 +26,40 @@
 
                                 <div class="AlterarNome col-lg-6">
                                     <div class="row col-lg-offset-1 ">
-                                        <div class="Nome">
-                                            <form>
-                                                <p>Alterar Nome:</p>
-                                                <input type="text" placeholder="Informe o novo nome">
-                                            </form>
-                                        </div> 
+                                        <form>
+                                            <div class="Nome">
+                                                    <p>Alterar Nome:</p>
+                                                    <input type="text" placeholder="Informe o novo nome">
+                                            </div> 
 
-                                        <div class="Sobrenome">
-                                            <form>
-                                                <p>Alterar Sobrenome:</p>
-                                                <input type="text" placeholder="Informe o novo sobrenome">
-                                            </form>
-                                        </div>
+                                            <div class="Sobrenome">
+                                                    <p>Alterar Sobrenome:</p>
+                                                    <input type="text" placeholder="Informe o novo sobrenome">
+                                            </div>
 
-                                        <div class="DataNasc">
-                                            <form>
-                                                <p>Data de Nascimento:</p>
-                                                <input type="date"></input>
-                                            </form>
-                                        </div>
+                                            <div class="DataNasc">
+                                                    <p>Data de Nascimento:</p>
+                                                    <input type="date"></input>
+                                            </div>
 
-                                        <div class="Sexo">
-                                            <p>Sexo:</p>
-                                            <form>
-                                                <select name="Sexo">
-                                                  <option value="">Selecionar</option>
-                                                  <option value="Masculino">Masculino</option>
-                                                  <option value="Feminino">Feminino</option>
-                                                </select>
-                                            </form>
-                                        </div>
+                                            <div class="Sexo">
+                                                <p>Sexo:</p>
+                                                    <select name="Sexo">
+                                                      <option value="">Selecionar</option>
+                                                      <option value="Masculino">Masculino</option>
+                                                      <option value="Feminino">Feminino</option>
+                                                    </select>
+                                            </div>
 
 
-                                        <div class="CancelarNovoNome">
-                                            <button type="submit">Cancelar</button>
-                                        </div>
+                                            <div class="CancelarNovoNome">
+                                                <button type="submit">Cancelar</button>
+                                            </div>
 
-                                        <div class="SalvarNovoNome">
-                                            <button type="submit">SALVAR</button>
-                                        </div>
+                                            <div class="SalvarNovoNome">
+                                                <button type="submit">SALVAR</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div> 
                             </div> 
@@ -73,65 +67,64 @@
                     </div>
                     
                     <div class="tab-pane" id="Configuracoes">
-                            <div class="OpcoesConfiguracoesPerfil">
-                                    <div class="row col-lg-12 col-lg-offset-3">
-                                        <div class="BotoesOpcoes col-lg-6"> 
-                                            <button class="col-lg-6" ng-click="MostraFormSenha()" >Alterar Senha</button>
-                                            <button class="col-lg-6" ng-click="MostraFormEmail()">Alterar Email</button>
-                                        </div>
-                                    </div>
-                            </div>
-
-                                <div class="row">
-                                    <div class="FormulariosConfiguracoesPerfil col-lg-12 col-lg-offset-3">
-                                        <div class="Senha col-lg-6" ng-hide="Senha">
-                                            
-                                            <form>
-                                                <p>Senha atual:</p>
-                                                <input type="password">
-
-                                                <p>Nova senha:</p>
-                                                <input type="password">
-
-                                                <p>Confirme a nova senha:</p>
-                                                <input type="password">
-
-                                                <div class="CancelarNovaSenha">
-                                                    <button type="">Cancelar</button>
-                                                </div>
-
-                                                <div class="SalvarNovaSenha">
-                                                   <button type="submit">SALVAR</button>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                
-                                        <div class="Email col-lg-6" ng-hide="Email">
-
-                                            <form>
-                                            
-                                                <p>E-mail atual:</p>
-                                                <input type="email">
-
-                                                <p>Novo E-mail:</p>
-                                                <input type="email">
-
-                                                <p>Confirme o senha:</p>
-                                                <input type="email">
-
-                                                <div class="CancelarNovoEmail">
-                                                    <button type="">Cancelar</button>
-                                                </div>
-
-                                                <div class="SalvarNovoEmail">
-                                                   <button type="submit">SALVAR</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
+                        <div class="OpcoesConfiguracoesPerfil">
+                                <div class="row col-lg-12 col-lg-offset-3">
+                                    <div class="BotoesOpcoes col-lg-6"> 
+                                        <button class="col-lg-6" ng-click="MostraFormSenha()" >Alterar Senha</button>
+                                        <button class="col-lg-6" ng-click="MostraFormEmail()">Alterar Email</button>
                                     </div>
                                 </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="FormulariosConfiguracoesPerfil col-lg-12 col-lg-offset-3">
+                                <div class="Senha col-lg-6" ng-hide="Senha">
+                                            
+                                    <form>
+                                        <p>Senha atual:</p>
+                                        <input type="password">
+
+                                        <p>Nova senha:</p>
+                                        <input type="password">
+
+                                        <p>Confirme a nova senha:</p>
+                                        <input type="password">
+
+                                        <div class="CancelarNovaSenha">
+                                            <button type="">Cancelar</button>
+                                        </div>
+
+                                        <div class="SalvarNovaSenha">
+                                            <button type="submit">SALVAR</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                
+                                <div class="Email col-lg-6" ng-hide="Email">
+
+                                    <form>
+                                        <p>E-mail atual:</p>
+                                        <input type="email">
+
+                                        <p>Novo E-mail:</p>
+                                        <input type="email">
+
+                                        <p>Confirme o senha:</p>
+                                        <input type="email">
+
+                                        <div class="CancelarNovoEmail">
+                                            <button type="">Cancelar</button>
+                                        </div>
+
+                                        <div class="SalvarNovoEmail">
+                                            <button type="submit">SALVAR</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div> 
             </div>
