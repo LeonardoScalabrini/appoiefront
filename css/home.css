@@ -39,7 +39,7 @@ body{
 }
 
 .header{
-    background-color: #00796B;
+    background-color: #52656B;
     height: 60px;
 }
 .iconeMenu a {
@@ -200,7 +200,7 @@ body{
 
 .logo-menu {
   padding: 15px 20px 15px 20px;
-  background-color: #00796B;
+  background-color: #52656B;
 }
 
 .user-pic-menu {
@@ -310,7 +310,7 @@ body{
 }
 
 .my-account-btn, .logout-btn {
-  background-color: #00796B;
+  background-color: #009688;
   border-radius: 2px;
   cursor: pointer;
   padding: 10px;
@@ -320,7 +320,7 @@ body{
 
 .my-account-btn:hover,
 .logout-btn:hover {
-  background-color: #009688;
+  background-color: #00b1a0;
 }
 
 .my-account-btn a, .logout-btn a {
@@ -478,7 +478,7 @@ body{
 }
 
 .btn-post button:hover {
-  background-color: #00796B;
+  background-color: #00b1a0;
 }
 
 .btn-local button {
@@ -617,8 +617,7 @@ body{
   color: #fff;
 }
 
----------------------CSS MANTER PERFIL------------------
-
+/*---------------------CSS MANTER PERFIL------------------*/
 
 .ConteudoManterPerfil h3{
   padding: 10px;
@@ -676,7 +675,7 @@ body{
   padding-bottom: 10px;
   margin-top: 20px;
   color: #fff;
-  background-color: #88bb78;
+  background-color: #009688;
   border: none;
   border-radius: 5px;
 }
@@ -778,7 +777,7 @@ body{
 
 .SalvarNovaSenha button{
   color: #fff;
-  background-color: #88bb78;
+  background-color: #009688;
 }
 .CancelarNovoEmail button{
   color: #fff;
@@ -789,7 +788,7 @@ body{
 
 .SalvarNovoEmail button{
   color: #fff;
-  background-color: #88bb78;
+  background-color: #009688;
 }
 
 

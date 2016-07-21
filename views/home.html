@@ -1,11 +1,11 @@
-<!-- <div class="modal fade" id="ManterPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal fade" id="ManterPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" ng-controller="manterPerfilController">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-        <div class="ConteudoManterPerfil">
+       <div class="ConteudoManterPerfil">
             
             <h3>Configurações da Conta</h3>
 
-            <div class="ModalTabs" ng-controller="homeController">
+            <div class="ModalTabs">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                     <li class="active"><a data-target="#Perfil" data-toggle="tab">Perfil</a></li>
                     <li><a data-target="#Configuracoes" data-toggle="tab">Configurações</a></li>
@@ -16,7 +16,7 @@
                            <div class="row">   
                                 <div class="AlterarImagem col-lg-6">
                                     <div class="row col-lg-offset-3">
-                                        <img src="../img/ManterPerfil.png" width="310" height="310">
+                                        <img src="../img/user-photo.png" width="310" height="310">
                                         <div class="clr"></div>
                                         <div class="row col-lg-offset-3">
                                             <a href="">Alterar foto do Perfil</a>
@@ -138,7 +138,13 @@
         </div>
     </div>
   </div>
-</div> -->
+</div>
+
+
+
+
+
+
 
 <div class="modal fade" id="postar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="timelineController">
     <div class="modal-dialog" role="document">
@@ -387,7 +393,7 @@
 </div>
 
 
-<div id="info-user-action" class="hide"  ng-controller="homeController">
+<div id="info-user-action" class="hide">
 
     <div class="indication">
         <img src="../img/complement-menu-inf.png" height="30" width="30">
@@ -425,9 +431,9 @@
 
         </div>
 
-        <div class="row container-actions" ng-controller="homeController">
+        <div class="row container-actions">
             
-            <div class="col-lg-4 col-md-4 col-sm-4 my-account-btn" data-toogle="modal" data-target="#ManterPerfil">
+            <div class="col-lg-4 col-md-4 col-sm-4 my-account-btn"data-toggle="modal" data-target="#ManterPerfil">
                 <a>Minha conta</a>
             </div>
 
