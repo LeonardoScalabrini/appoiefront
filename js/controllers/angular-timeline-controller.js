@@ -106,7 +106,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 	$scope.posts = [];
 
 	$scope.publicar = function (post)
-	{
+	{debugger;
 		var post = {
 
 			titulo: post.titulo,
@@ -122,7 +122,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 		timelineService.publicar(post).then(function (response) {
 
-			alert("foi");
+			$scope.listar();
 
 		}, function (e) {
 
@@ -135,7 +135,6 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 		timelineService.listar().then(function (response) {
 
 			$scope.posts = response.data;
-			console.log(response.data);
 
 		}, function (e) {
 
