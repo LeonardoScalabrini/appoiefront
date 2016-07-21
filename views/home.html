@@ -1,3 +1,145 @@
+<!-- <div class="modal fade" id="ManterPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="ConteudoManterPerfil">
+            
+            <h3>Configurações da Conta</h3>
+
+            <div class="ModalTabs" ng-controller="homeController">
+                <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active"><a data-target="#Perfil" data-toggle="tab">Perfil</a></li>
+                    <li><a data-target="#Configuracoes" data-toggle="tab">Configurações</a></li>
+                </ul>
+                <div id="my-tab-content" class="tab-content">
+                    <div class="tab-pane active" id="Perfil">
+                        <div class="ConteudoModalPerfil">  
+                           <div class="row">   
+                                <div class="AlterarImagem col-lg-6">
+                                    <div class="row col-lg-offset-3">
+                                        <img src="../img/ManterPerfil.png" width="310" height="310">
+                                        <div class="clr"></div>
+                                        <div class="row col-lg-offset-3">
+                                            <a href="">Alterar foto do Perfil</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="AlterarNome col-lg-6">
+                                    <div class="row col-lg-offset-1 ">
+                                        <div class="Nome">
+                                            <form>
+                                                <p>Alterar Nome:</p>
+                                                <input type="text" placeholder="Informe o novo nome">
+                                            </form>
+                                        </div> 
+
+                                        <div class="Sobrenome">
+                                            <form>
+                                                <p>Alterar Sobrenome:</p>
+                                                <input type="text" placeholder="Informe o novo sobrenome">
+                                            </form>
+                                        </div>
+
+                                        <div class="DataNasc">
+                                            <form>
+                                                <p>Data de Nascimento:</p>
+                                                <input type="date"></input>
+                                            </form>
+                                        </div>
+
+                                        <div class="Sexo">
+                                            <p>Sexo:</p>
+                                            <form>
+                                                <select name="Sexo">
+                                                  <option value="">Selecionar</option>
+                                                  <option value="Masculino">Masculino</option>
+                                                  <option value="Feminino">Feminino</option>
+                                                </select>
+                                            </form>
+                                        </div>
+
+
+                                        <div class="CancelarNovoNome">
+                                            <button type="submit">Cancelar</button>
+                                        </div>
+
+                                        <div class="SalvarNovoNome">
+                                            <button type="submit">SALVAR</button>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="Configuracoes">
+                            <div class="OpcoesConfiguracoesPerfil">
+                                    <div class="row col-lg-12 col-lg-offset-3">
+                                        <div class="BotoesOpcoes col-lg-6"> 
+                                            <button class="col-lg-6" ng-click="MostraFormSenha()" >Alterar Senha</button>
+                                            <button class="col-lg-6" ng-click="MostraFormEmail()">Alterar Email</button>
+                                        </div>
+                                    </div>
+                            </div>
+
+                                <div class="row">
+                                    <div class="FormulariosConfiguracoesPerfil col-lg-12 col-lg-offset-3">
+                                        <div class="Senha col-lg-6" ng-hide="Senha">
+                                            
+                                            <form>
+                                                <p>Senha atual:</p>
+                                                <input type="password">
+
+                                                <p>Nova senha:</p>
+                                                <input type="password">
+
+                                                <p>Confirme a nova senha:</p>
+                                                <input type="password">
+
+                                                <div class="CancelarNovaSenha">
+                                                    <button type="">Cancelar</button>
+                                                </div>
+
+                                                <div class="SalvarNovaSenha">
+                                                   <button type="submit">SALVAR</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                
+                                        <div class="Email col-lg-6" ng-hide="Email">
+
+                                            <form>
+                                            
+                                                <p>E-mail atual:</p>
+                                                <input type="email">
+
+                                                <p>Novo E-mail:</p>
+                                                <input type="email">
+
+                                                <p>Confirme o senha:</p>
+                                                <input type="email">
+
+                                                <div class="CancelarNovoEmail">
+                                                    <button type="">Cancelar</button>
+                                                </div>
+
+                                                <div class="SalvarNovoEmail">
+                                                   <button type="submit">SALVAR</button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+  </div>
+</div> -->
+
 <div class="modal fade" id="postar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="timelineController">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -245,7 +387,7 @@
 </div>
 
 
-<div id="info-user-action" class="hide">
+<div id="info-user-action" class="hide"  ng-controller="homeController">
 
     <div class="indication">
         <img src="../img/complement-menu-inf.png" height="30" width="30">
@@ -283,9 +425,9 @@
 
         </div>
 
-        <div class="row container-actions">
+        <div class="row container-actions" ng-controller="homeController">
             
-            <div class="col-lg-4 col-md-4 col-sm-4 my-account-btn">
+            <div class="col-lg-4 col-md-4 col-sm-4 my-account-btn" data-toogle="modal" data-target="#ManterPerfil">
                 <a>Minha conta</a>
             </div>
 

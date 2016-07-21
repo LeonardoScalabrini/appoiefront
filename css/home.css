@@ -616,3 +616,180 @@ body{
 .remove span {
   color: #fff;
 }
+
+---------------------CSS MANTER PERFIL------------------
+
+
+.ConteudoManterPerfil h3{
+  padding: 10px;
+  text-align: center;
+  background-color: #52656B;
+  color: #fff;
+}
+.ModalTabs ul {
+  padding-left: 20px;
+}
+.AlterarImagem{
+  margin-top: 90px;
+}
+.AlterarImagem a{
+  margin-top: 15px;
+}
+.AlterarNome{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.Sobrenome{
+  margin-top: 15px;
+}
+.Nome p{
+  font-size: 15px;
+}
+.Nome input{
+  width: 350px;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+.Sobrenome p{
+  font-size: 15px;
+}
+.Sobrenome input{
+  width: 350px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.CancelarNovoNome button{
+  width: 350px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #e35555;
+  border: none;
+  border-radius: 5px;
+}
+
+.SalvarNovoNome button{
+  width: 350px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #88bb78;
+  border: none;
+  border-radius: 5px;
+}
+.DataNasc p{
+  font-size: 15px;
+  margin-top: 10px;
+}
+.DataNasc input{
+  width: 350px;
+  border-radius: 5px;
+  padding-left: 10px; 
+}
+.Sexo p{
+  font-size: 15px;
+  margin-top: 10px;
+
+}
+.Sexo form select{
+  width: 350px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.FormulariosConfiguracoesPerfil{
+  margin-bottom: 35px;
+}
+.BotoesOpcoes button{
+  padding: 30px; 
+  background: none;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  border-style: none; 
+  margin-bottom: 30px;
+  outline: none;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+.BotoesOpcoes button:hover{
+
+  background-color: #52656B;
+  color: #fff;
+
+  
+}
+
+
+.Senha{
+  text-align: center;
+}
+.Senha p{
+  margin-top: 10px;
+  text-align: left;
+}
+.Senha button{
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+}
+.Senha input{
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+.Email p{
+  margin-top: 10px;
+}
+.Email button{
+  margin-top: 10px;
+  width: 400px;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+}
+.Email input{
+  border-radius: 5px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  height: 44px;
+}
+.Configuracoes{
+  text-align: center;
+}
+
+.CancelarNovaSenha button{
+  color: #fff;
+  background-color: #e35555;
+  margin-top: 20px;
+}
+
+.SalvarNovaSenha button{
+  color: #fff;
+  background-color: #88bb78;
+}
+.CancelarNovoEmail button{
+  color: #fff;
+  background-color: #e35555;
+  margin-top: 20px;
+
+}
+
+.SalvarNovoEmail button{
+  color: #fff;
+  background-color: #88bb78;
+}
+
+
