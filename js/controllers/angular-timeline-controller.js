@@ -1,6 +1,7 @@
 application.controller('timelineController', ['$scope', 'timelineService', function ($scope, timelineService) {
 
 	$scope.remove = false;
+	$scope.contFotos = 0;
 	var nFotos = 0;
 
 	var img01 = "";
@@ -101,12 +102,19 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 		$(".menu-actions").addClass('hide');
 	});
 
+	$scope.fotosPublicadas = function (fotos)
+	{
+		$scope.srcFoto1 = fotos[0];
+		$scope.srcFoto2 = fotos[1];
+		$scope.srcFoto3 = fotos[2];
+	}
+
 	// ==========================================================================
 
 	$scope.posts = [];
 
 	$scope.publicar = function (post)
-	{debugger;
+	{
 		var post = {
 
 			titulo: post.titulo,
@@ -122,11 +130,13 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 		timelineService.publicar(post).then(function (response) {
 
-			$scope.listar();
+			alert("foi");
 
 		}, function (e) {
 
 		});
+
+		$scope.listar();
 
 	}
 
@@ -135,6 +145,8 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 		timelineService.listar().then(function (response) {
 
 			$scope.posts = response.data;
+			// if (response.data != undefined)
+			// 	$scope.contFotos = response.data[0].fotos.length;
 
 		}, function (e) {
 
