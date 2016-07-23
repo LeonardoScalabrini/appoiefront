@@ -631,8 +631,13 @@ body{
 .AlterarImagem{
   margin-top: 90px;
 }
+.AlterarImagem .row img{
+  text-align: center;
+}
 .AlterarImagem a{
   margin-top: 15px;
+  text-align: center;
+  width: 100%;
 }
 .AlterarNome{
   margin-top: 35px;
@@ -643,23 +648,26 @@ body{
 }
 .Nome p{
   font-size: 15px;
+  font-weight: bold;
 }
 .Nome input{
-  width: 350px;
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
 
 }
 .Sobrenome p{
   font-size: 15px;
+  font-weight: bold;
+
 }
 .Sobrenome input{
-  width: 350px;
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
 }
 .CancelarNovoNome button{
-  width: 350px;
+  width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 20px;
@@ -670,7 +678,7 @@ body{
 }
 
 .SalvarNovoNome button{
-  width: 350px;
+  width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 20px;
@@ -680,26 +688,31 @@ body{
   border-radius: 5px;
 }
 .DataNasc p{
+  font-weight: bold;
   font-size: 15px;
   margin-top: 10px;
 }
 .DataNasc input{
-  width: 350px;
+  width: 100%;
   border-radius: 5px;
   padding-left: 10px; 
 }
 .Sexo p{
+  font-weight: bold;
   font-size: 15px;
   margin-top: 10px;
 
 }
-.Sexo form select{
-  width: 350px;
+.Sexo select{
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
 }
 .FormulariosConfiguracoesPerfil{
   margin-bottom: 35px;
+}
+.BotoesOpcoes{
+  text-align: center;
 }
 .BotoesOpcoes button{
   padding: 30px; 
@@ -714,20 +727,17 @@ body{
   border-bottom: 2px solid #ccc;
 }
 .BotoesOpcoes button:hover{
-
   background-color: #52656B;
   color: #fff;
-
-  
 }
-
-
 .Senha{
   text-align: center;
+  width: 10%%
 }
 .Senha p{
   margin-top: 10px;
   text-align: left;
+  font-weight: bold;
 }
 .Senha button{
   margin-top: 10px;
@@ -745,6 +755,7 @@ body{
 
 .Email p{
   margin-top: 10px;
+  font-weight: bold;
 }
 .Email button{
   margin-top: 10px;
@@ -766,6 +777,9 @@ body{
   height: 44px;
 }
 .Configuracoes{
+  text-align: center;
+}
+.OpcoesConfiguracoesPerfil{
   text-align: center;
 }
 
