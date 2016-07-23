@@ -144,9 +144,13 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 	{
 		timelineService.listar().then(function (response) {
 
+			for (foto in response.data[0].fotos)
+			{
+				if (foto)
+					$scope.contFotos++;
+			}
+
 			$scope.posts = response.data;
-			// if (response.data != undefined)
-			// 	$scope.contFotos = response.data[0].fotos.length;
 
 		}, function (e) {
 
