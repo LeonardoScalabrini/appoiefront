@@ -70,15 +70,15 @@
                         <div class="OpcoesConfiguracoesPerfil">
                                 <div class="row col-lg-12 col-lg-offset-3">
                                     <div class="BotoesOpcoes col-lg-6"> 
-                                        <button class="col-lg-6" ng-click="MostraFormSenha()">Alterar Senha</button>
-                                        <button class="col-lg-6" ng-click="MostraFormEmail()">Alterar Email</button>
+                                        <button ng-class="{'selecionado': senhaSelecionado}" class="SelecionaSenha col-lg-6" ng-click="MostraFormSenha()">Alterar Senha</button>
+                                        <button ng-class="{'selecionado': emailSelecionado}" class="SelecionaEmail col-lg-6" ng-click="MostraFormEmail()">Alterar E-mail</button>
                                     </div>
                                 </div>
                         </div>
 
                         <div class="row">
-                            <div class="FormulariosConfiguracoesPerfil col-lg-12 col-lg-offset-3">
-                                <div class="Senha col-lg-6" ng-hide="Senha">
+                            <div class="FormulariosConfiguracoesPerfil col-lg-12">
+                                <div class="Senha col-lg-6 col-lg-offset-3" ng-hide="Senha">
                                             
                                     <form>
                                         <p>Senha atual:</p>
@@ -101,7 +101,7 @@
 
                                 </div>
                                 
-                                <div class="Email col-lg-6" ng-hide="Email">
+                                <div class="Email col-lg-6 col-lg-offset-3" ng-hide="Email">
 
                                     <form>
                                         <p>E-mail atual:</p>

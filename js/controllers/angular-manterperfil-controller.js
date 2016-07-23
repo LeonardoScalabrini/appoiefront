@@ -3,7 +3,7 @@ application.controller('manterPerfilController', ['$scope', function ($scope) {
 	$('#tabs').tab();
 
 	$scope.Email = true;
-
+	$scope.senhaSelecionado = true;
 	 
 	$scope.MostraFormSenha = function(){
 
@@ -13,6 +13,9 @@ application.controller('manterPerfilController', ['$scope', function ($scope) {
 
 	 		$scope.Senha = !$scope.Senha;
 	 	}
+
+	 	$scope.senhaSelecionado = true;
+	 	$scope.emailSelecionado = false;
 
 	}
 
@@ -24,6 +27,10 @@ application.controller('manterPerfilController', ['$scope', function ($scope) {
 	 		$scope.Email = !$scope.Email;
 
 		}
+
+		$scope.senhaSelecionado = false;
+	 	$scope.emailSelecionado = true;
 	}
+
 
 }]);
