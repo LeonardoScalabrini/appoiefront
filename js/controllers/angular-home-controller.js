@@ -46,6 +46,5 @@ application.controller('homeController', ['$scope', function ($scope) {
 			$("#info-user-action").addClass('hide');
 
 	});
-
-
+	
 }]);
