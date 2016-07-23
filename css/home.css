@@ -47,6 +47,9 @@ body{
     border: none;
     text-decoration: none;
 }
+.iconeMenuEsconde{
+  cursor: pointer;
+}
 .btn {
     padding: 0px;
     margin-top: 2px;
@@ -145,7 +148,7 @@ body{
     background: none;
 }
 .logo {
-    margin-top: 8px;
+    margin-top: 10px;
     padding: 0;
     padding-left: 5px;
 }
