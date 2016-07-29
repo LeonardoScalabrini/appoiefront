@@ -68,7 +68,7 @@
     line-height: 40px;
 }
 .sidebar-nav li:hover{
-    background-color: #00796B;
+    background-color: #009688;
 }
 
 .sidebar-nav li a {
@@ -84,7 +84,7 @@
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: #00796B;
+    background: #009688;
     color: #fff;
 }
 
