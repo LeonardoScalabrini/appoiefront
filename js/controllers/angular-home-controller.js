@@ -44,7 +44,6 @@ application.controller('homeController', ['$scope', function ($scope) {
 			$("#info-user-action").removeClass('hide');
 		else
 			$("#info-user-action").addClass('hide');
-
 	});
 	
 }]);

@@ -15,7 +15,8 @@ application.config(function ($stateProvider, $urlRouterProvider) {
 		{
 			'': {templateUrl: "views/home.html"},
 			'system-pages@home': {templateUrl: "views/main.html"}
-		}
+		},
+		controller: 'timelineController'
 	})
 	
 });

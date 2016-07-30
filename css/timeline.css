@@ -200,8 +200,8 @@ small > img {
 .menu-actions {
   background-color: #fff;
   position: absolute;
-  right: 20px;
-  top: 38px;
+  right: 10px;
+  top: 60px;
   z-index: 999;
   width: 150px;
   -webkit-box-shadow: 0 0 5px 0 #ccc;

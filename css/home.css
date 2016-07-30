@@ -124,7 +124,7 @@ body{
 ---------------meu css------------------------
 
 .header{
-    background-color: #00796B;
+    background-color: #52656B;
     height: 60px;
     position: fixed;
     z-index: 999;
@@ -138,7 +138,7 @@ body{
     cursor: pointer;
 }
 .iconeMenu:hover{
-    background-color: #009688;
+    background-color: #52656B;
 }
 .iconeMenu button {
     border: none;
@@ -723,7 +723,7 @@ body{
   margin-bottom: 30px;
   outline: none;
   font-weight: bold;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .BotoesOpcoes button:hover{
   background-color: #009688;
@@ -816,9 +816,17 @@ body{
   color: #fff;
 }
 
+.ModalTabs li {
+  cursor: pointer;
+}
 
+.ModalTabs a {
+  color: #52656B;
+}
 
-
+.ModalTabs a:hover {
+  color: #009688;
+}
 
 @media screen and (min-width: 768px) {
 

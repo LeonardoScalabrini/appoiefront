@@ -34,11 +34,11 @@
 				  </div>
 
 				  <!-- Controls -->
-				  <a class="left carousel-control" role="button" data-slide="prev">
+				  <a href=".carousel-show-pictures" class="left carousel-control" role="button" data-slide="prev">
 				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 				    <span class="sr-only">Previous</span>
 				  </a>
-				  <a class="right carousel-control" role="button" data-slide="next">
+				  <a href=".carousel-show-pictures" class="right carousel-control" role="button" data-slide="next">
 				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				    <span class="sr-only">Next</span>
 				  </a>
@@ -53,96 +53,214 @@
   </div>
 </div>
 
+<div ng-init="init()">
 
+	<div class="modal fade" id="postar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body"> 
 
-<div class="post-alternativo hide" data-toggle="modal" data-target="#postar" secondPostShow>	
-	<img src="img/publicar-alternativo-ico.png" height="40" width="40">
+                <form name="postForm">  
+                    <div class="row">
+                        <div class="container-preview col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row">
+                                <div class="box-img col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="title-post-uploading col-lg-12">
+                                            <span>Carregar imagens</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="carousel-example-generic" class="carousel slide carousel-post" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target=".carousel-post" data-slide-to="0" class="active"></li>
+                                            <li data-target=".carousel-post" data-slide-to="1"></li>
+                                            <li data-target=".carousel-post" data-slide-to="2"></li>
+                                        </ol>
+
+                                        <div class="carousel-inner" role="listbox">
+
+                                            <input type="file" class="img1 hide">
+                                            <input type="file" class="img2 hide">
+                                            <input type="file" class="img3 hide">
+
+                                            <div class="item active">
+                                                <img class="img-post" id="img1" src="">
+                                                <div class="remove hide">
+                                                    <span>Remover imagem</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+                                                <img class="img-post" id="img2" src="">
+                                                <div class="remove hide">
+                                                    <span>Remover imagem</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+                                                <img class="img-post" id="img3" src="">
+                                                <div class="remove hide">
+                                                    <span>Remover imagem</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="add"></div>
+
+                                        </div>
+
+                                        <a class="left carousel-control" href=".carousel-post" role="button" data-slide="prev">
+                                            <span class="back" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href=".carousel-post" role="button" data-slide="next">
+                                            <span class="forward" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-info col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="row">
+                                <div class="person-post col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <img ng-src="img/user-photo.jpg" height="50" width="50">
+                                </div>
+                                <div class="name-post col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                    <span>Maria Santos</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="title-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <input type="text" placeholder="Insira o título" ng-model="post.titulo">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="description-post col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea name="" id="" rows="6" placeholder="Insira a descrição" ng-model="post.descricao"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row box-local">
+                                <div class="local-post col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <input type="text" value="Informe a localização do problema" ng-model="post.localizacao" readonly>
+                                </div>
+                                <div class="btn-local col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <button type="button">Localização</button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="category-post col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <select name="" id="" ng-model="post.categoria">
+                                        <option value="">Insira uma categoria</option>
+                                    </select>
+                                </div>
+                                <div class="btn-post col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <button ng-click="publicar(post)" data-toggle="modal" data-target="#postar">Publicar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container container-post"  ng-controller="timelineController">	
-	<div class="row">		
-		<div class="box-post no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" data-toggle="modal" data-target="#postar">	
-			<div class="row no-padding-lateral">
-				<div class="person col-lg-1 col-md-1 col-sm-2 col-xs-6">
-					<img src="img/user-photo.jpg">
-				</div>			
-				<div class="question col-lg-8 col-md-8 col-sm-7">
-					<span>Precisa expor uma situação Maria?</span>
-				</div>
-				<div class="icon-post col-lg-3 col-md-3 col-sm-3 col-xs-6">
-					<img class="pull-right" src="img/publicar-ico.png" height="30" width="30">
+	<div class="post-alternativo hide" data-toggle="modal" data-target="#postar" secondPostShow>	
+		<img src="img/publicar-alternativo-ico.png" height="40" width="40">
+	</div>
+
+	<div class="container container-post"  >	
+		<div class="row">		
+			<div class="box-post no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" data-toggle="modal" data-target="#postar">	
+				<div class="row no-padding-lateral">
+					<div class="person col-lg-1 col-md-1 col-sm-2 col-xs-6">
+						<img src="img/user-photo.jpg">
+					</div>			
+					<div class="question col-lg-8 col-md-8 col-sm-7">
+						<span>Precisa expor uma situação Maria?</span>
+					</div>
+					<div class="icon-post col-lg-3 col-md-3 col-sm-3 col-xs-6">
+						<img class="pull-right" src="img/publicar-ico.png" height="30" width="30">
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="container">	
-	<div class="row">	
-		<div class="no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-lg-sm col-sm-offset-2 col-xs-8 col-xs-offset-2">		
-			<ul class="timeline">
+	<div class="container">	
+		<div class="row">	
+			<div class="no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-lg-sm col-sm-offset-2 col-xs-8 col-xs-offset-2">		
+				<ul class="timeline">
+					<li ng-repeat="post in posts">	
 
-				<li ng-repeat="post in posts">	
-
-					<div class="timeline-badge">
-						<img src="../img/iluminacao-ico-categoria.png" height="30" width="30">
-					</div>
-					<div class="timeline-panel">
-						<div class="row timeline-heading">
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 user-photo-post">
-								<img src="../img/user-photo.jpg" height="70" width="70" alt="">
-							</div>
-
-							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 user-title-time-post">
-								<h4 class="timeline-title">Maria silveira dos santos</h4>
-							    <p>
-							    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje ás {{post.dataPublicacao}}</small>
-							    </p>
-							</div>
-
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 actions-post">
-								<p class="pull-right show-menu-actions">...</p>
-							</div>
-
-							<div class="menu-actions hide">
-								<div class="share">
-									<span>Compartilhar</span>
-								</div>
-								<div class="delate">
-									<span>Denunciar</span>
-								</div>
-							</div>
+						<div class="timeline-badge">
+							<img src="../img/iluminacao-ico-categoria.png" height="30" width="30">
 						</div>
-						<div class="body">
-						    <div class="box-img-post">
-						    	<img src={{post.fotos[0]}} alt="">
+						<div class="timeline-panel">
+							<div class="row timeline-heading">
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 user-photo-post">
+									<img src="../img/user-photo.jpg" height="70" width="70" alt="">
+								</div>
 
-						    	<div class="more-pic" data-toggle="modal" data-target="#show-pic-modal" ng-click="fotosPublicadas(post.fotos)">
-							    	<span>{{contFotos}}</span>
+								<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 user-title-time-post">
+									<h4 class="timeline-title">Maria silveira dos santos</h4>
+								    <p>
+								    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje ás {{post.dataPublicacao}}</small>
+								    </p>
+								</div>
+
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 actions-post">
+									<p class="pull-right show-menu-actions">...</p>
+								</div>
+
+								<div class="menu-actions hide">
+									<div class="share">
+										<span>Compartilhar</span>
+									</div>
+									<div class="delate">
+										<span>Denunciar</span>
+									</div>
+								</div>
+							</div>
+							<div class="body">
+							    <div class="box-img-post">
+							    	<img src={{post.fotos[0]}} alt="">
+
+							    	<div class="more-pic" data-toggle="modal" data-target="#show-pic-modal" ng-click="fotosPublicadas(post.fotos)">
+								    	<span>{{post.numFotos}}</span>
+								    </div>
 							    </div>
-						    </div>
 
-						    <div class="box-coment-post">
-						    	<span><strong>{{post.titulo}}</strong></span>
-						    	<p>{{post.descricao}}</p>
-						    </div>
+							    <div class="box-coment-post">
+							    	<span><strong>{{post.titulo}}</strong></span>
+							    	<p>{{post.descricao}}</p>
+							    </div>
 
-						    <div class="box-interact-post">
-						    	<div class="row">
-						    		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-						    			<p>Apoiar</p>
-						    		</div>
-						    		<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-						    			<p>Compartilhar</p>
-						    		</div>
-						    	</div>
-						    </div>
+							    <div class="box-interact-post">
+							    	<div class="row">
+							    		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+							    			<p>Apoiar</p>
+							    		</div>
+							    		<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+							    			<p>Compartilhar</p>
+							    		</div>
+							    	</div>
+							    </div>
+							</div>
 						</div>
-					</div>
 
-				</li>
+					</li>
 
-			</ul>
+				</ul>
+			</div>
 		</div>
 	</div>
+
 </div>
