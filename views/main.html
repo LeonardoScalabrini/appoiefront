@@ -8,7 +8,41 @@
 			
 			<div class="col-lg-12 show-img-post">
 				
-				<img src="../img/teste-post-03.jpg" alt="">
+				<div id="carousel-example-generic" class="carousel slide carousel-show-pictures" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				  </ol>
+
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner" role="listbox">
+
+				    <div class="item active">
+				      <img class="view-full-image" src={{srcFoto1}}>
+				    </div>
+
+				    <div class="item" ng-if="srcFoto2">
+				      <img class="view-full-image" src={{srcFoto2}}>
+				    </div>
+
+				    <div class="item" ng-if="srcFoto3">
+				      <img class="view-full-image" src={{srcFoto3}}>
+				    </div>
+
+				  </div>
+
+				  <!-- Controls -->
+				  <a class="left carousel-control" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
 
 			</div>
 
@@ -18,6 +52,7 @@
     </div>
   </div>
 </div>
+
 
 
 <div class="post-alternativo hide" data-toggle="modal" data-target="#postar" secondPostShow>	
@@ -61,7 +96,7 @@
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 user-title-time-post">
 								<h4 class="timeline-title">Maria silveira dos santos</h4>
 							    <p>
-							    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje ás 15:35:02</small>
+							    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje ás {{post.dataPublicacao}}</small>
 							    </p>
 							</div>
 
@@ -80,14 +115,15 @@
 						</div>
 						<div class="body">
 						    <div class="box-img-post">
-						    	<img src="" alt="">
-								
-								<img src="" class="img-post-02" data-toggle="modal" data-target="#show-pic-modal">
+						    	<img src={{post.fotos[0]}} alt="">
 
-								<img src="" class="img-post-03" data-toggle="modal" data-target="#show-pic-modal">
+						    	<div class="more-pic" data-toggle="modal" data-target="#show-pic-modal" ng-click="fotosPublicadas(post.fotos)">
+							    	<span>{{contFotos}}</span>
+							    </div>
 						    </div>
 
 						    <div class="box-coment-post">
+						    	<span><strong>{{post.titulo}}</strong></span>
 						    	<p>{{post.descricao}}</p>
 						    </div>
 
