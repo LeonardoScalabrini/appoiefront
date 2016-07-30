@@ -53,8 +53,8 @@ body{
 }
 
 .btn {
+    padding-top: 5px;
     padding-left: 5px;
-    padding: 10px;
 }
 .btn img{
   padding-top: 8px;
@@ -138,8 +138,10 @@ body{
     -webkit-box-shadow: 0 1px 10px 1px #cccccc;
     box-shadow: 0 1px 10px 1px #cccccc;
 }
-.iconeMenu{
+.iconeMenu {
     cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 4px;
 }
 .iconeMenu:hover{
     background-color: #009688;
@@ -151,7 +153,7 @@ body{
 .logo {
     margin-top: 10px;
     padding: 0;
-    padding-left: 5px;
+    padding-left: 15px;
 }
 .pesquisa input{
     text-align: left;
@@ -357,28 +359,29 @@ body{
     cursor: pointer;
     padding: 20px 0px 20px 0px;
 }
+.ancora:hover{
+  background-color: #009688;
+  text-decoration: #fff;
+}
 
 .ancora a {
-    padding: 20px 163px 20px 20px;
-    color: #999999;
-    text-decoration: none;
+  padding: 20px 240px 20px 20px;
+  color: #999999;
+  text-decoration: none;
 }
 .ancora a:hover {
-    color: #fff;
-}
+  color: #fff;
+  background-color: #009688;
 
-.ancora:hover{
-    background-color: #009688;
-    text-decoration: #fff;
-    color: #fff;
 }
 .ancora a img:hover {
-     color: #fff;
+  color: #fff;
 }
 .ancora img {
   position: absolute;
   right: 20px;
   margin-top: 8px;
+  color: #fff;
 }
 
 .panel-collapse{
@@ -391,7 +394,7 @@ body{
   z-index: 9;
 }
 .item-checked {
-  background-color: #00796B !important;
+  background-color: #009688 !important;
 }
 
 .item-checked p {
