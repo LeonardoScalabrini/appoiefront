@@ -1,4 +1,4 @@
-application.controller('manterPerfilController', ['$scope', function ($scope) {
+application.controller('manterPerfilController', ['$scope', 'manterPerfilService', function ($scope) {
 
 	$('#tabs').tab();
 
@@ -31,6 +31,5 @@ application.controller('manterPerfilController', ['$scope', function ($scope) {
 		$scope.senhaSelecionado = false;
 	 	$scope.emailSelecionado = true;
 	}
-
 
 }]);

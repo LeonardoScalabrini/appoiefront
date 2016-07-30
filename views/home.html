@@ -26,25 +26,25 @@
 
                                 <div class="AlterarNome col-lg-5 col-md-11 col-sm-11 col-xs-11">
                                     <div class="row col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                                        <form name = "alteraNome">
+                                        <form name = "alteraPerfil" ng-submit="alterar(novoPerfil)">
                                             <div class="Nome">
                                                     <p>Alterar Nome:</p>
-                                                    <input type="text" placeholder="Informe o novo nome" ng-model = "novoPerfil.nome">
+                                                    <input type="text" name="nome" placeholder="Informe o novo nome" ng-model = "novoPerfil.nome">
                                             </div> 
 
                                             <div class="Sobrenome">
                                                     <p>Alterar Sobrenome:</p>
-                                                    <input type="text" placeholder="Informe o novo sobrenome" ng-model = "novoPerfil.sobrenome">
+                                                    <input type="text" name="sobrenome" placeholder="Informe o novo sobrenome" ng-model = "novoPerfil.sobrenome">
                                             </div>
 
                                             <div class="DataNasc">
                                                     <p>Data de Nascimento:</p>
-                                                    <input type="date" ng-model = "novoPerfil.dataNascimento"></input>
+                                                    <input type="date" name="nascimento" ng-model = "novoPerfil.dataNascimento"></input>
                                             </div>
 
                                             <div class="Sexo">
                                                 <p>Sexo:</p>
-                                                    <select name="Sexo" ng-model = "novoPerfil.sexo">
+                                                    <select name="sexo" ng-model = "novoPerfil.sexo">
                                                       <option value="">Selecionar</option>
                                                       <option value="Masculino">Masculino</option>
                                                       <option value="Feminino">Feminino</option>
@@ -57,7 +57,7 @@
                                             </div>
 
                                             <div class="SalvarNovoNome">
-                                                <button ng-click = "salvaNome()">SALVAR</button>
+                                                <button name = "alteraPerfil" value="alteraPerfil" ng-click = "salvaNome()">SALVAR</button>
                                             </div>
                                         </form>
                                     </div>
