@@ -26,25 +26,25 @@
 
                                 <div class="AlterarNome col-lg-5 col-md-11 col-sm-11 col-xs-11">
                                     <div class="row col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                                        <form>
+                                        <form name = "alteraPerfil" ng-submit="alterar(novoPerfil)">
                                             <div class="Nome">
                                                     <p>Alterar Nome:</p>
-                                                    <input type="text" placeholder="Informe o novo nome">
+                                                    <input type="text" name="nome" placeholder="Informe o novo nome" ng-model = "novoPerfil.nome">
                                             </div> 
 
                                             <div class="Sobrenome">
                                                     <p>Alterar Sobrenome:</p>
-                                                    <input type="text" placeholder="Informe o novo sobrenome">
+                                                    <input type="text" name="sobrenome" placeholder="Informe o novo sobrenome" ng-model = "novoPerfil.sobrenome">
                                             </div>
 
                                             <div class="DataNasc">
                                                     <p>Data de Nascimento:</p>
-                                                    <input type="date"></input>
+                                                    <input type="date" name="nascimento" ng-model = "novoPerfil.dataNascimento"></input>
                                             </div>
 
                                             <div class="Sexo">
                                                 <p>Sexo:</p>
-                                                    <select name="Sexo">
+                                                    <select name="sexo" ng-model = "novoPerfil.sexo">
                                                       <option value="">Selecionar</option>
                                                       <option value="Masculino">Masculino</option>
                                                       <option value="Feminino">Feminino</option>
@@ -57,7 +57,7 @@
                                             </div>
 
                                             <div class="SalvarNovoNome">
-                                                <button type="submit">SALVAR</button>
+                                                <button name = "alteraPerfil" value="alteraPerfil" ng-click = "salvaNome()">SALVAR</button>
                                             </div>
                                         </form>
                                     </div>
@@ -68,7 +68,7 @@
                     
                     <div class="tab-pane" id="Configuracoes">
                         <div class="OpcoesConfiguracoesPerfil">
-                                <div class="row col-lg-12 col-lg-offset-3">
+                                <div class="row col-lg-12 col-lg-offset-3 col-md-8 col-md-offset-2">
                                     <div class="BotoesOpcoes col-lg-6"> 
                                         <button ng-class="{'selecionado': senhaSelecionado}" class="SelecionaSenha col-lg-6" ng-click="MostraFormSenha()">Alterar Senha</button>
                                         <button ng-class="{'selecionado': emailSelecionado}" class="SelecionaEmail col-lg-6" ng-click="MostraFormEmail()">Alterar E-mail</button>
@@ -77,48 +77,47 @@
                         </div>
 
                         <div class="row">
-                            <div class="FormulariosConfiguracoesPerfil col-lg-12">
-                                <div class="Senha col-lg-6 col-lg-offset-3" ng-hide="Senha">
+                            <div class="FormulariosConfiguracoesPerfil col-lg-12 col-md-12 col-sm-12">
+                                <div class="Senha col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" ng-hide="Senha">
                                             
-                                    <form>
+                                    <form name = "alteraSenha">
                                         <p>Senha atual:</p>
-                                        <input type="password">
+                                        <input type="password" ng-model = "novaSenha.atualSenha">
 
                                         <p>Nova senha:</p>
-                                        <input type="password">
+                                        <input type="password" ng-model = "novaSenha.novaSenha">
 
                                         <p>Confirme a nova senha:</p>
-                                        <input type="password">
+                                        <input type="password" ng-model = "novaSenha.confirmaNovaSenha">
 
                                         <div class="CancelarNovaSenha">
                                             <button type="">Cancelar</button>
                                         </div>
 
                                         <div class="SalvarNovaSenha">
-                                            <button type="submit">SALVAR</button>
+                                            <button ng-click = "salvaSenha()">SALVAR</button>
                                         </div>
                                     </form>
-
                                 </div>
                                 
-                                <div class="Email col-lg-6 col-lg-offset-3" ng-hide="Email">
+                                <div class="Email col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2" ng-hide="Email">
 
-                                    <form>
+                                    <form name="alteraEmail">
                                         <p>E-mail atual:</p>
-                                        <input type="email">
+                                        <input type="email" ng-model = "novoEmail.atualEmail" ng-pattern = "/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/">
 
                                         <p>Novo E-mail:</p>
-                                        <input type="email">
+                                        <input type="email" ng-model = "novoEmail.novoEmail">
 
-                                        <p>Confirme o senha:</p>
-                                        <input type="email">
+                                        <p>Confirme o novo E-mail:</p>
+                                        <input type="email" ng-model = "novoEmail.confirmaNovoEmail">
 
                                         <div class="CancelarNovoEmail">
-                                            <button type="">Cancelar</button>
+                                            <button>Cancelar</button>
                                         </div>
 
                                         <div class="SalvarNovoEmail">
-                                            <button type="submit">SALVAR</button>
+                                            <button ng-click = "salvaEmail()">SALVAR</button>
                                         </div>
 
                                     </form>
@@ -147,13 +146,13 @@
                 
                 <div class="iconeMenu col-lg-2 col-md-3 col-sm-5">
                     <a class="btn btn-default" id="menu-toggle" text-align="center">
-                        <img src="../img/ico-menu.png" height="25" width="25">
+                        <img src="../img/ico-menu.png"  width="25">
                     </a>
                 </div>
 
                 <div>
                     <div class="logo col-lg-10 col-md-9 col-sm-7">
-                         <img src="../img/logoTeste.png" height="40" width="120">
+                         <img src="../img/logoHorizontal.png" width="170">
                      </div>
                 </div>
             
@@ -199,7 +198,9 @@
         <ul class="sidebar-nav">
             <ul>
                 <div class="logo-menu">
-                    <img src="../img/favicon.ico" width="30px" alt="">
+                    <div class="iconeMenuEsconde">
+                        <img src="../img/logoHorizontal.png" width="170px" height="40">
+                    </div>
                 </div>
 
                 <div class="row user-pic-menu">
@@ -233,18 +234,69 @@
 
                         <li class="list-group-item">
                             <a href="">
+<<<<<<< HEAD
                                 <p>Arborização</p>
+=======
+                                <p>ARBORIZAÇÃO</p>
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
+                                <p>DEFESA CIVIL</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>ILUMINAÇÃO</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>TERRENO BALDIO</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>FUNDO DE VALE</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>PaAVIMENTAÇÃO</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>SANEAMENTO BÁSICO</p>
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+                                <p>TRANSPORTE PÚBLICO</p>
+>>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
+                            </a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="">
+<<<<<<< HEAD
                                 <p>Defesa civil</p>
+=======
+                                <p>SEGURANÇA</p>
+>>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
+<<<<<<< HEAD
                                 <p>Terreno baldio</p>
                             </a>
                         </li>
@@ -252,12 +304,15 @@
                         <li class="list-group-item">
                             <a href="">
                                 <p>Fundo de vale</p>
+=======
+                                <p>TRÂNSITO</p>
+>>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
-                                <p>Pavimentação</p>
+                                <p>AVALIAÇÃO DE INSTITUIÇÕES</p>
                             </a>
                         </li>
 

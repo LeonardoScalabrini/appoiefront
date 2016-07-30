@@ -2,7 +2,7 @@ application.controller('homeController', ['$scope', function ($scope) {
 
 	var menuActive = false;
 
-	$(".iconeMenu, #block").click(function(e) {
+	$(".iconeMenu, .iconeMenuEsconde, #block").click(function(e) {
 
 		menuActive = !menuActive;
 
