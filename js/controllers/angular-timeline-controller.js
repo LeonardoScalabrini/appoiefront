@@ -142,15 +142,19 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 	$scope.listar = function ()
 	{
+		$scope.contFotos = 0;
 		timelineService.listar().then(function (response) {
 
-			for (foto in response.data[0].fotos)
+
+			/*for (foto in response.data[0].fotos)
 			{
 				if (foto)
 					$scope.contFotos++;
-			}
+			}*/
 
 			$scope.posts = response.data;
+			$('#posts').append(response.data);
+			$('#loading').hide();
 
 		}, function (e) {
 
@@ -158,6 +162,35 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 	}
 
 	$scope.listar();
+
+
+
+
+	//-------------------------------------------
+
+	
+	var win = $(window);
+
+	// Each time the user scrolls
+	win.scroll(function() {
+		// End of the document reached?
+		if ($(document).height() - win.height() == win.scrollTop()) {
+			$('#loading').show();
+			$scope.listar();
+/*
+			$.ajax({
+				url: 'get-post.php',
+				dataType: 'html',
+				success: function(html) {
+					$('#posts').append(html);
+					$('#loading').hide();
+				
+			});}*/
+		}
+	});	
+
+
+
 
 	
 }]);
