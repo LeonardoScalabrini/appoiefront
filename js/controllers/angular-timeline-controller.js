@@ -130,7 +130,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 		timelineService.publicar(post).then(function (response) {
 
-			alert("foi");
+			
 
 		}, function (e) {
 
@@ -153,7 +153,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 			}*/
 
 			$scope.posts = response.data;
-			$('#posts').append(response.data);
+			$('#posts').prepend(response.data);
 			$('#loading').hide();
 
 		}, function (e) {
