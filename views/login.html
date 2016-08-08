@@ -99,8 +99,8 @@
 
                 <form name="cadastro" class="form-cadastro" novalidate>
 
-                    <div class="close fechar-modal col-lg-6 col-lg-offset-8 ">
-                        <h1 ng-click="limparCampos()" data-dismiss="modal">x</h1>
+                    <div class="close fechar-modal col-lg-6 col-lg-offset-8 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-8">
+                        <h1 class="pull-right" ng-click="limparCampos()" data-dismiss="modal">x</h1>
                     </div>
 
                     <h1>Cadastre-se</h1>
@@ -126,6 +126,21 @@
                         </div>
 
                     </div>
+
+                    <!-- <div class="row">
+
+                        <div id="cidade" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 lower-padding-lateral" ng-class="{'has-error' : cadastro.cidade.$invalid && cadastro.cidade.$dirty}">
+                            
+                            <label for="cidade"><strong>Cidade</strong></label>
+                            <select class="input-cadastro" name="cidade" ng-model="usuario.cidade" ng-required="true">
+                                <option value="">Selecione uma cidade</option>
+                            </select>
+
+                            <h6 ng-if="cadastro.cidade.$invalid && cadastro.cidade.$dirty" class="help-block">Informe sua cidade</h6>
+                        
+                        </div>
+
+                    </div> -->
 
                     <div class="row">
 
@@ -213,7 +228,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
                             <button id="btn-cadastrar" type="submit" name="login" class="button-enter button-cadastrar" value="Login" data-text="Cadastrar" ng-click="cadastrar(usuario)">
                                 <span>C</span>
                                 <span>A</span>
@@ -240,7 +255,7 @@
         <div class="overlay">
             <div class="content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <img src="img/cidadeIcon.png">
-                <h1 class="main-title">Heey, tá afim de melhorar a sua cidade?<br> Então chega mais e divulgue os problemas! ;)</h1>
+                <h1 class="main-title">Tá afim de melhorar a sua cidade?<br> Então CADASTRE-SE e divulgue os problemas! ;)</h1>
                 <div class="row">
 
                 <div class="row">

@@ -16,7 +16,7 @@
                            <div class="row">   
                                 <div class="AlterarImagem col-lg-6 text-center col-md-12">
                                     <div class="row col-lg-12 text-center col-md-12 col-sm-12">
-                                        <img src="../img/user-photo.png" width="310" height="310">
+                                        <img src="../img/user-empty.png" width="310" height="310">
                                         <div class="clr"></div>
                                         <div class="row col-lg-12 text-center col-md-12 col-sm-12">
                                             <a href="">Alterar foto do Perfil</a>
@@ -152,7 +152,7 @@
 
                 <div>
                     <div class="logo col-lg-10 col-md-9 col-sm-7">
-                         <img src="../img/logoHorizontal.png" width="170">
+                         <img src="../img/logoHorizontal.png" width="130">
                      </div>
                 </div>
             
@@ -160,13 +160,9 @@
                 
         </div>  
 
-        <div class="col-lg-6 col-md-6 col-sm-7 ">
+        <div class="col-lg-6 col-md-6 col-sm-7 cont-pesquisa">
             
-            <div class="row">
-                <div class="pesquisa col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-2 col-sm-7 col-sm-offset-2">
-                    <input type="search" placeholder="Faça uma busca!" class="find">
-                </div>
-            </div>
+            <input type="search" placeholder="Faça uma busca!" class="pesquisa">
 
         </div>  
 
@@ -178,7 +174,7 @@
                     
                     <li><img src="../img/iconeMensagens.png" height="15" width="20"></li>
                     <li><img src="../img/iconeNotificacoes.png" height="20" width="20"></li>
-                    <li><img class="img-user-logged" src="../img/user-photo.jpg" height="35" width="35"></li>
+                    <li><img class="img-user-logged" src="../img/user-empty.png" height="35" width="35"></li>
 
                 </ul>
 
@@ -205,17 +201,14 @@
 
                 <div class="row user-pic-menu">
                     <div class="col-lg-5 col-md-5 col-sm-5 img-user">
-                        <img src="../img/user-photo.jpg" height="100px" width="100px" alt="">
+                        <img src="../img/user-empty.png" height="100px" width="100px" alt="">
                     </div>
                     
                     <div class="col-lg-7 col-md-7 col-sm-7 info-user-menu">
                         <div>
-                            <p><strong>Olá, Maria Santos</strong></p>
+                            <p><strong>Olá, {{user.nome}}</strong></p>
                         </div>
-                        <p><strong>Maringá - PR</strong></p>
-                        <select name="cidades" id="cidades">
-                            <option value="">Trocar cidade</option>
-                        </select>
+                        <p><strong>{{user.cidade}}</strong></p>
                         <a href=""><h6 class="link-alterar-perfil">Alterar perfil</h6></a>
                     </div>
                 </div>
@@ -230,13 +223,10 @@
                     </a>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse">
-                    <ul class="list-group">
+                     <ul class="list-group">
 
                         <li class="list-group-item">
                             <a href="">
-<<<<<<< HEAD
-                                <p>Arborização</p>
-=======
                                 <p>ARBORIZAÇÃO</p>
                             </a>
                         </li>
@@ -267,7 +257,7 @@
 
                         <li class="list-group-item">
                             <a href="">
-                                <p>PaAVIMENTAÇÃO</p>
+                                <p>PAVIMENTAÇÃO</p>
                             </a>
                         </li>
 
@@ -280,63 +270,24 @@
                         <li class="list-group-item">
                             <a href="">
                                 <p>TRANSPORTE PÚBLICO</p>
->>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
-<<<<<<< HEAD
-                                <p>Defesa civil</p>
-=======
                                 <p>SEGURANÇA</p>
->>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
-<<<<<<< HEAD
-                                <p>Terreno baldio</p>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item">
-                            <a href="">
-                                <p>Fundo de vale</p>
-=======
                                 <p>TRÂNSITO</p>
->>>>>>> 5282ee5bb9d65498eda664eebbbef8498fcf7a13
                             </a>
                         </li>
 
                         <li class="list-group-item">
                             <a href="">
                                 <p>AVALIAÇÃO DE INSTITUIÇÕES</p>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item">
-                            <a href="">
-                                <p>Saneamento básico</p>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item">
-                            <a href="">
-                                <p>Transporte público</p>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item">
-                            <a href="">
-                                <p>Segurança</p>
-                            </a>
-                        </li>
-
-                        <li class="list-group-item">
-                            <a href="">
-                                <p>Trânsito</p>
                             </a>
                         </li>
                     </ul>
@@ -362,21 +313,21 @@
         <div class="row">
             
             <div class="col-lg-5 col-md-5 col-sm-5 img-info-user">
-                <img src="../img/user-photo.jpg" height="110" width="110">
+                <img src="../img/user-empty.png" height="110" width="110">
             </div>
 
             <div class="col-lg-7 col-md-7 col-sm-7 info-info-user">
                 
                 <div class="info-name">
-                    <p>Maria Silveira dos Santos</p>
+                    <p>{{user.nome}}</p>
                 </div>
 
                 <div class="info-email">
-                    <p>mariasantos@gmail.com</p>
+                    <p>{{user.email}}</p>
                 </div>
 
                 <div class="info-city">
-                    <p>Maringá - PR</p>
+                    <p>{{user.cidade}}</p>
                 </div>
 
                 <div class="change-city">

@@ -105,7 +105,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="add"></div>
+                                            <div class="add" ng-click="adicionar()"></div>
 
                                         </div>
 
@@ -125,10 +125,10 @@
                         <div class="container-info col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="row">
                                 <div class="person-post col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                    <img ng-src="img/user-photo.jpg" height="50" width="50">
+                                    <img ng-src="../img/user-empty.png" height="50" width="50">
                                 </div>
                                 <div class="name-post col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                    <span>Maria Santos</span>
+                                    <span>{{user.nome}}</span>
                                 </div>
                             </div>
 
@@ -181,10 +181,10 @@
 			<div class="box-post no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" data-toggle="modal" data-target="#postar">	
 				<div class="row no-padding-lateral">
 					<div class="person col-lg-1 col-md-1 col-sm-2 col-xs-6">
-						<img src="img/user-photo.jpg">
+						<img src="../img/user-empty.png">
 					</div>			
 					<div class="question col-lg-8 col-md-8 col-sm-7">
-						<span>Precisa expor uma situação Maria?</span>
+						<span>Precisa expor uma situação {{user.nome}}?</span>
 					</div>
 					<div class="icon-post col-lg-3 col-md-3 col-sm-3 col-xs-6">
 						<img class="pull-right" src="img/publicar-ico.png" height="30" width="30">
@@ -198,7 +198,7 @@
 		<div class="row">	
 			<div class="no-padding-lateral col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-lg-sm col-sm-offset-2 col-xs-8 col-xs-offset-2">		
 				<ul class="timeline">
-					<li ng-repeat="post in posts">	
+					<li ng-repeat="post in posts | orderBy: '-'">	
 
 						<div class="timeline-badge">
 							<img src="../img/iluminacao-ico-categoria.png" height="30" width="30">
@@ -206,13 +206,13 @@
 						<div class="timeline-panel">
 							<div class="row timeline-heading">
 								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 user-photo-post">
-									<img src="../img/user-photo.jpg" height="70" width="70" alt="">
+									<img src="../img/user-empty.png" height="70" width="70" alt="">
 								</div>
 
 								<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 user-title-time-post">
-									<h4 class="timeline-title">Maria silveira dos santos</h4>
+									<h4 class="timeline-title">{{post.nome}}</h4>
 								    <p>
-								    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje ás {{post.dataPublicacao}}</small>
+								    	<small class="text-muted"><img src="../img/clock-ico.png" height="15" width="15">Hoje {{post.dataPublicacao}}</small>
 								    </p>
 								</div>
 

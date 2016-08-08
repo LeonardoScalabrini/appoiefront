@@ -1,4 +1,4 @@
-application.controller('homeController', ['$scope', function ($scope) {
+application.controller('homeController', ['$scope', 'homeService', 'userService', function ($scope, homeService, userService) {
 
 	var menuActive = false;
 
@@ -44,6 +44,16 @@ application.controller('homeController', ['$scope', function ($scope) {
 			$("#info-user-action").removeClass('hide');
 		else
 			$("#info-user-action").addClass('hide');
+	});
+
+	$scope.categorias = [];
+
+	homeService.buscarCategorias().then(function (response) {
+
+		$scope.categorias = response.data;
+
+	}, function (e) {
+
 	});
 	
 }]);

@@ -1,4 +1,4 @@
-application.controller('timelineController', ['$scope', 'timelineService', function ($scope, timelineService) {
+application.controller('timelineController', ['$scope', '$rootScope', 'timelineService', 'userService', function ($scope, $rootScope, timelineService, userService) {
 
 	$scope.remove = false;
 	$scope.contFotos = 0;
@@ -9,7 +9,7 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 	var img02 = "";
 	var img03 = "";
 
-	$(".add").click(function (e)
+	$scope.adicionar = function ()
 	{
 		for (var i = 1; i <= 3; i++)
 		{
@@ -32,11 +32,11 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 				$(".add").addClass('hide');
 			};
 
-			e.stopImmediatePropagation();
+			//e.stopImmediatePropagation();
 		});
 
-		e.stopImmediatePropagation();
-	});
+		//e.stopImmediatePropagation();
+	};
 
 	function ImagePreview (input, image, i)
 	{
@@ -114,9 +114,32 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 
 	});
 
+	$scope.formataDataPublicacao = function (data)
+	{
+		
+		var timeStamp = parseInt(data/*.substr(33, 13)*/);
+		var d = new Date(timeStamp);
+
+		dataPublicacao = d.getDay().toString() + '/' + d.getMonth().toString() + '/' + d.getFullYear().toString();
+		return dataPublicacao;
+	}
+
+
 	// ==========================================================================
 
 	$scope.posts = [];
+	$rootScope.user = {};
+
+	$scope.getInfoUsuario = function ()
+	{
+		userService.buscarInfoUsuario().then(function (response) {
+
+			$rootScope.user = response.data;
+
+		}, function (e) {
+
+		});
+	}
 
 	$scope.publicar = function (post)
 	{
@@ -146,7 +169,17 @@ application.controller('timelineController', ['$scope', 'timelineService', funct
 	{
 		timelineService.listar().then(function (response) {
 
-			$scope.posts = response.data;
+			if(response.data.length > 0) {
+				for(i in response.data) {
+					response.data[i].dataPublicacao = $scope.formataDataPublicacao(response.data[i].dataPublicacao.toString())
+					$scope.posts.push(response.data[i]);
+				}				
+			}
+			else{
+				$scope.posts = response.data;
+			}
+			
+
 			setTimeout(function(){ $scope.$apply(); },1000);
 
 		}, function (e) {
