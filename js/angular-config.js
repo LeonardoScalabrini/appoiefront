@@ -1,16 +1,18 @@
-application.config(function ($stateProvider, $urlRouterProvider) {
+appoie.config(function ($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise("/entrar");
+	$urlRouterProvider.otherwise("/login");
 
 	$stateProvider
 
 	.state("login", {
-		url: "/entrar",
-		templateUrl: "views/login.html"
+		url: "/login",
+		templateUrl: "views/login.html",
+		controller: "indexController"
 	})
 
 	.state("home", {
 		url: "/home",
+		controller: "homeController",
 		views: 
 		{
 			'': {templateUrl: "views/home.html"},

@@ -1,0 +1,147 @@
+#content {
+	background-image: url(../img/fundo_login.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.background {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+.content-login {
+	width: 100%;
+	background: rgba(255,255,255,0.8);
+	margin-top: 100px;
+	z-index: 1;
+	padding: 20px;
+}
+
+.logo-login span {
+	font-size: 20px;
+	color: #00C853;
+}
+
+.title-login h2 {
+	color: #a1a1a1;
+	font-weight: 400;
+}
+
+md-input-container {
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px;
+}
+
+.inputdemoErrors md-input-container > p {
+  font-size: 0.8em;
+  text-align: left;
+  width: 100%;
+}
+
+.errorMsg {
+	text-align: right;
+}
+
+md-input-container .md-errors-spacer {
+    min-height: 15px;
+}
+
+md-input-container:not(.md-input-invlalid).md-input-focused .md-input {
+	border-color: #00C853;
+}
+
+md-input-container:not(.md-input-invlalid).md-input-focused label {
+	color: #00C853;
+}
+
+.appoieButton {
+	background-color: #00C853;
+	margin: 5px 0 0 0;
+	color: #ffffff;
+	border: none;
+	padding: 10px;
+}
+
+.submitLogin {
+	width: 100%;
+}
+
+.linkAlternative {
+	margin-top: 5px;
+}
+
+.linkAlternative span {
+	font-size: 10px;
+	color: #a1a1a1;
+	width: auto;
+}
+
+.linkAlternative span > a {
+	cursor: pointer;
+}
+
+.linkAlternative span > a:hover {
+	color: #00C853;
+}
+
+.cadastrarLink {
+	text-align: right;
+}
+
+.facebookButton {
+	background-color: #3a559f;
+	padding: 10px;
+	color: #ffffff;
+	cursor: pointer;
+	outline: none;
+}
+
+.facebookButton span {
+	margin-top: 4px;
+}
+
+.facebookButton:hover {
+	background-color: #4a609d; 
+}
+
+.dialogdemoBasicUsage #popupContainer {
+  position: relative; 
+}
+
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; 
+}
+
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; 
+}
+
+.dialogdemoBasicUsage button {
+  width: 200px; 
+}
+
+.dialogdemoBasicUsage div#status {
+  color: #c60008; 
+}
+
+.dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+  margin-bottom: 0; 
+}
+
+md-toolbar:not(.md-menu-toolbar) {
+    background-color: #00C853;
+}

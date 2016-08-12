@@ -1,415 +1,65 @@
+<div id="content" screenHeight ng-controller="indexController">
+    
+    <div class="background"></div>
 
-    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-11 col-md-11 col-sm-10 col-xs-11 bar-logo">
-                <div class="navbar-header">
-
-                  <div class="msg-mobile">
-                    <a href="#" data-toggle="modal" data-target="#login-modal">Entrar</a>
-                  </div>
-
-                  <img src="img/logo.png" alt="">
-
-                </div>
+    <div layout="row" layout-align="center center">
+        <div flex="25" class="content-login">
+            
+            <div layout="column" layout-align="center center" class="logo-login">
+                <img src="../img/logo.png" height="50" width="50" alt="">
+                <span>Appoie</span>
             </div>
 
-            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-1 box-entrar">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 entrar">
-                  <ul class="nav navbar-nav">
-                    <a href="#" data-toggle="modal" data-target="#login-modal">Entrar</a>
-                  </ul>
-                </div>
+            <div layout="column" layout-align="center center"class="title-login">
+                <h2>FAÇA SEU LOGIN</h2>
             </div>
-        </div>
-      </div>
-    </nav>
 
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" ng-controller="loginController">
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>{{modalTitle}}</h1><br>
+            <form name="loginForm">
 
-                <form name="login" ng-submit="logar(usuario)" ng-if="!senhaPerdida">
-
-                    <input type="text" name="user" placeholder="Email" ng-model="usuario.email">
-
-                    <input type="password" name="pass" placeholder="Senha" ng-model="usuario.senha">
-
-                    <button name="login" class="button-enter" value="Login" data-text="Entrar">
-                        <span>E</span>
-                        <span>N</span>
-                        <span>T</span>
-                        <span>R</span>
-                        <span>A</span>
-                        <span>R</span>
-                    </button>
-
-                </form>
-
-                <form name="enviarEmail" ng-submit="enviar(email)" ng-if="senhaPerdida">
-
-                    <h6>Informe seu email para redefinir sua senha:</h6>
-
-                    <input type="text" name="user" placeholder="Email" ng-model="email">
-
-                    <button name="login" class="button-enter" value="Login" data-text="Enviar">
-                        <span>E</span>
-                        <span>N</span>
-                        <span>V</span>
-                        <span>I</span>
-                        <span>A</span>
-                        <span>R</span>
-                    </button>
-
-                    <div class="login-help-back">
-                        <a href="#" ng-click="recuperarSenha()" ng-if="senhaPerdida">Cancelar</a>
+                <md-input-container class="md-block">
+                    <label>E-mail</label>
+                    <input required type="email" name="emailLogin" ng-model="login.email" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                    <div ng-messages="loginForm.emailLogin.$error" role="alert">
+                        <div class="errorMsg" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Informe um Email válido</div>
                     </div>
+                </md-input-container>
 
-                </form>
+                <md-input-container class="md-block">
+                    <label>Senha</label>
+                    <input required type="password" name="senhaLogin" ng-model="login.senha" minlength="6">
+                    <div ng-messages="loginForm.senhaLogin.$error">
+                        <div class="errorMsg" ng-message="required">Informe uma senha válida</div>
+                    </div>
+                </md-input-container>
 
-                <div class="login-help">
-                    <a href="#" ng-click="recuperarSenha()" ng-if="!senhaPerdida">Esqueci minha senha</a>
+                <button class="submitLogin appoieButton" ng-click="">ENTRAR</button>
+
+            </form>
+
+            <div layout="row">
+                <div flex="50" layout="column" class="linkAlternative recuperaSenhaLink">
+                    <span><a>Esqueci minha senha</a></span>
                 </div>
 
-                <h1>Crie sua conta</h1><br>
-
-                <button name="cadastrar" class="button-enter" value="cadastrar" data-text="Cadastrar" data-dismiss="modal" data-toggle="modal" data-target="#modal-cadastrar">
-                    <span>C</span>
-                    <span>A</span>
-                    <span>D</span>
-                    <span>A</span>
-                    <span>S</span>
-                    <span>T</span>
-                    <span>R</span>
-                    <span>A</span>
-                    <span>R</span>
-                </button>
-
-                <div class="or-login">
-                    <h6>ou</h6>
-                </div>
-
-                <div class="facebook-interations">
-                    <img src="img/face_ico_button.png" height="22" width="22" alt="">
-                    <span>Entrar com facebook</span>
+                <div flex="50" layout="column" class="linkAlternative cadastrarLink">
+                    <span><a ng-click="cadastro($event)">Cadastre-se</a></span>
                 </div>
             </div>
+
+            <div layout="column" layout-align="center center" class="title-login">
+                <h2>OU</h2>
+            </div>
+
+            <div layout="row" class="facebookButton" id="facebookButton" ng-click="">
+                <div flex="10" layout="column">
+                    <img src="../img/facebook_ico_button.png" height="25" width="25" alt="Entrar com o facebook">
+                </div>
+                <div flex="90" layout="column" layout-align="center center">
+                    <span>Entrar com o facebook</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="modal fade" id="modal-cadastrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none" ng-controller="cadastroController">
-        <div class="modal-dialog">
-
-            <div class="cadastrarmodal-container">
-
-                <form name="cadastro" class="form-cadastro" novalidate>
-
-                    <div class="close fechar-modal">
-                        <h1 ng-click="limparCampos()" data-dismiss="modal">x</h1>
-                    </div>
-
-                    <h1>Cadastre-se</h1>
-
-                    <div class="row">
-
-                        <div id="nome" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.nome.$invalid && cadastro.nome.$dirty}">
-                            
-                            <label for="nome"><strong>Nome</strong></label>
-                            <input type="text" class="input-cadastro" name="nome" ng-model="usuario.nome" ng-focus="removerClasseDeErro()" ng-required="true">
-
-                            <h6 ng-if="cadastro.nome.$invalid && cadastro.nome.$dirty" class="help-block">Informe seu nome</h6>
-                        
-                        </div>
-
-                        <div id="sobrenome" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.sobrenome.$invalid && cadastro.sobrenome.$dirty}">
-                            
-                            <label for="sobrenome"><strong>Sobrenome</strong></label>
-                            <input type="text" class="input-cadastro" name="sobrenome" ng-model="usuario.sobrenome" ng-required="true">
-
-                            <h6 ng-if="cadastro.sobrenome.$invalid && cadastro.sobrenome.$dirty" class="help-block">Informe seu sobrenome</h6>
-                        
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div id="nascimento" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.nascimento.$invalid && cadastro.nascimento.$dirty}">
-                            
-                            <label for="nascimento"><strong>Data de nascimento</strong></label>
-                            <input type="date" class="input-cadastro" name="nascimento" ng-model="usuario.nascimento" ng-required="true">
-
-                            <h6 ng-if="cadastro.nascimento.$invalid && cadastro.nascimento.$dirty" class="help-block">Informe uma data válida</h6>
-                        
-                        </div>
-
-                        <div id="sexo" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.sexo.$invalid && cadastro.sexo.$dirty}">
-                            
-                            <label for="sexo"><strong>Sexo</strong></label>
-                            <select class="input-cadastro" name="sexo" ng-model="usuario.sexo" ng-required="true">
-                                <option value="">Selecione</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                            </select>
-
-                            <h6 ng-if="cadastro.sexo.$invalid && cadastro.sexo.$dirty" class="help-block">Informe seu sexo</h6>
-                        
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div id="email" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.email.$invalid && cadastro.email.$dirty || confirmaEmail != usuario.email.email}">
-                            
-                            <label for="email"><strong>E-mail</strong></label>
-                            <input type="email" class="input-cadastro" name="email" ng-model="usuario.email" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
-
-                            <h6 ng-if="cadastro.email.$invalid && cadastro.email.$dirty" class="help-block">Informe um email válido</h6>
-                        
-                        </div>
-
-                        <div id="confirmaEmail" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaEmail.$invalid && cadastro.confirmaEmail.$dirty || usuario.confirmaEmail != usuario.email}">
-                            
-                            <label for="emailConfirm"><strong>Confirme o e-mail</strong></label>
-                            <input type="email" class="input-cadastro" name="confirmaEmail" ng-model="usuario.confirmaEmail" ng-pattern="/^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$/" ng-required="true">
-
-                            <h6 ng-if="cadastro.confirmaEmail.$error.required && cadastro.confirmaEmail.$dirty" class="help-block">Confirme seu email</h6>
-                            <h6 ng-if="usuario.confirmaEmail != usuario.email && cadastro.confirmaEmail.$dirty && !cadastro.confirmaEmail.$error.required" class="help-block">Email inválido</h6>
-                        
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div id="senha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.senha.$invalid && cadastro.senha.$dirty || usuario.confirmaSenha != usuario.senha}">
-                            
-                            <label for="senha"><strong>Senha</strong></label>
-                            <input type="password" class="input-cadastro" name="senha" ng-model="usuario.senha" ng-required="true" ng-minlength="6">
-
-                            <h6 ng-if="cadastro.senha.$error.minlength" class="help-block">Mínimo seis caracteres</h6>
-                            <h6 ng-if="cadastro.senha.$error.required && cadastro.senha.$dirty" class="help-block">Informe a senha</h6>
-                        
-                        </div>
-
-                        <div id="confirmaSenha" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lower-padding-lateral" ng-class="{'has-error' : cadastro.confirmaSenha.$invalid && cadastro.confirmaSenha.$dirty || usuario.confirmaSenha != usuario.senha}">
-                            
-                            <label for="senhaConfirm"><strong>Confirme sua senha</strong></label>
-                            <input type="password" class="input-cadastro" name="confirmaSenha" ng-model="usuario.confirmaSenha" ng-required="true" ng-minlength="6">
-
-                            <h6 ng-if="cadastro.confirmaSenha.$error.minlength" class="help-block">Mínimo seis caracteres</h6>
-                            <h6 ng-if="cadastro.confirmaSenha.$error.required && cadastro.confirmaSenha.$dirty" class="help-block">Confirme a senha</h6>
-                            <h6 ng-if="usuario.confirmaSenha != usuario.senha && cadastro.confirmaSenha.$dirty && !cadastro.confirmaSenha.$error.required && !cadastro.confirmaSenha.$error.minlength" class="help-block">Senha inválida</h6>
-                        
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 no-padding">
-                            <input type="checkbox" name="termo" class="terms pull-right" ng-model="usuario.termo" ng-required="true" />
-                        </div>
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 no-padding">
-                            <h6 class="accept-terms">Aceito os <a href="">termos de privacidade e licença</a>.</h6>
-                        </div>
-                    
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
-                            <button id="btn-cadastrar" type="submit" name="login" class="button-enter button-cadastrar" value="Login" data-text="Cadastrar" ng-click="cadastrar(usuario)">
-                                <span>C</span>
-                                <span>A</span>
-                                <span>D</span>
-                                <span>A</span>
-                                <span>S</span>
-                                <span>T</span>
-                                <span>R</span>
-                                <span>A</span>
-                                <span>R</span>
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Home Page
-    ==========================================-->
-    <div id="tf-home" class="text-center" ng-controller="index-controller">
-        <div class="overlay">
-            <div class="content">
-                <h1 class="main-title">Bem vindo ao <strong><span class="color escrita-logo">Appoie</span></strong></h1>
-                <div class="row">
-
-                <div class="row">
-                    <a href="https://play.google.com/store?hl=pt_BR">
-                        <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 play-store">
-                            <span>Baixe o aplicativo</span>
-                            <img src="img/Google_Play_Logo.png" alt="">
-                        </div>
-                    </a>
-                </div>
-                <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Us Page
-    ==========================================-->
-    <div id="tf-about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="img/02.png" class="img-responsive">
-                </div>
-                <div class="col-md-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <h4>Sobre nós</h4>
-                            <h2>O que é o Appoie</h2>
-                            <hr>
-                            <div class="clearfix"></div>
-                        </div>
-                            <p class="intro">O Appoie é um aplicativo que contribui para tornar a cidade cada vez melhor. Através das suas publicações feitas, as pessoas podem apoiar e compartilhar, ajudando-o a resolver esse problema mais rápido.<br><br>Então o que está esperando? Publique os problemas que tem na cidade e consiga o máximo de apoiadores para que ele seja resolvido. Venha experimentar!</p>
-                        <ul class="about-list">
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Missão</strong> - <em>Contribuir para uma cidade melhor</em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Habilidade</strong> - <em>Comunicação com a entidade</em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Usuários</strong> - <em>Mantê-los satisfeitos com os serviços da prefeitura</em>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Team Page
-    ==========================================-->
-    <div id="tf-team" class="text-center">
-        <div class="overlay">
-            <div class="container">
-                <div class="section-title center">
-                    <h2>Time <strong>05</strong></h2>
-                    <div class="line">
-                        <hr>
-                    </div>
-                </div>
-
-                <div id="team" class="owl-carousel owl-theme row">
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/igor.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Igor Duarte</h3>
-                                <p>Análise e desenv. de sistemas</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/rafael.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Rafael Nochelli</h3>
-                                <p>Análise e desenv. de sistemas</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/leo.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Leonardo Scalabrini</h3>
-                                <p>Engenharia de software</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/vini.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Vinícius Baesso</h3>
-                                <p>Engenharia de software</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/paulo.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Paulo Andrey</h3>
-                                <p>Engenharia de software</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/rodolfo.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Rodolfo Fassina</h3>
-                                <p>Sistemas para internet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/alan.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Alan Freitas</h3>
-                                <p>Sistemas para internet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="thumbnail">
-                            <img src="img/team/caio.jpg" alt="..." class="img-circle team-img">
-                            <div class="caption">
-                                <h3>Caio Chaim</h3>
-                                <p>Sistemas para internet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-    <nav id="footer">
-        <div class="container">
-            <div class="pull-left fnav">
-                <p>TODOS OS DIREITOS RESERVADOS. COPYRIGHT © 2016. <span class="color">TCC - Escola de TI - 2016 - TIME 05</span></p>
-            </div>
-            <div class="pull-right fnav">
-                <ul class="footer-social">
-                    <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                    <!-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+</div>
