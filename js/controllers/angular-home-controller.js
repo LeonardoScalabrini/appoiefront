@@ -1,5 +1,8 @@
-appoie.controller('homeController', ['$scope', function ($scope) {
+appoie.controller('homeController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
 
-	
+	$scope.toggleLeft = function () 
+	{
+		menuFactory.buildToggler('left');
+	};
 	
 }]);

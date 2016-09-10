@@ -32,7 +32,7 @@
                     </div>
                 </md-input-container>
 
-                <button class="submitLogin appoieButton" ng-click="">ENTRAR</button>
+                <button class="submitLogin appoieButton" ng-click="logar(login)">ENTRAR</button>
 
             </form>
 
@@ -42,7 +42,7 @@
                 </div>
 
                 <div flex="50" layout="column" class="linkAlternative cadastrarLink">
-                    <span><a ng-click="cadastro($event)">Cadastre-se</a></span>
+                    <span><a ng-click="showCadastro()">Cadastre-se</a></span>
                 </div>
             </div>
 
@@ -58,6 +58,176 @@
                     <span>Entrar com o facebook</span>
                 </div>
             </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="content-cadastro" class="content-cadastro" ng-controller="indexController">
+
+    <div class="layer-background"></div>
+    
+    <div layout="row" layout-align="center center">
+        <div flex="40" class="cont-content-cadastro">
+
+            <div ng-click="hideCadastro()" class="close-cadastro">X</div>
+
+            <div layout="column" layout-align="center center" class="logo-login">
+                <img src="../img/logo.png" height="50" width="50" alt="">
+                <span>Appoie</span>
+            </div>
+
+            <div layout="column" layout-align="center center"class="title-login">
+                <h2>FAÇA SEU CADASTRO</h2>
+            </div>
+
+            <form name="cadastroForm">
+
+                <!-- ========================================== NOME E SOBRENOME ========================================== -->
+                <div layout="row" class="containerInput">  
+                    <div layout="column" flex="50">
+
+                      <md-input-container class="md-block">
+                        <label>Nome</label>
+                        <input name="nome" ng-model="cadastro.nome" ng-required="true">
+                        <div ng-messages="cadastroForm.nome.$error">
+                          <div class="errorMsg" ng-message="required">Informe o nome</div>
+                        </div>
+                      </md-input-container>
+
+                    </div>
+
+                    <div layout="column" flex="50">
+                      
+                      <md-input-container class="md-block">
+                        <label>Sobrenome</label>
+                        <input required name="sobrenome" ng-model="cadastro.sobrenome">
+                        <div ng-messages="cadastroForm.sobrenome.$error">
+                          <div class="errorMsg" ng-message="required">Informe o sobrenome</div>
+                        </div>
+                      </md-input-container>
+
+                    </div>
+                </div>
+
+                <!-- ========================================== SEXO E DATA DE NASCIMENTO ========================================== -->
+                <div layout="row" class="containerInput">  
+                    <div layout="column" flex="50">
+                      
+                      <md-input-container>
+                        <label>Sexo</label>
+                        <md-select ng-model="cadastro.sexo" required>
+                          <md-option ng-value="sexo" ng-repeat="sexo in sexos">{{sexo.tipo}}</md-option>
+                        </md-select>
+                      </md-input-container>
+
+                    </div>
+
+                    <div layout="column" flex="50">
+                      
+                      <label class="labelEspecial" for="nascimento">Nascimento</label>
+                      <input type="date" name="nascimento" class="input-nascimento" ng-model="cadastro.nascimento" required>
+
+                    </div>
+                </div>
+
+                <!-- ========================================== CEP E CIDADE ========================================== -->
+
+                <div layout="row" class="containerInput">
+                    <div layout="column" flex="50">
+
+                        <md-input-container class="md-block">
+                            <label>Cep</label>
+                            <input name="cep" ng-model="cadastro.cep" ng-required="true" id="cep" ng-blur="burcarCep(cadastro.cep)">
+                            <div ng-messages="cadastroForm.cep.$error">
+                              <div class="errorMsg" ng-message="required">Informe o cep</div>
+                            </div>
+                        </md-input-container>
+                        
+                    </div>
+
+                    <div layout="column" flex="50">
+
+                        <md-input-container class="md-block">
+                            <label>cidade</label>
+                            <input name="cidade" ng-model="cadastro.cidade" ng-required="true" id="cidade" disabled>
+                        </md-input-container>
+                        
+                    </div>
+                </div>
+
+                <!-- ========================================== EMAIL E CONFIRMA EMAIL ========================================== -->
+
+                <div layout="row" class="containerInput">
+                    <div layout="column" flex="50">
+
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input required type="email" name="email" ng-model="cadastro.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                            <div ng-messages="cadastroForm.email.$error" role="alert">
+                                <div class="errorMsg" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                    Informe corretamente seu email
+                                </div>
+                            </div>
+                        </md-input-container>
+                        
+                    </div>
+
+                    <div layout="column" flex="50">
+
+                        <md-input-container class="md-block">
+                            <label>Confirme seu email</label>
+                            <input required type="email" name="confirmaEmail" ng-model="cadastro.confirmaEmail" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                            <div ng-messages="cadastroForm.confirmaEmail.$error" role="alert">
+                              <div class="errorMsg" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                Informe corretamente seu email
+                              </div>
+                            </div>
+                        </md-input-container>
+                        
+                    </div>
+                </div>
+
+                <!-- ========================================== SENHA E CONFIRMA SENHA ========================================== -->
+
+                <div layout="row" class="containerInput">  
+                    <div layout="column" flex="50">
+
+                      <md-input-container class="md-block">
+                        <label>Senha</label>
+                        <input type="password" name="senha" ng-model="cadastro.senha" ng-required="true">
+                        <div ng-messages="cadastroForm.senha.$error">
+                          <div class="errorMsg" ng-message="required">Informe a senha</div>
+                        </div>
+                      </md-input-container>
+
+                    </div>
+
+                    <div layout="column" flex="50">
+                      
+                      <md-input-container class="md-block">
+                        <label>Confirme sua senha</label>
+                        <input type="password" name="confirmarSenha" ng-model="cadastro.confirmarSenha" ng-required="true">
+                        <div ng-messages="cadastroForm.confirmarSenha.$error">
+                          <div class="errorMsg" ng-message="required">Informe a senha</div>
+                        </div>
+                      </md-input-container>
+
+                    </div>
+                </div>
+
+                <!-- ========================================== SUBMIT ========================================== -->
+
+                <div layout="row">
+                    <div layout="column" flex="100">
+
+                        <button class="appoieButton" ng-click="cadastrar(cadastro)">Cadastrar</button>
+
+                    </div>
+                </div>
+
+            </form>
 
         </div>
     </div>

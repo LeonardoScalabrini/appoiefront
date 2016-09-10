@@ -12,24 +12,43 @@
 
     <!-- BIBLIOTECAS DE ESTILOS & ESTILOS CUSTOMIZADOS -->
     <link rel="stylesheet" href="css/lib/angular-material.min.css">
+    <link rel="stylesheet" href="css/lib/jquery-ui.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/home.css">
 
     <!-- BIBLIOTECA PARA ADAPTAÇÃO DOS NAVEGADORES -->
     <script async src="js/lib/others/modernizr.custom.js" type="text/javascript"></script>
 
-    <!-- BIBLIOTECAS, CONFIGURAÇÃO, CONTROLADORES E SERVIÇOS DO ANGULARJS -->
-    <script src="js/lib/angularJS/angular.min.js"></script>
-    <script src="js/lib/angularJS/angular-animate.min.js"></script>
-    <script src="js/lib/angularJS/angular-aria.min.js"></script>
-    <script src="js/lib/angularJS/angular-messages.min.js"></script>
-    <script src="js/lib/angularJS/angular-material.min.js"></script>
-    <script src="js/lib/angularJS/angular-ui-router.min.js"></script>
-    <script src="js/angular-module.js"></script>
-    <script src="js/angular-config.js"></script>
-    <script src="js/controllers/angular-index-controller.js"></script>
-    <script src="js/controllers/angular-home-controller.js"></script>
-    <script src="js/controllers/angular-dialog-controller.js"></script>
-    <script src="js/directives/angular-screenheight-directive.js"></script>
+    <!-- BIBLIOTECAS, CONFIGURAÇÕES -->
+    <script  src="js/lib/angularJS/angular.min.js"></script>
+    <script  src="js/lib/angularJS/angular-api-google-maps.min.js"></script>
+    <script  src="js/lib/angularJS/angular-animate.min.js"></script>
+    <script  src="js/lib/angularJS/angular-aria.min.js"></script>
+    <script  src="js/lib/angularJS/angular-messages.min.js"></script>
+    <script  src="js/lib/angularJS/angular-material.min.js"></script>
+    <script  src="js/lib/angularJS/angular-ui-router.min.js"></script>
+    <script  src="js/angular-module.js"></script>
+    <script  src="js/angular-config.js"></script>
+    
+    <!-- CONTROLLER -->
+    <script  src="js/controllers/angular-index-controller.js"></script>
+    <script  src="js/controllers/angular-home-controller.js"></script>
+    <script  src="js/controllers/angular-menu-controller.js"></script>
+    <script  src="js/controllers/angular-map-controller.js"></script>
+    <script  src="js/controllers/angular-menu-side-menu-controller.js"></script>
+
+    <!-- FACTORY -->
+    <script  src="js/services/factories/angular-index-factory.js"></script>
+    <script  src="js/services/factories/angular-menu-factory.js"></script>
+    <script  src="js/services/factories/angular-map-factory.js"></script>
+
+    <script  src="js/providers/angular-map-provider.js"></script>
+
+    <!-- SERVICE -->
+    <script  src="js/services/services/angular-cadastro-service.js"></script>
+    <script  src="js/services/services/angular-login-service.js"></script>
+    <script  src="js/services/services/angular-home-service.js"></script>
+    <script  src="js/services/services/angular-map-service.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +56,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
   </head>
   <body>
 
@@ -44,5 +64,7 @@
 
   </body>
 
-  <script src="js/lib/jQuery/jquery.1.11.1.js"></script>
+  <script async src="js/lib/jQuery/jquery.1.11.1.js"></script>
+  <script async src="js/lib/jQuery/jquery-ui.min.js"></script>
+
 </html>
