@@ -1,10 +1,4 @@
-appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
-
-	uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyAq9rPjn3joaV_g7XxMeLihEiV6SOQcVK0',
-        v: '3.20',
-        libraries: 'weather,geometry,visualization'
-    });
+appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
 	$mdThemingProvider.theme('default')
 

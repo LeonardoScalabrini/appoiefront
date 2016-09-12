@@ -7,7 +7,7 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
   $scope.tipoToast = "";
 
   var height = window.innerHeight;
-  $("#content").css('height', height);
+  $("#content, #map").css('height', height);
 
   if ( $('.input-nascimento')[0].type != 'date' ) $('.input-nascimento').datepicker();
 

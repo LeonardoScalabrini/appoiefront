@@ -1,1 +1,1 @@
-appoie = angular.module('appoie', ['ui.router', 'ngMaterial', 'ngMessages', 'uiGmapgoogle-maps.providers']);
+appoie = angular.module('appoie', ['ui.router', 'ngMaterial', 'ngMessages']);
