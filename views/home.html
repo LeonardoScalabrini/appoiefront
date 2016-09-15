@@ -11,13 +11,17 @@
 
             <span flex></span>
 
-            <md-button class="md-icon-button" aria-label="Favorite">
+            <!-- <md-button class="md-icon-button" aria-label="Favorite">
               <md-icon md-svg-icon="img/icons/user.svg" style="color: greenyellow;"></md-icon>
-            </md-button>
+            </md-button> -->
 
-            <md-button class="md-icon-button" aria-label="More">
-              <md-icon md-svg-icon="img/icons/user.svg"></md-icon>
-            </md-button>
+            <!-- <md-button class="md-icon-button" aria-label="More">
+              <img src="../img/ico_login_mobile.png" height="25" width="25" alt="">
+            </md-button> -->
+
+            <div flex>
+              <img src="../img/ico_login_mobile.png" height="35" width="35" alt="">
+            </div>
 
           </div>
         </md-toolbar>
@@ -26,7 +30,7 @@
     
 </div>
 
-<div ng-controller="menuController" layout="column" style="height: 500px;" ng-cloak>
+<div class="map-content" ng-controller="menuController" layout="column" ng-cloak>
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
 

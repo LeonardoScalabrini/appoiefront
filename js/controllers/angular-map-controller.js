@@ -1,6 +1,6 @@
 appoie.controller('mapController', ['$scope', function ($scope) {
 
-	mapHeight = window.innerHeight;
+	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
 
 	$scope.initMap = function ()
@@ -27,7 +27,15 @@ appoie.controller('mapController', ['$scope', function ($scope) {
 	      		};
 
 	      		infoWindow.setPosition(pos);
-	      		infoWindow.setContent('Location found.');
+
+	      		var marker = new google.maps.Marker({
+	      			position: {
+	      				lat: position.coords.latitude, 
+	      				lng: position.coords.longitude
+	      			}, 
+	      			map: map
+	      		});
+	      		
 	      		map.setCenter(pos);
 	    	}, 
 	    	function() 
