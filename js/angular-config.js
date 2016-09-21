@@ -2,8 +2,8 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) 
 
 	$mdThemingProvider.theme('default')
 
-	.primaryPalette('green', {
-		'default': '400',
+	.primaryPalette('indigo', {
+		'default': '500',
       	'hue-1': '100',
       	'hue-2': '600',
       	'hue-3': 'A100'

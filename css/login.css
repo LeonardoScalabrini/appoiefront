@@ -154,10 +154,10 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
   margin-bottom: 0; 
 }
 
-md-toolbar:not(.md-menu-toolbar) {
+/*md-toolbar:not(.md-menu-toolbar) {
     background-color: #00C853;
 }
-
+*/
 .containerInput {
 	margin-top: 10px;
 	height: 70px;
