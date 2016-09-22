@@ -1,5 +1,5 @@
 appoie.service('mapService', ['$http', function ($http) {
-    
+
 	this.getPosts = function ()
 	{
 		return $http.get('publicacao/marcadores');
@@ -9,5 +9,5 @@ appoie.service('mapService', ['$http', function ($http) {
 	{
 		return $http.get('publicacao/icones');
 	}
-
-]});
+	
+}]);

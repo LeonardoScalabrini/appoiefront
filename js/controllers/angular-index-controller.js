@@ -69,8 +69,15 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
     }
     else
     {
-      indexFactory.notification('alert-success', 'Cadastrado com sucesso');
-      $scope.hideCadastro();
+      if (cadastroService.salvar(usuario))
+      {
+        indexFactory.notification('alert-success', 'Cadastrado com sucesso');
+        $scope.hideCadastro();
+      }
+      else
+      {
+        indexFactory.notification('alert-error', 'Informe os campos corretamente');
+      }
     }
   }
 
