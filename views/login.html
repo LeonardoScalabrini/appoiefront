@@ -81,7 +81,7 @@
             <div layout="column" layout-align="center center"class="title-login">
                 <h2>FAÇA SEU CADASTRO</h2>
             </div>
-
+            
             <form name="cadastroForm">
 
                 <!-- ========================================== NOME E SOBRENOME ========================================== -->
@@ -118,7 +118,8 @@
                       <md-input-container>
                         <label>Sexo</label>
                         <md-select ng-model="cadastro.sexo" required>
-                          <md-option ng-value="sexo" ng-repeat="sexo in sexos">{{sexo.tipo}}</md-option>
+                          <md-option>Masculino</md-option>
+                          <md-option>Feminino</md-option>
                         </md-select>
                       </md-input-container>
 
@@ -127,7 +128,7 @@
                     <div layout="column" flex="50">
                       
                       <label class="labelEspecial" for="nascimento">Nascimento</label>
-                      <input type="date" name="nascimento" class="input-nascimento" ng-model="cadastro.nascimento" required>
+                      <input type="date" name="dataNascimento" class="input-nascimento" ng-model="cadastro.dataNascimento" required>
 
                     </div>
                 </div>
@@ -151,7 +152,7 @@
 
                         <md-input-container class="md-block">
                             <label>cidade</label>
-                            <input name="cidade" ng-model="cadastro.cidade" ng-required="true" id="cidade" disabled>
+                            <input name="cidade" ng-model="cadastro.cidade" ng-required="true" id="cidade">
                         </md-input-container>
                         
                     </div>
@@ -208,7 +209,7 @@
                       
                       <md-input-container class="md-block">
                         <label>Confirme sua senha</label>
-                        <input type="password" name="confirmarSenha" ng-model="cadastro.confirmarSenha" ng-required="true">
+                        <input type="password" name="confirmaSenha" ng-model="cadastro.confirmaSenha" ng-required="true">
                         <div ng-messages="cadastroForm.confirmarSenha.$error">
                           <div class="errorMsg" ng-message="required">Informe a senha</div>
                         </div>

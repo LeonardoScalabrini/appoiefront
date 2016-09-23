@@ -11,8 +11,6 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
 
   if ( $('.input-nascimento')[0].type != 'date' ) $('.input-nascimento').datepicker();
 
-  $scope.sexos = [{tipo: "Masculino"}, {tipo: "Feminino"}];
-
 // =======================================================================================
 
   // FUNÇÕES DE EFEITOS E TRANSIÇÕES
@@ -56,28 +54,33 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
   {
     loginService.logar(usuario).then(function (response) {
 
+      window.location.href = "#/home";
+
     }, function (response) {
 
+      indexFactory.notification('alert-error', 'Login ou senha inválidos');
+      
     })
   }
 
   $scope.cadastrar = function (usuario)
-  {
+  {console.log(usuario)
     if ($scope.cadastroForm.$invalid)
     {
       indexFactory.notification('alert-error', 'Informe os campos corretamente');
     }
     else
     {
-      if (cadastroService.salvar(usuario))
-      {
+      cadastroService.salvar(usuario).then(function (response) {
+
         indexFactory.notification('alert-success', 'Cadastrado com sucesso');
         $scope.hideCadastro();
-      }
-      else
-      {
+
+      }, function (response) {
+
         indexFactory.notification('alert-error', 'Informe os campos corretamente');
-      }
+
+      });
     }
   }
 
@@ -87,6 +90,8 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
 
       $scope.enderecoCompleto = response.data;
       $scope.cadastro.cidade = $scope.enderecoCompleto.cidade;
+      $scope.cadastro.estado = $scope.enderecoCompleto.estado;
+
 
     }, function (response) {
 

@@ -2,11 +2,7 @@ appoie.service('cadastroService', ['$http', function ($http) {
 	
 	this.salvar = function (usuario)
 	{
-		$http.post("/usuario", usuario).then(function (response) {
-			return true;
-		}, function (response) {
-			return false;
-		})
+		return $http.post("/usuario", usuario);
 	};
 
 	this.buscarCep = function (cep)
