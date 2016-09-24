@@ -3,37 +3,36 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
 
+  	// $scope.icones = [];
+  	// $scope.marcadores = [];
+
   	$scope.icones = [];
-  	$scope.posts = [];
+  	$scope.marcadores = [];
+  	$scope.map;
+  	var teste;
+  	var passou = false;
 
-  	if ($scope.icones.length == 0)
-  	{
-  		mapService.getIcons().then(function (response) {
-  			$scope.icones = response.data;
-  		}, function (response) {
-
-  		});
-  	}
-
-  	mapService.getPosts().then(function (response) {
-  		$scope.posts = response.data;
-  	}, function (response) {
-
-  	});
 
 	$scope.initMap = function ()
 	{
-		var map;
-		map = new google.maps.Map(document.getElementById('map'), {
+	//$(document).ready(function() {	
+		
+		$scope.map = new google.maps.Map(document.getElementById('map'), {
 	        center: {
-	            lat: -34.397, 
-	            lng: 150.644
+	            lat: -23.414106,  
+	            lng: -51.9407117
 	        },
-	        zoom: 15,
+	        zoom: 12,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 
 	    //var infoWindow = new google.maps.InfoWindow({map: map});
+	    
+		 //    if($scope.icones.length > 0 || $scope.marcadores.length > 0) {
+		 //    	$scope.initMarkers();
+				
+			// }
+		
 
 	  	if (navigator.geolocation) // Try HTML5 geolocation.
 	  	{
@@ -54,20 +53,54 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	      		// 	map: map
 	      		// });
 
-	      		map.setCenter(pos);
+	      		$scope.map.setCenter(pos);
 	    	}, 
 	    	function() 
 	    	{
-	      		handleLocationError(true, infoWindow, map.getCenter());
+	      		handleLocationError(true, infoWindow, $scope.map.getCenter());
 	    	});
 
-	    	initMarkers(map, $scope.posts, $scope.icones);
+
+
+
+	    	//initMarkers(map, $scope.posts, $scope.icones);
 
 	  	} 
 	  	else 
 	  	{
 	    	handleLocationError(false, infoWindow, map.getCenter()); // Browser doesn't support Geolocation
 	  	}
+
+	  	if ($scope.icones.length == 0)
+	  	{
+
+
+	  		mapService.getIcons().then(function (response) {
+	  			//$scope.icones = response.data;
+	  			
+	  			$scope.icones = response.data;
+	  			console.log($scope.icones);
+
+
+
+	  			mapService.getMarkers().then(function (response) {
+					
+					$scope.marcadores = response.data;
+					$scope.initMarkers();
+					  	  	
+				}, function (response) {
+
+				
+				});
+	  		}, function (response) {
+
+	  		});
+
+	  	} 
+	  	 	  
+  	  	
+	  	
+	 // });
 	}
 
 	function handleLocationError(browserHasGeolocation, infoWindow, pos)
@@ -76,46 +109,66 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	  	infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 	}
 
-	function initMarkers(map, marcadores, icones)
+	$scope.initMarkers = function()
 	{
-		for (var i = 0; i < marcadores.lenth; i++) {
-			setTimeout(function () {
-				setMarkers(map, marcadores, icones);
-			}, i * 200);
-		};
+
+		var marcador;
+		for (var i = 0; i < $scope.marcadores.length; i++) {
+	 	
+			(function(i){
+			    setTimeout(function(){
+
+			 		marcador = {};
+					marcador = $scope.marcadores[i];
+			        $scope.setMarkers(marcador);
+			  }, 400  * i)
+			 })(i);
+		}
+
+	
 	}
 
-	function setMarkers(map, marcadores, icones)
+	$scope.setMarkers= function(marcador)
 	{
-		var icone = new Image();
+		//var postMin;
+		//mapService.getPostMin(marcador.idPublicacao).then(function (response) {
+  		//	postMin = response.data; 
+  		debugger;
+  		var icone = new Image();
 
-		marcadores.forEach(function (p) 
-		{
-			icones.forEach(function (obj) 
-			{
-				switch (obj.categoria)
-				{
-					case "ILUMINACAO":
-						icone.src = obj.foto;
-						break;
-					case "PAVIMENTACAO":
-						icone.src = obj.foto;
-						break;
-				}
-			});
+		for (var i = 0; i < $scope.icones.length; i++) {
+			if($scope.icones[i].categoria == marcador.categoria)
+				icone.src = $scope.icones[i].foto;
+		}		
 
-			if (icone.src == "") return;
-
+		if (icone.src == "") return;
+	
 			var marker = new google.maps.Marker({
-	      		position: new google.maps.LatLng(p),
-	      		map: map,
+	      		position: new google.maps.LatLng(marcador.lat, marcador.lng),
+	      		map: $scope.map,
 	      		icon: icone.src,
 	      		animation: google.maps.Animation.DROP,
-	      		draggable: true
+	      		draggable: false
 	      	});
+	      	var infowindow = new google.maps.InfoWindow({
+		    content: '<h2> Titulo da publicacao'
+			  });
+			  
+			 marker.addListener('click', function() {
+		  	  infowindow.open($scope.map, marker);
+		  	});
+	   			
+
+  			
+  		//}, function (response) {
+
+  		//});
+		
+
+		
 
 	      	
-		})
+		
 	}
 
 }]);
