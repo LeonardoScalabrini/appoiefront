@@ -59,12 +59,12 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
     }, function (response) {
 
       indexFactory.notification('alert-error', 'Login ou senha inválidos');
-      
+
     })
   }
 
   $scope.cadastrar = function (usuario)
-  {console.log(usuario)
+  {
     if ($scope.cadastroForm.$invalid)
     {
       indexFactory.notification('alert-error', 'Informe os campos corretamente');

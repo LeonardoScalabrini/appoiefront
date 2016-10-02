@@ -1,4 +1,10 @@
-appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+
+	$mdIconProvider
+    .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+    .iconSet('device', 'img/icons/sets/device-icons.svg', 24)
+    .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24)
+    .defaultIconSet('img/icons/sets/core-icons.svg', 24);
 
 	$mdThemingProvider.theme('default')
 

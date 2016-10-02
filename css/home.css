@@ -32,3 +32,62 @@
     outline: none;
 	font-size: 15px;
 }
+
+.logo-menu > img {
+	margin-top: 12px;
+    float: right;
+    margin-right: 14px;
+}
+
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ 
+}
+
+.datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px;
+}
+
+.datepickerdemoBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin-left: 15px; 
+}
+
+.date-container p {
+	margin: 10px 0 0 0;
+}
+
+.initDate input, .finishDate input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5px;
+	outline: none;
+	color: #ccc;
+}
+
+.card-date, .card-category, .card-type {
+	padding: 10px;
+}
+
+.card-date span, .card-category span, .card-type span {
+	padding: 10px;
+    background-color: rgb(63,81,181);
+    color: #fff;
+    cursor: pointer;
+}
+
+.card-category span {
+	margin-bottom: 10px;
+}
+
+.card-category img {
+	cursor: pointer;
+	width: 70px;
+	margin: 0 auto;
+	outline: none;
+}
+
+.card-category .img-disabled {
+	-webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}

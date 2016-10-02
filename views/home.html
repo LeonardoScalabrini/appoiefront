@@ -47,13 +47,76 @@
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
 
       <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">MENU</h1>
-        <span flex></span>
-        <img src="../img/loogo.png" height="40" width="40" alt="">
+        <div layout="row">
+
+          <div flex>
+            <h1 class="md-toolbar-tools">MENU</h1>
+          </div>
+
+          <span flex></span>
+
+          <div flex class="logo-menu">
+            <img src="../img/loogo.png" height="40" width="40" alt="">
+          </div>
+          
+        </div>
       </md-toolbar>
 
       <md-content layout-margin>
-        <!-- CONTEUDO DO MENU -->
+
+        <md-card md-theme-watch class="card-date">
+
+          <span class="span">Filtrar por data</span>
+          
+          <div class="date-container hide">
+            
+            <div class="initDate">
+              <p>de:</p>
+              <input type="date" class="date">
+            </div>
+
+            <div class="finishDate">
+              <p>Até:</p>
+              <input type="date" class="date">
+            </div>
+
+          </div>
+
+        </md-card>
+
+        <md-card md-theme-watch class="card-category">
+
+          <span class="span">Filtrar por categoria</span>
+          
+          <div class="hide">
+
+            <div layout="row" ng-repeat="categoria in categorias">
+
+              <div flex ng-repeat="grupo in categoria">
+                <img src={{grupo.url}} alt="" class="img-disabled" ng-click="selecionarCategoria($id)">
+              </div>
+              
+            </div>
+
+          </div>
+
+        </md-card>
+
+        <md-card md-theme-watch class="card-type">
+
+          <span class="span">Filtrar por Tipo</span>
+          
+          <div class="hide">
+
+            <md-list-item ng-repeat="filtro in filtros">
+              <p> {{ filtro.nome }} </p>
+              <md-checkbox class="md-secondary" ng-model="filtro.wanted"></md-checkbox>
+            </md-list-item>
+
+          </div>
+
+        </md-card>
+
       </md-content>
     </md-sidenav>
 
