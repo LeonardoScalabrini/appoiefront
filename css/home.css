@@ -55,6 +55,7 @@
 
 .date-container p {
 	margin: 10px 0 0 0;
+	color: #a1a1a1;
 }
 
 .initDate input, .finishDate input {
@@ -65,7 +66,7 @@
 	color: #ccc;
 }
 
-.card-date, .card-category, .card-type {
+.card-date, .card-category, .card-type, .card-config {
 	padding: 10px;
 }
 
@@ -74,6 +75,20 @@
     background-color: rgb(63,81,181);
     color: #fff;
     cursor: pointer;
+}
+
+.card-config span {
+	padding: 10px;
+    color: #484848;
+    cursor: pointer;
+}
+
+.card-config span:hover {
+	color: rgb(63,81,181);
+}
+
+.card-config span:first-child {
+	border-bottom: 1px solid #ccc;
 }
 
 .card-category span {

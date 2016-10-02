@@ -11,19 +11,19 @@ appoie.factory('menuFactory', ['$mdSidenav', '$timeout', function ($mdSidenav, $
 		{
 			return [
 				[
-					{url: '/img/categorias/ARBORIZACAO.png'},
-					{url: '/img/categorias/DEFESACIVIL.png'},
-					{url: '/img/categorias/FUNDODEVALE.png'}
+					{url: '/img/categorias/ARBORIZACAO.png', name: 'ARBORIZACAO'},
+					{url: '/img/categorias/DEFESACIVIL.png', name: 'DEFESACIVIL'},
+					{url: '/img/categorias/FUNDODEVALE.png', name: 'FUNDODEVALE'}
 				],
 				[
-					{url: '/img/categorias/ILUMINACAO.png'},
-					{url: '/img/categorias/PAVIMENTACAO.png'},
-					{url: '/img/categorias/SANEAMENTOBASICO.png'}
+					{url: '/img/categorias/ILUMINACAO.png', name: 'ILUMINACAO'},
+					{url: '/img/categorias/PAVIMENTACAO.png', name: 'PAVIMENTACAO'},
+					{url: '/img/categorias/SANEAMENTOBASICO.png', name: 'SANEAMENTOBASICO'}
 				],
 				[
-					{url: '/img/categorias/SEGURANCA.png'},
-					{url: '/img/categorias/TERRENOBALDIO.png'},
-					{url: '/img/categorias/TRANSPORTEPUBLICO.png'}
+					{url: '/img/categorias/SEGURANCA.png', name: 'SEGURANCA'},
+					{url: '/img/categorias/TERRENOBALDIO.png', name: 'TERRENOBALDIO'},
+					{url: '/img/categorias/TRANSPORTEPUBLICO.png', name: 'TRANSPORTEPUBLICO'}
 				]
 			]
 		}

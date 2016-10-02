@@ -10,7 +10,7 @@
             </md-button>
 
             <div class="img-logo-header">
-              <img src="../img/loogo.png" height="40" width="40" alt="">
+              <span style="font-size: 20px;">Appoie</span>
             </div>
 
             <span flex></span>
@@ -93,7 +93,7 @@
             <div layout="row" ng-repeat="categoria in categorias">
 
               <div flex ng-repeat="grupo in categoria">
-                <img src={{grupo.url}} alt="" class="img-disabled" ng-click="selecionarCategoria($id)">
+                <img src={{grupo.url}} alt={{grupo.name}} class="img-disabled" ng-click="selecionarCategoria(this)">
               </div>
               
             </div>
@@ -114,6 +114,13 @@
             </md-list-item>
 
           </div>
+
+        </md-card>
+
+        <md-card md-theme-watch class="card-config">
+
+          <span>Configurações</span>
+          <span>Sair</span>
 
         </md-card>
 

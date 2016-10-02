@@ -10,7 +10,8 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 	$scope.filtros = [
 	    { nome: 'Abertos', wanted: false },
 	    { nome: 'Fechados', wanted: false },
-	    { nome: 'Minhas publicações', wanted: false }
+	    { nome: 'Minhas publicações', wanted: false },
+	    { nome: '10 mais apoiados', wanted: false }
 	];
 
 	$scope.categorias = menuFactory.categorias();
@@ -30,9 +31,9 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 		
 	});
 
-	$scope.selecionarCategoria = function (id)
+	$scope.selecionarCategoria = function (element)
 	{
-		alert(id);
+		
 	}
 
 }]);
