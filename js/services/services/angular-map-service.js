@@ -7,7 +7,7 @@ appoie.service('mapService', ['$http', function ($http) {
 
 	this.getIcons = function ()
 	{
-		return $http.get('publicacao/icone');
+		return $http.get('publicacao/icones');
 	}
 
 	this.getPostMin = function (id) {

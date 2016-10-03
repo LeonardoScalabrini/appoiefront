@@ -33,7 +33,7 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 
 	$scope.selecionarCategoria = function (element)
 	{
-		
+		element.removeAttribute('class');
 	}
 
 }]);
