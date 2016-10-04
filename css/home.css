@@ -24,13 +24,16 @@
 }
 
 .input-search {
-	margin-right: 20px;
-	width: 330px;
-    border: none;
-    padding: 7px;
-    color: #a1a1a1;
-    outline: none;
-	font-size: 15px;
+	position: absolute;
+	top: 70px;
+	left: 10px;
+	z-index: 9;
+	padding: 10px;
+	width: 40%;
+	outline: none;
+	color: #a1a1a1;
+	border: 1px solid #ccc;
+	border-radius: 2px;
 }
 
 .logo-menu > img {
@@ -66,33 +69,51 @@
 	color: #ccc;
 }
 
-.card-date, .card-category, .card-type, .card-config {
+.card-date, .card-category, .card-type, .card-config, .card-perfil {
 	padding: 10px;
 }
 
 .card-date span, .card-category span, .card-type span {
 	padding: 10px;
-    background-color: rgb(63,81,181);
-    color: #fff;
+    color: #484848;
     cursor: pointer;
+}
+
+.cont-date {
+	padding: 0 10px;
+	margin-top: 10px;
+}
+
+.cont-date input {
+	width: 95%; 
+	padding: 5px;
+	border: 1px solid #a1a1a1;
+	color: #ccc;
+	outline: none;
+}
+
+.cont-date .prefixo {
+	width: 20px; 
+	margin-right: 20px; 
+	padding-top: 10px;
+}
+
+.card-date span > i:last-child, 
+.card-category span > i:last-child, 
+.card-type span > i:last-child {
+	position: absolute;
+    right: 20px;
+    color: #ccc;
+}
+
+.category-container, .filter-container, .date-container {
+	margin-top: 20px;
 }
 
 .card-config span {
 	padding: 10px;
     color: #484848;
     cursor: pointer;
-}
-
-.card-config span:hover {
-	color: rgb(63,81,181);
-}
-
-.card-config span:first-child {
-	border-bottom: 1px solid #ccc;
-}
-
-.card-category span {
-	margin-bottom: 10px;
 }
 
 .card-category img {
@@ -103,6 +124,24 @@
 }
 
 .card-category .img-disabled {
-	-webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+	-webkit-filter: contrast(20%);
+    filter: contrast(20%);
+}
+
+.pic-menu-perfil {
+	width: 100px !important;
+	border-radius: 50%;
+}
+
+md-card {
+	margin: 8px 0 !important;
+}
+
+.menu-nome-perfil {
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.menu-cidade, .menu-edit {
+	font-size: 13px;
 }
