@@ -42,7 +42,7 @@ html, body {
 
 .logo-login span {
 	font-size: 20px;
-	color: #00C853;
+	color: rgb(63,81,181);
 }
 
 .title-login h2 {
@@ -70,15 +70,15 @@ md-input-container .md-errors-spacer {
 
 md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
 md-input-container:not(.md-input-has-value).md-input-focused .md-select {
-	border-color: #00C853;
+	border-color: rgb(63,81,181);
 }
 
 md-input-container:not(.md-input-invlalid).md-input-focused label {
-	color: #00C853;
+	color: rgb(63,81,181);
 }
 
 .appoieButton {
-	background-color: #00C853;
+	background-color: rgb(63,81,181);
 	margin: 5px 0 0 0;
 	color: #ffffff;
 	border: none;
@@ -104,7 +104,7 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
 }
 
 .linkAlternative span > a:hover {
-	color: #00C853;
+	color: rgb(63,81,181);
 }
 
 .cadastrarLink {
@@ -186,7 +186,7 @@ md-input-container {
 }
 
 md-select:not([disabled]):focus .md-select-value {
-	border-bottom-color: #00C853;
+	border-bottom-color: rgb(63,81,181);
 }
 
 .sucesso {
@@ -251,7 +251,7 @@ md-select:not([disabled]):focus .md-select-value {
     font-weight: bold;
     position: relative;
     bottom: 7px;
-    color: #00C853;
+    color: rgb(63,81,181);
 }
 
 .back-position {
