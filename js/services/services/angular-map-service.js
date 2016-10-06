@@ -14,11 +14,6 @@ appoie.service('mapService', ['$http', function ($http) {
 
 	this.getIcons = function ()
 	{
-<<<<<<< HEAD
-		return $http.get('publicacao/icones');
-=======
-		return $http.get('publicacao/icone');
->>>>>>> #7579
 		return $http.get('publicacao/icones');
 	}
 
