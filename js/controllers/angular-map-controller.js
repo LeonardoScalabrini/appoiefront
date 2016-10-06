@@ -9,8 +9,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
   	$scope.icones = [];
   	$scope.marcadores = [];
   	$scope.map;
-  	var teste;
-  	var passou = false;
+  	$scope.postMin;
 
 
 	$scope.initMap = function ()
@@ -121,7 +120,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 			 		marcador = {};
 					marcador = $scope.marcadores[i];
 			        $scope.setMarkers(marcador);
-			  }, 400  * i)
+			  }, 250 * i)
 			 })(i);
 		}
 
@@ -130,10 +129,11 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 
 	$scope.setMarkers= function(marcador)
 	{
-		//var postMin;
+
+		//var idPublicacao;
 		//mapService.getPostMin(marcador.idPublicacao).then(function (response) {
   		//	postMin = response.data; 
-  		debugger;
+  		
   		var icone = new Image();
 
 		for (var i = 0; i < $scope.icones.length; i++) {
@@ -150,25 +150,58 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	      		animation: google.maps.Animation.DROP,
 	      		draggable: false
 	      	});
-	      	var infowindow = new google.maps.InfoWindow({
-		    content: '<h2> Titulo da publicacao'
-			  });
-			  
-			 marker.addListener('click', function() {
+
+	      	mapService.getPostMin(marcador.idPublicacao).then(function(response) {
+	      		
+	      		$scope.postMin = response.data;
+	      		idPublicacao = $scope.postMin.idPublicacao;
+	      		//console.log($scope.postMin);
+	      		//var teste = $scope.postMin.idPublicacao.toString();
+	      		//alert(teste);
+	      		//	var idPublicacao = $scope.postMin.idPublicacao.toString();
+	      		//teste = "apoiar('" + $scope.postMin.idPublicacao + "')";
+	      		
+	      		
+
+	      		var infowindow = new google.maps.InfoWindow({
+			    content: '<div align="center">'
+
+			    		 + 		'<h3>' + $scope.postMin.titulo + '</h3>'
+			    		 + '</div>'
+			    		 +'<div align="center" >'
+			    		 + 		'<img src=  "' + $scope.postMin.foto + '" style="width:150px;"></img>'
+			    		 + '</div>'
+
+			    		 +'<div class="footerInfo">'
+			    		 + 		'<p>'
+			    		 + 			'<a onclick="apoiar(idPublicacao)" style="cursor:pointer;float:left; text-decoration:none;">Apoiar</a>'
+			    		 //+ 			'<a onclick="apoiar(' + idPublicacao + ')" style="cursor:pointer;float:left; text-decoration:none;">Apoiar</a>'
+			    		 +			'<a href="#" style="float:right;color:black;">Ver mais</a>'
+			    		 + 		'</p>'
+			    		 +		'<p>'
+			    		 +			$scope.postMin.qtdApoiadores + 'apoiadores'
+			    		 +		'</p>'
+			    		 + '</div>' 			    		 
+
+				  });
+				  
+				 marker.addListener('click', function() {
 		  	  infowindow.open($scope.map, marker);
 		  	});
-	   			
+	      	}, function(response) {
 
-  			
-  		//}, function (response) {
-
-  		//});
-		
-
-		
-
+	      	});
 	      	
 		
+	}
+
+	apoiar = function(idPublicacao) {
+		mapService.apoiar(idPublicacao).then(function(response) {
+
+		}, function() {
+
+		});
+
 	}
 
 }]);
