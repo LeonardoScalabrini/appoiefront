@@ -3,6 +3,7 @@
 	border: 2px solid #fff;
 	border-radius: 50%;
 	cursor: pointer;
+	outline: none;
 }
 
 .img-logo-header {
@@ -134,6 +135,11 @@
 	border-radius: 50%;
 }
 
+.pic-account-modal {
+	width: 150px !important;
+	border-radius: 50%;
+}
+
 .menu-nome-perfil {
 	font-weight: bold;
 	font-size: 17px;
@@ -157,4 +163,18 @@
 
 md-card {
 	margin: 8px !important;
+}
+
+.menudemoMenuPositionModes .md-menu-demo {
+  padding: 24px; }
+
+.menudemoMenuPositionModes .menu-demo-container {
+  min-height: 200px; }
+
+  .md-open-menu-container {
+  	top: 65px !important;
+  }
+
+md-menu-content {
+	padding: 10px;
 }

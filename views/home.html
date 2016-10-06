@@ -27,9 +27,30 @@
               <img src="../img/ico_login_mobile.png" height="35" width="35" alt="">
             </div> -->
 
-            <div class="img-user-header">
-              <img src="../img/team/alan.jpg" height="40" width="40" alt="">
-            </div>
+           
+
+            <md-menu md-position-mode="target-right target" >
+              <div class="img-user-header">
+                <img aria-label="Open demo menu" src="../img/team/alan.jpg" height="40" width="40" alt="" ng-click="$mdOpenMenu($event)">
+              </div>
+              <md-menu-content width="6" >
+                <div layout="row">
+
+                  <div flex class="content-account">
+                  
+                    <img src="../img/team/alan.jpg" alt="" class="pic-account-modal">
+
+                  </div>
+
+                  <div flex class="content-account-info">
+                  
+                    <span>Olá, Alan Freitas!</span>
+
+                  </div>
+                  
+                </div>
+              </md-menu-content>
+            </md-menu>
 
           </div>
         </md-toolbar>
