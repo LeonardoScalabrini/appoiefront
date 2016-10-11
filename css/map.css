@@ -1,0 +1,78 @@
+/* DESIGN DA PRÉVIA DOS MARCADORES */
+
+#iw-container {
+  width: 281px !important;
+  padding: 0 10px 0 10px;
+}
+
+#iw-container  .iw-title {
+  text-align: center;
+   font-family: 'Open Sans Condensed', sans-serif;
+   font-size: 15px;
+   font-weight: 400;
+   padding: 10px;
+   color: #484848;
+   margin: 1px;
+   border-radius: 2px 2px 0 0; /* De acordo com o arredondamento dos cantos da infowindow por padrão. */
+}
+
+.gm-style-iw {
+   width: 298px !important;
+   top: 15px !important; // mover a infowindow 15px para baixo
+   left: 0 !important;
+   background-color: #fff;
+   box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+   border: 1px solid rgba(72, 181, 233, 0.6);
+   border-radius: 2px 2px 2px 2px;
+}
+
+#iw-container img.img-publicacao {
+  border-radius: 2px;
+}
+
+.qtdApoiadores {
+  text-align: right;
+}
+
+.apoiar p {
+  width: 70px;
+}
+
+.qtdApoiadores p {
+  float: right;
+}
+
+.apoiar img {
+  width: 15px;
+  margin: 12px 5px 0 0;
+  float: left;
+}
+
+.qtdApoiadores p, .apoiar p {
+  cursor: pointer;
+}
+
+.qtdApoiadores p:hover, .apoiar p:hover {
+  text-decoration: underline;
+}
+
+.md-button {
+  padding: 0 6px 0 6px;
+  margin: 0 0 10px 0 !important;
+  width: 100%;
+  min-width: 100%;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.apoiado {
+  color: rgb(63,81,181);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #94a4ff;
+}
