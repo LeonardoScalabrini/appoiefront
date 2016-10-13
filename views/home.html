@@ -1,17 +1,226 @@
-<div class="container">
-	<div class="row">
-		<div class="col-lg-4 col-lg-offset-4">
-			<h1>Seja bem vindo</h1>
-		</div>
-	</div>
+<div ng-controller="homeController" ng-cloak>
+
+    <md-content>
+
+        <md-toolbar class="md-primary">
+          <div class="md-toolbar-tools">
+
+            <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+              <md-icon md-svg-icon="img/icons/menu-button.svg" class="btn-menu" ng-click="toggleLeft()"></md-icon>
+            </md-button>
+
+            <div class="img-logo-header">
+              <span style="font-size: 20px;">Appoie</span>
+            </div>
+
+            <span flex></span>
+
+            <!-- <md-button class="md-icon-button" aria-label="Favorite">
+              <md-icon md-svg-icon="img/icons/user.svg" style="color: greenyellow;"></md-icon>
+            </md-button> -->
+
+            <!-- <md-button class="md-icon-button" aria-label="More">
+              <img src="../img/ico_login_mobile.png" height="25" width="25" alt="">
+            </md-button> -->
+
+            <!-- <div class="img-user-header">
+              <img src="../img/ico_login_mobile.png" height="35" width="35" alt="">
+            </div> -->
+
+           
+
+            <md-menu md-position-mode="target-right target" >
+              <div class="img-user-header">
+                <img aria-label="Open demo menu" src="../img/team/alan.jpg" height="40" width="40" alt="" ng-click="$mdOpenMenu($event)">
+              </div>
+              <md-menu-content width="6" >
+                <div layout="row">
+
+                  <div flex class="content-account">
+                  
+                    <img src="../img/team/alan.jpg" alt="" class="pic-account-modal">
+
+                  </div>
+
+                  <div flex class="content-account-info">
+                  
+                    <span>Olá, Alan Freitas!</span>
+
+                  </div>
+                  
+                </div>
+              </md-menu-content>
+            </md-menu>
+
+          </div>
+        </md-toolbar>
+
+    </md-content>
+    
 </div>
 
-<div ui-view="system-pages"></div>
+<div class="search-header">
+  <input type="search" class="input-search" placeholder="Pesquisar">
+</div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-4 col-lg-offset-4">
-			<h1>Esse é um rodapé!</h1>
-		</div>
-	</div>
+<div class="map-content" ng-controller="menuController" layout="column" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <div layout="row">
+
+          <div flex>
+            <h1 class="md-toolbar-tools">MENU</h1>
+          </div>
+
+          <span flex></span>
+
+          <div flex class="logo-menu">
+            <img src="../img/loogo.png" height="40" width="40" alt="">
+          </div>
+          
+        </div>
+      </md-toolbar>
+
+      <md-content layout-margin>
+          
+            <md-card md-theme-watch class="card-perfil">
+
+              <div layout="row">
+
+                <div flex>
+                  <img src="../img/team/alan.jpg" alt="" class="pic-menu-perfil">
+                </div>
+
+                <div flex>
+                  <div>
+                    <span class="menu-nome-perfil">Alan Freitas</span>
+                  </div>
+                  <div>
+                    <span class="menu-cidade">Maringá - PR</span>
+                  </div>
+                  <div>
+                    <span class="menu-edit">Perfil</span>
+                  </div>
+                </div>
+                
+              </div>
+
+            </md-card>
+
+        <form name="filter-form">
+
+            <md-card md-theme-watch class="card-date">
+
+              <span class="span">Filtrar por data <i class="material-icons">add</i></span>
+              
+              <div class="date-container hide">
+
+                <div layout="row" class="cont-date">
+
+                  <div class="prefixo">De:</div>
+                  <div flex><input type="date" ng-model="dataInicio"></div>
+                  
+                </div>
+
+                <div layout="row" class="cont-date">
+
+                  <div class="prefixo">Até:</div>
+                  <div flex><input type="date" ng-model="dataFim"></div>
+                  
+                </div>
+
+              </div>
+
+            </md-card>
+
+            <md-card md-theme-watch class="card-category">
+
+              <span class="span">Filtrar por categoria <i class="material-icons">add</i></span>
+              
+              <div class="category-container hide">
+
+                <div layout="row">
+                  <div flex>
+                    <img src="/img/categorias/ARBORIZACAO.png" alt="ARBORIZACAO" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/DEFESACIVIL.png" alt="DEFESACIVIL" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/FUNDODEVALE.png" alt="FUNDODEVALE" class="img-disabled img-select">
+                  </div>
+                </div>
+
+                <div layout="row">
+                  <div flex>
+                    <img src="/img/categorias/ILUMINACAO.png" alt="ILUMINACAO" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/PAVIMENTACAO.png" alt="PAVIMENTACAO" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/SANEAMENTOBASICO.png" alt="SANEAMENTOBASICO" class="img-disabled img-select">
+                  </div>
+                </div>
+
+                <div layout="row">
+                  <div flex>
+                    <img src="/img/categorias/SEGURANCA.png" alt="SEGURANCA" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/TERRENOBALDIO.png" alt="TERRENOBALDIO" class="img-disabled img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class="img-disabled img-select">
+                  </div>
+                </div>
+
+              </div>
+
+            </md-card>
+
+            <md-card md-theme-watch class="card-type">
+
+              <span class="span">Filtrar por Tipo <i class="material-icons">add</i></span>
+              
+              <div class="filter-container hide">
+
+                <md-list-item ng-repeat="filtro in filtros">
+                  <p> {{ filtro.nome }} </p>
+                  <md-checkbox class="md-secondary" ng-model="filtro.wanted"></md-checkbox>
+                </md-list-item>
+
+              </div>
+
+            </md-card>
+
+            <md-card md-theme-watch class="card-config">
+              <span class="span">Configurações</span>
+            </md-card>
+
+            <md-card md-theme-watch class="card-config">
+              <span class="span">Sair</span>
+            </md-card>
+
+        </form>
+
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex>
+      <div layout="column" layout-align="left">
+
+        <div ui-view="system-pages"></div> <!-- CORPO DO SITE - VIEWS A SEREM CARREGADAS -->
+        
+      </div>
+    </md-content>
+  </section>
 </div>

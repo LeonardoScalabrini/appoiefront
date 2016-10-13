@@ -1,1 +1,1 @@
-application = angular.module("appoie-application", ["ui.router"]);
+appoie = angular.module('appoie', ['ui.router', 'ngMaterial', 'ngMessages']);

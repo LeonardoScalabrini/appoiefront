@@ -1,81 +1,101 @@
-application.controller('index-controller', function () {
+appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService', 'loginService', function ($scope, indexFactory, cadastroService, loginService) {
 
-  $('a.page-scroll').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top - 40
-        }, 900);
-        return false;
-      }
+  // ALGUMAS CONFIGURAÇÕES DA INDEX
+
+  $scope.cadastroForm = {};
+  $scope.enderecoCompleto = {};
+  $scope.tipoToast = "";
+
+  var height = window.innerHeight;
+  $("#content, #map").css('height', height);
+
+  if ( $('.input-nascimento')[0].type != 'date' ) $('.input-nascimento').datepicker();
+
+// =======================================================================================
+
+  // FUNÇÕES DE EFEITOS E TRANSIÇÕES
+
+  $scope.showCadastro = function (e)
+  {
+    $("#content").addClass('move-left');
+    $("#content-cadastro").addClass('back-position');
+    showCadastroEffect();
+  }
+
+  $scope.hideCadastro = function (e)
+  {
+    $("#content").removeClass('move-left');
+    $("#content-cadastro").removeClass('back-position');
+    limpaCampos();
+    showCadastroEffect();
+  }
+
+  var showCadastroEffect = function ()
+  {
+    if($(".layer-background").hasClass('layer-effect')) {
+      $(".layer-background").removeClass('layer-effect');
     }
-  });
-
-//===================================================
-
-  $(window).bind('scroll', function() {
-    var navHeight = $(window).height() - 100;
-    if ($(window).scrollTop() > navHeight) {
-      $('.navbar-default').addClass('on');
-    } else {
-      $('.navbar-default').removeClass('on');
+    else {
+      $(".layer-background").addClass('layer-effect');
     }
-  });
+  }
 
-  $('body').scrollspy({ 
-    target: '.navbar-default',
-    offset: 80
-  });
+  limpaCampos = function ()
+  {
+    delete $scope.cadastro;
+    $scope.cadastroForm.$setPristine();
+  }
 
-//===================================================
+// ========================================================================================
 
-	$("#team").owlCarousel({
-     
-    navigation : false, // Show next and prev buttons
-    slideSpeed : 300,
-    paginationSpeed : 400,
-    autoHeight : true,
-    itemsCustom : [
-      [0, 1],
-      [450, 2],
-      [600, 2],
-      [700, 2],
-      [1000, 4],
-      [1200, 4],
-      [1400, 4],
-      [1600, 4]
-    ],
-  });
+  // INTERAÇÕES DO CADASTRO E LOGIN - VERIFICAÇÕES EM ROTAS DO BACK END
 
-  $("#clients").owlCarousel({
-     
-    navigation : false, // Show next and prev buttons
-    slideSpeed : 300,
-    paginationSpeed : 400,
-    autoHeight : true,
-    itemsCustom : [
-      [0, 1],
-      [450, 2],
-      [600, 2],
-      [700, 2],
-      [1000, 4],
-      [1200, 5],
-      [1400, 5],
-      [1600, 5]
-    ],
-  });
+  $scope.logar = function (usuario)
+  {
+    loginService.logar(usuario).then(function (response) {
 
-  $("#testimonial").owlCarousel({
-    navigation : false, // Show next and prev buttons
-    slideSpeed : 300,
-    paginationSpeed : 400,
-    singleItem:true
-  });
+      window.location.href = "#/home";
 
-  // Máscara de inputs
-  $('#telefone').mask('(99) 9999-9999');
-  $('#cpf').mask('999-999-999-99');
+    }, function (response) {
+
+      indexFactory.notification('alert-error', 'Login ou senha inválidos');
+
+    })
+  }
+
+  $scope.cadastrar = function (usuario)
+  {
+    if ($scope.cadastroForm.$invalid)
+    {
+      indexFactory.notification('alert-error', 'Informe os campos corretamente');
+    }
+    else
+    {
+      cadastroService.salvar(usuario).then(function (response) {
+
+        indexFactory.notification('alert-success', 'Cadastrado com sucesso');
+        $scope.hideCadastro();
+
+      }, function (response) {
+
+        indexFactory.notification('alert-error', 'Informe os campos corretamente');
+
+      });
+    }
+  }
+
+  $scope.burcarCep = function (cep)
+  {
+    cadastroService.buscarCep(cep).then(function (response) {
+
+      $scope.enderecoCompleto = response.data;
+      $scope.cadastro.cidade = $scope.enderecoCompleto.cidade;
+      $scope.cadastro.estado = $scope.enderecoCompleto.estado;
+
+
+    }, function (response) {
+
+    })
+  }
 	
-});
+}]);

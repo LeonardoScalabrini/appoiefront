@@ -1,0 +1,180 @@
+.img-user-header img {
+	margin-top: 4px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	outline: none;
+}
+
+.img-logo-header {
+	margin-top: 5px;
+}
+
+.word-logo-header {
+	margin-left: 10px;
+}
+
+.word-logo-header span {
+	color: #fff;
+}
+
+.btn-menu {
+	cursor: pointer;
+	outline: none;
+	color: #ffffff !important;
+}
+
+.input-search {
+	position: absolute;
+	top: 70px;
+	left: 10px;
+	z-index: 9;
+	padding: 10px;
+	width: 40%;
+	outline: none;
+	color: #a1a1a1;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+.logo-menu > img {
+	margin-top: 12px;
+    float: right;
+    margin-right: 14px;
+}
+
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ 
+}
+
+.datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px;
+}
+
+.datepickerdemoBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin-left: 15px; 
+}
+
+.date-container p {
+	margin: 10px 0 0 0;
+	color: #a1a1a1;
+}
+
+.initDate input, .finishDate input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5px;
+	outline: none;
+	color: #ccc;
+}
+
+.card-perfil {
+	padding: 10px;
+}
+
+.card-date span, .card-category span, .card-type span {
+	padding: 10px;
+    color: #484848;
+    cursor: pointer;
+}
+
+.cont-date {
+	padding: 0 10px;
+	margin-top: 10px;
+}
+
+.cont-date input {
+	width: 95%; 
+	padding: 5px;
+	border: 1px solid #a1a1a1;
+	color: #ccc;
+	outline: none;
+}
+
+.cont-date .prefixo {
+	width: 20px; 
+	margin-right: 20px; 
+	padding-top: 10px;
+}
+
+.card-date span > i:last-child, 
+.card-category span > i:last-child, 
+.card-type span > i:last-child {
+	position: absolute;
+    right: 20px;
+    color: #ccc;
+}
+
+.category-container, .filter-container, .date-container {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.card-config span {
+	padding: 10px;
+    color: #484848;
+    cursor: pointer;
+}
+
+.card-category img {
+	cursor: pointer;
+	width: 70px;
+	margin: 0 auto;
+	outline: none;
+}
+
+.card-category .img-disabled {
+	-webkit-filter: contrast(20%);
+    filter: contrast(20%);
+}
+
+.pic-menu-perfil {
+	width: 100px !important;
+	border-radius: 50%;
+}
+
+.pic-account-modal {
+	width: 150px !important;
+	border-radius: 50%;
+}
+
+.menu-nome-perfil {
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.menu-cidade, .menu-edit {
+	font-size: 13px;
+}
+
+.layout-margin, 
+.layout-margin-gt-sm, 
+.layout-margin-gt-sm>*, 
+.layout-margin-md, 
+.layout-margin-md>*, 
+.layout-margin>*, 
+.layout-margin>.flex, 
+.layout-margin>.flex-gt-sm, 
+.layout-margin>.flex-md {
+    margin: 0;
+}
+
+md-card {
+	margin: 8px !important;
+}
+
+.menudemoMenuPositionModes .md-menu-demo {
+  padding: 24px; }
+
+.menudemoMenuPositionModes .menu-demo-container {
+  min-height: 200px; }
+
+  .md-open-menu-container {
+  	top: 65px !important;
+  }
+
+md-menu-content {
+	padding: 10px;
+}
