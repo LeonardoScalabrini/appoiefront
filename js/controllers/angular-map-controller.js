@@ -11,7 +11,10 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
   	$scope.map;
   	$scope.postMin;
 
-
+  	setInterval(function() { 
+        mapService.notificar().then(console.log('chamou'));
+    }, 5000);
+  	
 	$scope.initMap = function ()
 	{
 	//$(document).ready(function() {	

@@ -4,8 +4,13 @@ appoie.service('mapService', ['$http', function ($http) {
     	return $http.post('publicacao/apoiar/' + idPublicacao);
 
     }	
+    
+    this.notificar = function ()
 
-
+	{
+		return $http.get('notificar');
+	}
+    
 	this.getMarkers = function ()
 
 	{
