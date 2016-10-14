@@ -1,4 +1,4 @@
-application.controller('loginController', ['$scope', 'loginService', 'mensagemFactory', function ($scope, loginService, mensagemFactory) {
+appoie.controller('loginController', ['$scope','$facebook','loginService', 'mensagemFactory', function ($scope,$facebook, loginService, mensagemFactory) {
 
 	$scope.senhaPerdida = false;
 	$scope.modalTitle = "Entre com sua conta";
@@ -31,5 +31,29 @@ application.controller('loginController', ['$scope', 'loginService', 'mensagemFa
 			mensagemFactory.erro(propriedades);
 		});
 	};
+	
+	/* $scope.$on('fb.auth.authResponseChange', function() {
+	      $scope.status = $facebook.isConnected();
+	      if($scope.status) {
+	        $facebook.api('/me').then(function(user) {
+	          $scope.user = user;
+	        });
+	      }
+	    });
+
+	    $scope.loginFacebook = function() {
+	      if($scope.status) {
+	        $facebook.logout();
+	      } else {
+	        $facebook.login();
+	      }
+	    };
+
+	    $scope.getFriends = function() {
+	      if(!$scope.status) return;
+	      $facebook.cachedApi('/me/friends').then(function(friends) {
+	        $scope.friends = friends.data;
+	      });
+	    }*/
 	
 }]);

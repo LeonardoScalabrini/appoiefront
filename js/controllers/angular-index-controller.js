@@ -1,4 +1,4 @@
-appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService', 'loginService', function ($scope, indexFactory, cadastroService, loginService) {
+appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cadastroService', 'loginService', function ($scope,$facebook, indexFactory, cadastroService, loginService) {
 
   // ALGUMAS CONFIGURAÇÕES DA INDEX
 
@@ -97,5 +97,28 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
 
     })
   }
+  
+  // Funções referente ao Facebook
+  
+  $scope.$on('fb.auth.authResponseChange', function() {
+      $scope.status = $facebook.isConnected();
+      if($scope.status) {
+        $facebook.api('/me').then(function(user) {
+          $scope.user = user;
+        });
+      }
+    });
+
+    $scope.loginFacebook = function() {      
+        $facebook.login();
+      
+    };
+
+    $scope.getFriends = function() {
+      if(!$scope.status) return;
+      $facebook.cachedApi('/me/friends').then(function(friends) {
+        $scope.friends = friends.data;
+      });
+    }
 	
 }]);

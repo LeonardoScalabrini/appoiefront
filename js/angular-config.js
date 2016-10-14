@@ -1,4 +1,6 @@
-appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider,$facebookProvider) {
+	
+	$facebookProvider.setAppId('647852842030961');
 
 	$mdIconProvider
     .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
@@ -38,4 +40,18 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
 		}
 	});
 	
+})
+.run( function( $rootScope ) {
+ 
+  // Carrega o SDK do Face
+  (function(){
+    if (document.getElementById('facebook-jssdk')) {return;}
+    var firstScriptElement = document.getElementsByTagName('script')[0];
+ 
+    var facebookJS = document.createElement('script');
+    facebookJS.id = 'facebook-jssdk';
+ 
+    facebookJS.src = '//connect.facebook.net/pt_BR/sdk.js';
+    firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+   }());
 });
