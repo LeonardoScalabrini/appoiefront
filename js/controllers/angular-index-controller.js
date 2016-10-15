@@ -98,22 +98,34 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
     })
   }
   
-  // Funções referente ao Facebook
+  //FUNÇÕES DO PARA ULTILIZAR A API DO FACEBOOK
   
+//Campos que vão ser retornados após o login ser confirmado
+  var usuario = [
+    'id',   
+    'first_name',
+    'middle_name',
+    'last_name',
+    'birthday',
+    'email',
+  ].join(',');
+  $scope.acesso=false;
   $scope.$on('fb.auth.authResponseChange', function() {
-      $scope.status = $facebook.isConnected();
+      $scope.status = $facebook.isConnected();      
       if($scope.status) {
-        $facebook.api('/me').then(function(user) {
-          $scope.user = user;
+        $facebook.api('/me/usuario').then(function(user) {
+          $scope.user = user;  
+          
         });
+        window.location.href = "#/home";
       }
     });
 
     $scope.loginFacebook = function() {      
-        $facebook.login();
+        $facebook.login();      
       
     };
-
+    
     $scope.getFriends = function() {
       if(!$scope.status) return;
       $facebook.cachedApi('/me/friends').then(function(friends) {

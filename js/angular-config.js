@@ -43,7 +43,7 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
 })
 .run( function( $rootScope ) {
  
-  // Carrega o SDK do Face
+  // Carrega o SDK do Facebok
   (function(){
     if (document.getElementById('facebook-jssdk')) {return;}
     var firstScriptElement = document.getElementsByTagName('script')[0];
