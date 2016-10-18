@@ -3,9 +3,6 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
 
-  	// $scope.icones = [];
-  	// $scope.marcadores = [];
-
   	$scope.icones = [];
   	$scope.marcadores = [];
   	$scope.map;
@@ -15,9 +12,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
         mapService.notificar().then(console.log('chamou'));
     }, 5000);
   	
-	$scope.initMap = function ()
-	{
-	//$(document).ready(function() {	
+	$scope.initMap = function (){
 		
 		$scope.map = new google.maps.Map(document.getElementById('map'), {
 	        center: {
@@ -28,14 +23,6 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 
-	    //var infoWindow = new google.maps.InfoWindow({map: map});
-	    
-		 //    if($scope.icones.length > 0 || $scope.marcadores.length > 0) {
-		 //    	$scope.initMarkers();
-				
-			// }
-		
-
 	  	if (navigator.geolocation) // Try HTML5 geolocation.
 	  	{
 	    	navigator.geolocation.getCurrentPosition(function(position)
@@ -45,27 +32,12 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	        		lng: position.coords.longitude
 	      		};
 
-	      		//infoWindow.setPosition(pos);
-
-	      		// var marker = new google.maps.Marker({
-	      		// 	position: {
-	      		// 		lat: position.coords.latitude, 
-	      		// 		lng: position.coords.longitude
-	      		// 	}, 
-	      		// 	map: map
-	      		// });
-
 	      		$scope.map.setCenter(pos);
 	    	}, 
 	    	function() 
 	    	{
 	      		handleLocationError(true, infoWindow, $scope.map.getCenter());
 	    	});
-
-
-
-
-	    	//initMarkers(map, $scope.posts, $scope.icones);
 
 	  	} 
 	  	else 
@@ -78,12 +50,9 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 
 
 	  		mapService.getIcons().then(function (response) {
-	  			//$scope.icones = response.data;
 	  			
 	  			$scope.icones = response.data;
 	  			console.log($scope.icones);
-
-
 
 	  			mapService.getMarkers().then(function (response) {
 					
@@ -99,10 +68,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	  		});
 
 	  	} 
-	  	 	  
-  	  	
-	  	
-	 // });
+
 	}
 
 	function handleLocationError(browserHasGeolocation, infoWindow, pos)
@@ -113,7 +79,6 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 
 	$scope.initMarkers = function()
 	{
-
 		var marcador;
 		for (var i = 0; i < $scope.marcadores.length; i++) {
 	 	
@@ -126,17 +91,11 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 			  }, 250 * i)
 			 })(i);
 		}
-
 	
 	}
 
 	$scope.setMarkers= function(marcador)
 	{
-
-		//var idPublicacao;
-		//mapService.getPostMin(marcador.idPublicacao).then(function (response) {
-  		//	postMin = response.data; 
-  		
   		var icone = new Image();
 
 		for (var i = 0; i < $scope.icones.length; i++) {
@@ -159,11 +118,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 	      		$scope.postMin = response.data;
 	      		idPublicacao = $scope.postMin.idPublicacao;
 	      		console.log($scope.postMin);
-	      		//var teste = $scope.postMin.idPublicacao.toString();
-	      		//alert(teste);
-	      		//	var idPublicacao = $scope.postMin.idPublicacao.toString();
-	      		//teste = "apoiar('" + $scope.postMin.idPublicacao + "')";
-
+	      		
 	      		var infowindow = new google.maps.InfoWindow({
 			    content: '<md-card id="iw-container" ng-controller="mapController">'
 
@@ -202,16 +157,29 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 			    		+'</md-card>'		    		 
 
 				});
-				  
+				
 				marker.addListener('click', function() {
-				  	infowindow.open($scope.map, marker);
+				  	
+					infowindow.open($scope.map, marker);
+				  	console.log('abriu')
+				  	
+				  	if ($scope.postMin.apoiado){
+						
+				  		// Referência ao DIV que recebe o conteúdo da infowindow recorrendo ao jQuery   
+					  	var iwOuter = $('.gm-style-iw');
+					  	var btnApoiar = iwOuter.find('.apoiar > p');
+					  	var imgApoiar = iwOuter.find('.apoiar > img');
+					  	
+						imgApoiar.removeAttr('src');
+						imgApoiar.attr('src', '/img/logo-apoiado.png');
+		      		}
 				});
-
+				
 				google.maps.event.addListener(infowindow, 'domready', function() {
-
-				   // Referência ao DIV que recebe o conteúdo da infowindow recorrendo ao jQuery
-				   var iwOuter = $('.gm-style-iw');
-
+					
+					// Referência ao DIV que recebe o conteúdo da infowindow recorrendo ao jQuery   
+					var iwOuter = $('.gm-style-iw');
+					
 				   /* Uma vez que o div pretendido está numa posição anterior ao div .gm-style-iw.
 				    * Recorremos ao jQuery e criamos uma variável iwBackground,
 				    * e aproveitamos a referência já existente do .gm-style-iw para obter o div anterior com .prev().
@@ -225,7 +193,7 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 				   iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
 					iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px'});
-
+					
 					// Aproveitando a referência já criada ao div .gm-style-iw com a variável iwOuter.
 					// Criamos uma nova variável iwCloseBtn.
 					// Utilizando o método .next() do JQuery referenciamos o div seguinte ao div .gm-style-iw.
@@ -252,46 +220,45 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 					iwCloseBtn.mouseout(function(){
 					  $(this).css({opacity: '1'});
 					});
-
+					
 					var btnApoiar = iwOuter.find('.apoiar > p');
 					var imgApoiar = iwOuter.find('.apoiar > img');
-
+					
 					btnApoiar.on('click', function(event) {
 
 						event.preventDefault();
-
-						if (!$(this).hasClass('apoiado'))
-						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
-
-								$(this).addClass('apoiado');
-
-								$(this).html('apoiado');
-
+						
+						console.log($scope.postMin.apoiado)
+						
+						if (!$scope.postMin.apoiado){
+							mapService.apoiar(marcador.idPublicacao).then(function (response) {
+								
+								$scope.postMin.idApoiado = response.data; 
+							
 								imgApoiar.removeAttr('src');
 								imgApoiar.attr('src', '/img/logo-apoiado.png');
+								
+								$scope.postMin.qtdApoiadores = $scope.postMin.qtdApoiadores + 1;
 
-							// }, function (response) {
+							}, function (response) {
 
-							// });
+							});
 						}
 						else
 						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
-
-								$(this).removeClass('apoiado');
-
-								$(this).html('apoiar');
-
+							mapService.desapoiar($scope.postMin.idApoiado).then(function (response) {
+								
+								$scope.postMin.idApoiado = null;
 								imgApoiar.removeAttr('src');
 								imgApoiar.attr('src', '/img/logo-apoiar.png');
+								
+								$scope.postMin.qtdApoiadores = $scope.postMin.qtdApoiadores - 1;
 
-							// }, function (response) {
+							}, function (response) {
 
-							// });
+							});
 						}
 						
-
 					});
 
 				});
@@ -299,18 +266,6 @@ appoie.controller('mapController', ['$scope', 'mapService', function ($scope, ma
 			}, function(response) {
 
 			});
-	      	
-		
-	}
-
-	apoiar = function(idPublicacao) {
-		// mapService.apoiar(idPublicacao).then(function(response) {
-
-		// }, function() {
-
-		// });
-debugger;
-		alert("apoiou!");
 	}	
 
 }]);
