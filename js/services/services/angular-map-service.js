@@ -10,7 +10,7 @@ appoie.service('mapService', ['$http', function ($http) {
 
 	{
 		return $http.get('publicacao/marcadores');
-	},
+	}
 
 	this.getIcons = function ()
 	{
