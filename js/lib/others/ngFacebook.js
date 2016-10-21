@@ -14,7 +14,7 @@ angular.module('ngFacebook', [])
     var config = {
       permissions:    'email',
       appId:          null,
-      version:        'v2.7',
+      version:        'v2.8',
       customInit:     {}
     };
 
