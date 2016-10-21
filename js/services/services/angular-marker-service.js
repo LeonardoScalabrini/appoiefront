@@ -1,12 +1,10 @@
 appoie.service('markerService', ['$http', 'mapService', '$rootScope', function ($http, mapService, $rootScope) {
 
 	var postMin;
-
+	var infoWindowAnterior;
 
 	this.initMarkers = function(marcadores)
-	{
-
-		
+	{		
 		for (var i = 0; i < marcadores.length; i++) {
 	 	
 			(function(i){
@@ -29,13 +27,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 		return $http.get('publicacao/previa/' + id);
 	}
 
-
 	setMarker= function(marcador)
-	{
-
-		//var idPublicacao;
-		//mapService.getPostMin(marcador.idPublicacao).then(function (response) {
-  		//	postMin = response.data; 
+	{	
   		
   		var icone = new Image();
   		postMin = {};
@@ -57,16 +50,10 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 
 	      	$rootScope.markers.push(marker);
 
-	      	getPostReduzido(marcador.idPublicacao).then(function(response) {
-	      		
+	      	getPostReduzido(marcador.idPublicacao).then(function(response) {	      		
 	      		postMin = response.data;
 	      		idPublicacao = postMin.idPublicacao;
 	      		
-	      		//var teste = $scope.postMin.idPublicacao.toString();
-	      		//alert(teste);
-	      		//	var idPublicacao = $scope.postMin.idPublicacao.toString();
-	      		//teste = "apoiar('" + $scope.postMin.idPublicacao + "')";
-
 	      		var infowindow = new google.maps.InfoWindow({
 			    content: '<md-card id="iw-container" ng-controller="mapController">'
 
@@ -104,10 +91,30 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 			    		+ 	'</div>'
 			    		+'</md-card>'		    		 
 
-				});
+				});				
 				  
 				marker.addListener('click', function() {
-				  	infowindow.open($rootScope.map, marker);
+					if(infoWindowAnterior != null) {
+						if(infoWindowAnterior == infowindow) {
+							if(isInfoWindowOpen(infowindow)) { 
+								infoWindowAnterior = infowindow;
+								infowindow.close();	
+							}
+							else{
+								infowindow.open($rootScope.map, marker);
+								infowindowAnterior = infowindow;
+							}
+						}
+						else {
+							infoWindowAnterior.close();
+							infoWindowAnterior = infowindow;
+							infowindow.open($rootScope.map, marker);		
+						}						
+					}		
+					else {
+						infoWindowAnterior = infowindow;
+						infowindow.open($rootScope.map, marker);
+					}		  
 				});
 
 				google.maps.event.addListener(infowindow, 'domready', function() {
@@ -201,9 +208,12 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 
 			}, function(response) {
 
-			});
-	      	
+			});	      	
 		
+	}
+	isInfoWindowOpen = function(infoWindow){
+	    var map = infoWindow.getMap();
+	    return (map !== null && typeof map !== "undefined");
 	}
 
 	this.clearMarker = function() {
