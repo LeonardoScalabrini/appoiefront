@@ -1,0 +1,36 @@
+<md-card id="iw-container" ng-controller="mapController">
+
+	<div class="iw-title">{{titulo}}</div>
+
+	<div class="iw-content">
+		<img class="img-publicacao" src="{{foto}}" alt="">
+	</div>
+
+	<div class="iw-footer">
+		<div layout="row">
+
+			<div flex class="apoiar">
+
+				<img src="/img/logo-apoiar.png">
+				<p>Apoiar</p>
+				    		
+			</div>
+
+			<div flex class="qtdApoiadores">
+				<p>{{qtdApoiadores}} Apoiadores</p>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="iw-btn-modal">
+		<div layout="row">
+
+			<div flex class="show-modal">
+				<md-button class="md-button md-raised md-primary" ng-click="showDetails($event)">VER MAIS</md-button>
+			</div>
+
+		</div>
+	</div>
+
+<md-card>

@@ -6,10 +6,6 @@
 	outline: none;
 }
 
-.img-logo-header {
-	margin-top: 5px;
-}
-
 .word-logo-header {
 	margin-left: 10px;
 }
@@ -30,11 +26,26 @@
 	left: 10px;
 	z-index: 9;
 	padding: 10px;
-	width: 40%;
+	width: 2%;
 	outline: none;
 	color: #a1a1a1;
 	border: 1px solid #ccc;
 	border-radius: 2px;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.input-search:focus {
+	width: 40%;
+	padding: 15px;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
 }
 
 .logo-menu > img {
@@ -149,6 +160,12 @@
 	font-size: 13px;
 }
 
+.notification-ico {
+	font-size: 30px;
+	color: #fff;
+	cursor: pointer;
+}
+
 .layout-margin, 
 .layout-margin-gt-sm, 
 .layout-margin-gt-sm>*, 
@@ -177,4 +194,8 @@ md-card {
 
 md-menu-content {
 	padding: 10px;
+}
+
+.notification-button {
+	margin: 0 20px !important;
 }

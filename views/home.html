@@ -15,17 +15,21 @@
 
             <span flex></span>
 
-            <!-- <md-button class="md-icon-button" aria-label="Favorite">
-              <md-icon md-svg-icon="img/icons/user.svg" style="color: greenyellow;"></md-icon>
-            </md-button> -->
-
-            <!-- <md-button class="md-icon-button" aria-label="More">
-              <img src="../img/ico_login_mobile.png" height="25" width="25" alt="">
-            </md-button> -->
-
-            <!-- <div class="img-user-header">
-              <img src="../img/ico_login_mobile.png" height="35" width="35" alt="">
-            </div> -->
+            <md-menu md-position-mode="target-right target" >
+              <md-button aria-label="Open demo menu" class="md-icon-button notification-button" ng-click="$mdOpenMenu($event)">
+                <i class="material-icons notification-ico">notifications</i>
+              </md-button>
+              <md-menu-content width="4" >
+                <md-menu-item ng-repeat="item in [1, 2, 3]">
+                  <md-button ng-click="ctrl.announceClick($index)">
+                      <div layout="row" flex>
+                        <p flex>Option {{item}}</p>
+                        <md-icon md-menu-align-target md-svg-icon="call:portable-wifi-off" style="margin: auto 3px auto 0;"></md-icon>
+                      </div>
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
 
            
 
@@ -59,8 +63,8 @@
     
 </div>
 
-<div class="search-header">
-  <input type="search" class="input-search" placeholder="Pesquisar">
+<div class="search-header" ng-controller="mapController">
+  <input type="search" class="input-search material-icons" placeholder="search" ng-model="pesquisar">
 </div>
 
 <div class="map-content" ng-controller="menuController" layout="column" ng-cloak>
