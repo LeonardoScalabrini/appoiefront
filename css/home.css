@@ -178,3 +178,8 @@ md-card {
 md-menu-content {
 	padding: 10px;
 }
+
+.filter-button {
+	margin-top: 8px;
+	color: white;
+}

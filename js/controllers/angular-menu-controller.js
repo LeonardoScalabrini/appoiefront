@@ -1,13 +1,19 @@
-appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
+appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory) {
 
-	$scope.tipoCategoria = {};
+	$scope.categorias = [];
+	$scope.filtroData = {};
+	$scope.filtroCategoria = {};
+	$scope.filtroTipo = {};
+	$scope.marcadoresRecuperados = [];
+
+	
 
 	$scope.toggleLeft = function () 
 	{
 		menuFactory.buildToggler('left');
 	};
 
-	$scope.filtros = [
+	$scope.menuFiltros = [
 	    { nome: 'Abertos', wanted: false },
 	    { nome: 'Fechados', wanted: false },
 	    { nome: 'Minhas publicações', wanted: false }
@@ -20,6 +26,8 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 			$(this).children().html('remove');
 			$(this).next().slideToggle();
 			$(this).next().removeClass('hide');
+
+
 		}
 		else
 		{
@@ -32,15 +40,104 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 
 	$('.img-select').on('click', function(event) {
 
-		if ($(this).hasClass('img-disabled'))
+		if ($(this).hasClass('img-disabled')) {
 			$(this).removeClass('img-disabled');
-		else
+			adicionaCategoria($(this).attr("alt"));
+		}
+		else {
 			$(this).addClass('img-disabled');
-
-		console.log($(this).attr("alt"));
+			removeCategoria($(this).attr("alt"));
+		}	
 
 	});
 
+	$scope.filtrarPorTipo = function() {
+		$scope.filtroTipo = {};
+		var tipos = [];
 
+		$scope.filtroTipo.filtrarMinhasPublicacoes = false;
+		$scope.menuFiltros.forEach(function(obj) {
+			if(obj.wanted) {
+				switch(obj.nome) {
+					case "Abertos": tipos.push("ABERTO");
+					break;
+					
+					case "Fechados": tipos.push("FECHADO");
+					break;
+					
+					case "Minhas publicações": $scope.filtroTipo.filtrarMinhasPublicacoes = true;
+					break;					
+				}
+				
+			}
+
+		});
+		$scope.filtroTipo.situacoes = tipos;
+		
+		menuService.filtrarPorTipo($scope.filtroTipo).then(function(response) {
+			$scope.marcadoresRecuperados = response.data;
+			markerService.clearMarker();
+			markerService.initMarkers($scope.marcadoresRecuperados);
+			$scope.fecharMenu();		
+
+		}, function(response) {
+
+		})		
+	}
+
+	$scope.filtrarPorData = function() {
+
+		menuService.filtrarPorData($scope.filtroData).then(function(response) {
+			$scope.marcadoresRecuperados = response.data;
+			markerService.clearMarker();
+			markerService.initMarkers($scope.marcadoresRecuperados);
+			$scope.fecharMenu();		
+
+		}, function(response) {
+
+		})		
+	}
+
+	$scope.filtrarPorCategoria = function() {
+		
+		menuService.filtrarPorCategoria($scope.filtroCategoria).then(function(response) {
+			$scope.marcadoresRecuperados = response.data;
+			markerService.clearMarker();
+			markerService.initMarkers($scope.marcadoresRecuperados);
+			$scope.fecharMenu();		
+
+		}, function(response) {
+
+		})		
+	}
+
+	adicionaCategoria = function(categoria) {
+		var itemExiste = false;
+		for (var i = 0; i < $scope.categorias.length; i++) {
+			if($scope.categorias[i] == categoria) itemExiste = true;
+		}
+
+		if(!itemExiste) {
+			$scope.categorias.push(categoria);
+		    $scope.filtroCategoria.categorias = $scope.categorias;			    
+		}
+	}
+
+	removeCategoria = function(categoria) {
+		var index;
+
+		for (var i = 0; i < $scope.categorias.length; i++) {
+			if($scope.categorias[i] == categoria) {
+				index = $scope.categorias.indexOf(categoria);								
+				if(index > -1) {
+					$scope.categorias.splice(index, 1);
+				} 				
+			} 
+		}
+	}
+
+	$scope.fecharMenu = function() {
+		menuFactory.buildToggler("left");
+	}
 
 }]);
