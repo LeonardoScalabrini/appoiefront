@@ -36,6 +36,19 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
 				controller: 'mapController'
 			}
 		}
+	})
+
+	.state("perfil", {
+		url: "/perfil",
+		controller: "perfilController",
+		views: 
+		{
+			'': {templateUrl: "views/home.html"},
+			'system-pages@perfil': {
+				templateUrl: "views/perfil.html",
+				controller: 'perfilController'
+			}
+		}
 	});
 	
 });

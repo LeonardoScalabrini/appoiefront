@@ -199,3 +199,38 @@ md-menu-content {
 .notification-button {
 	margin: 0 20px !important;
 }
+
+.content-account-info {
+	padding-top: 25px;
+}
+
+.content-account-info > p {
+	font-size: 20px;
+	margin: 0;
+}
+
+.content-account-info > p > span{
+	font-size: 15px;
+}
+
+.content-account-info .info-email {
+	font-size: 12px;
+}
+
+.action-btn-user-content {
+	margin-top: 45px;
+}
+
+.btn-action-user {
+	background: #303EB4;
+    border: none;
+    padding: 7px 15px;
+    color: #fff;
+    -webkit-box-shadow: 0 2px 5px 1px #ccc;
+    box-shadow: 0 2px 5px 1px #ccc;
+    border-radius: 2px;
+}
+
+.btn-logout {
+	float: right;
+}

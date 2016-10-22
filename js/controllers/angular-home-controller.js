@@ -31,8 +31,18 @@ appoie.controller('homeController', ['$scope', 'menuFactory', '$mdDialog', funct
   });
 
   $('.input-search').blur(function(event) {
+
+    if ($(this).val())
+      $(this).val("");
+
     $(this).addClass('material-icons');
     $(this).attr('placeholder', 'search');
+
   });
+
+  $scope.viewPerfil = function ()
+  {
+    window.location.href = "#/perfil";
+  }
 	
 }]);

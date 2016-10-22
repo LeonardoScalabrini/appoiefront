@@ -42,5 +42,4 @@ appoie.controller('menuController', ['$scope', 'menuFactory', function ($scope, 
 	});
 
 
-
 }]);

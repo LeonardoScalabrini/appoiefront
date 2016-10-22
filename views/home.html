@@ -20,6 +20,7 @@
                 <i class="material-icons notification-ico">notifications</i>
               </md-button>
               <md-menu-content width="4" >
+
                 <md-menu-item ng-repeat="item in [1, 2, 3]">
                   <md-button ng-click="ctrl.announceClick($index)">
                       <div layout="row" flex>
@@ -28,6 +29,7 @@
                       </div>
                   </md-button>
                 </md-menu-item>
+                
               </md-menu-content>
             </md-menu>
 
@@ -48,7 +50,24 @@
 
                   <div flex class="content-account-info">
                   
-                    <span>Olá, Alan Freitas!</span>
+                    <p><span>Olá,</span> Alan Freitas!</p>
+                    <span class="info-email">alanfreitas@gmail.com</span>
+
+                    <div layout="row" class="action-btn-user-content">
+
+                      <div flex>
+    
+                        <button class="btn-perfil btn-action-user" ng-click="viewPerfil()">PERFIL</button>
+  
+                      </div>
+  
+                      <div flex>
+    
+                        <button class="btn-logout btn-action-user">SAIR</button>
+  
+                      </div>
+
+                    </div>
 
                   </div>
                   
