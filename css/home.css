@@ -201,7 +201,7 @@ md-menu-content {
 }
 
 .content-account-info {
-	padding-top: 25px;
+	padding-top: 50px;
 }
 
 .content-account-info > p {
@@ -218,7 +218,9 @@ md-menu-content {
 }
 
 .action-btn-user-content {
-	margin-top: 45px;
+	margin-top: 9px;
+	border-top: 1px solid #ccc;
+    padding-top: 13px;
 }
 
 .btn-action-user {
@@ -233,4 +235,34 @@ md-menu-content {
 
 .btn-logout {
 	float: right;
+}
+
+.arrow-user {
+	width: 20px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    top: -8px;
+    right: 9px;
+    z-index: 9999;
+    -moz-transform: scale(1) rotate(45deg);
+    -webkit-transform: scale(1) rotate(45deg);
+    -o-transform: scale(1) rotate(45deg);
+    -ms-transform: scale(1) rotate(45deg);
+    transform: scale(1) rotate(45deg);
+}
+
+.arrow-user-notification {
+	width: 20px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    top: -11px;
+    right: 18px;
+    z-index: 9999;
+    -moz-transform: scale(1) rotate(45deg);
+    -webkit-transform: scale(1) rotate(45deg);
+    -o-transform: scale(1) rotate(45deg);
+    -ms-transform: scale(1) rotate(45deg);
+    transform: scale(1) rotate(45deg);
 }

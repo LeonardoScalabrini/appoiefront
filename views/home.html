@@ -20,7 +20,7 @@
                 <i class="material-icons notification-ico">notifications</i>
               </md-button>
               <md-menu-content width="4" >
-
+                <div class="arrow-user-notification"></div>
                 <md-menu-item ng-repeat="item in [1, 2, 3]">
                   <md-button ng-click="ctrl.announceClick($index)">
                       <div layout="row" flex>
@@ -29,7 +29,7 @@
                       </div>
                   </md-button>
                 </md-menu-item>
-                
+
               </md-menu-content>
             </md-menu>
 
@@ -40,6 +40,7 @@
                 <img aria-label="Open demo menu" src="../img/team/alan.jpg" height="40" width="40" alt="" ng-click="$mdOpenMenu($event)">
               </div>
               <md-menu-content width="6" >
+                <div class="arrow-user"></div>
                 <div layout="row">
 
                   <div flex class="content-account">
