@@ -44,5 +44,10 @@ appoie.controller('homeController', ['$scope', 'menuFactory', '$mdDialog', funct
   {
     window.location.href = "#/perfil";
   }
+
+  $scope.logout = function ()
+  {
+    window.location.href = "#/login";
+  }
 	
 }]);
