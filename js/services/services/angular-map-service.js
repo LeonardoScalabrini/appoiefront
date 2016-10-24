@@ -1,16 +1,16 @@
 appoie.service('mapService', ['$http', function ($http) {
+    
+    this.notificar = function ()
 
-    this.apoiar = function (idPublicacao) {
-    	return $http.post('publicacao/apoiar/' + idPublicacao);
-
-    }	
-
-
+	{
+		return $http.get('notificar');
+	}
+    
 	this.getMarkers = function ()
 
 	{
 		return $http.get('publicacao/marcadores');
-	},
+	}
 
 	this.getIcons = function ()
 	{
@@ -19,6 +19,15 @@ appoie.service('mapService', ['$http', function ($http) {
 
 	this.getPostMin = function (id) {
 		return $http.get('publicacao/previa/' + id);
+	}
+	
+	this.apoiar = function (id) {
+		console.log('chamou apoiar');
+		return $http.post('publicacao/apoiar/' + id);
+	}
+	
+	this.desapoiar = function (id) {
+		return $http.post('publicacao/desapoiar/' + id);
 	}
 
 }]);

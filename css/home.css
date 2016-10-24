@@ -196,6 +196,7 @@ md-menu-content {
 	padding: 10px;
 }
 
+<<<<<<< HEAD
 .notification-button {
 	margin: 0 20px !important;
 }
@@ -265,4 +266,9 @@ md-menu-content {
     -o-transform: scale(1) rotate(45deg);
     -ms-transform: scale(1) rotate(45deg);
     transform: scale(1) rotate(45deg);
+=======
+.filter-button {
+	margin-top: 8px;
+	color: white;
+>>>>>>> develop
 }
