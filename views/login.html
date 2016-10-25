@@ -1,10 +1,10 @@
 <div id="content" screenHeight ng-controller="indexController">
-    
+
     <div class="background"></div>
 
     <div layout="row" layout-align="center center">
         <div flex="25" class="content-login">
-            
+
             <div layout="column" layout-align="center center" class="logo-login">
                 <img src="../img/logo.png" height="50" width="50" alt="">
                 <span>Appoie</span>
@@ -49,8 +49,8 @@
             <div layout="column" layout-align="center center" class="title-login">
                 <h2>OU</h2>
             </div>
-		
-            <div layout="row" class="facebookButton" id="facebookButton" ng-click="loginFacebook()" >
+
+            <div layout="row" class="facebookButton" id="facebookButton" ng-click="loginFacebook()">
                 <div flex="10" layout="column">
                     <img src="../img/facebook_ico_button.png" height="25" width="25" alt="Entrar com o facebook">
                 </div>
@@ -58,7 +58,7 @@
                     <span>Entrar com o facebook</span>
                 </div>
             </div>
-           
+
 
         </div>
     </div>
@@ -68,7 +68,7 @@
 <div id="content-cadastro" class="content-cadastro" ng-controller="indexController">
 
     <div class="layer-background"></div>
-    
+
     <div layout="row" layout-align="center center">
         <div flex="40" class="cont-content-cadastro">
 
@@ -82,11 +82,11 @@
             <div layout="column" layout-align="center center"class="title-login">
                 <h2>FAÇA SEU CADASTRO</h2>
             </div>
-            
+
             <form name="cadastroForm">
 
                 <!-- ========================================== NOME E SOBRENOME ========================================== -->
-                <div layout="row" class="containerInput">  
+                <div layout="row" class="containerInput">
                     <div layout="column" flex="50">
 
                       <md-input-container class="md-block">
@@ -100,7 +100,7 @@
                     </div>
 
                     <div layout="column" flex="50">
-                      
+
                       <md-input-container class="md-block">
                         <label>Sobrenome</label>
                         <input required name="sobrenome" ng-model="cadastro.sobrenome">
@@ -113,9 +113,9 @@
                 </div>
 
                 <!-- ========================================== SEXO E DATA DE NASCIMENTO ========================================== -->
-                <div layout="row" class="containerInput">  
+                <div layout="row" class="containerInput">
                     <div layout="column" flex="50">
-                      
+
                       <md-input-container>
                         <label>Sexo</label>
                         <md-select ng-model="cadastro.sexo" required>
@@ -127,7 +127,7 @@
                     </div>
 
                     <div layout="column" flex="50">
-                      
+
                       <label class="labelEspecial" for="nascimento">Nascimento</label>
                       <input type="date" name="dataNascimento" class="input-nascimento" ng-model="cadastro.dataNascimento" required>
 
@@ -146,7 +146,7 @@
                               <div class="errorMsg" ng-message="required">Informe o cep</div>
                             </div>
                         </md-input-container>
-                        
+
                     </div>
 
                     <div layout="column" flex="50">
@@ -155,7 +155,7 @@
                             <label>cidade</label>
                             <input name="cidade" ng-model="cadastro.cidade" ng-required="true" id="cidade">
                         </md-input-container>
-                        
+
                     </div>
                 </div>
 
@@ -173,7 +173,7 @@
                                 </div>
                             </div>
                         </md-input-container>
-                        
+
                     </div>
 
                     <div layout="column" flex="50">
@@ -187,13 +187,13 @@
                               </div>
                             </div>
                         </md-input-container>
-                        
+
                     </div>
                 </div>
 
                 <!-- ========================================== SENHA E CONFIRMA SENHA ========================================== -->
 
-                <div layout="row" class="containerInput">  
+                <div layout="row" class="containerInput">
                     <div layout="column" flex="50">
 
                       <md-input-container class="md-block">
@@ -207,7 +207,7 @@
                     </div>
 
                     <div layout="column" flex="50">
-                      
+
                       <md-input-container class="md-block">
                         <label>Confirme sua senha</label>
                         <input type="password" name="confirmaSenha" ng-model="cadastro.confirmaSenha" ng-required="true">

@@ -9,5 +9,9 @@ appoie.service('loginService', ['$http', function ($http) {
 	{
 		// Requisição para recuperação de senha.
 	};
-	
+	this.salvarUsuarioFacebook = function (usuario)
+	{
+		return $http.post("/usuarioFacebook/salvar", usuario);
+	};
+
 }]);

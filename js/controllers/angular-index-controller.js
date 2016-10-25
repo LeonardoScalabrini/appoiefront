@@ -100,30 +100,47 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
 
   //FUNÇÕES DO PARA ULTILIZAR A API DO FACEBOOK
 
-
+  $scope.usuarioFacebook ={};
   $scope.acesso=false;
   $scope.$on('fb.auth.authResponseChange', function() {
       $scope.status = $facebook.isConnected();
-      if($scope.status) {
-        $facebook.api('me?fields=name,email,location,picture,gender').then(function(user) {
-          $scope.user = user;
-          if(user.gender === 'male'){
-             user.gender ='MASCULINO';
-          }else{
-             user.gender ='FEMININO';
-          }
-          console.log(user);
+      if($scope.status && $scope.acesso ===true ) {
+        $facebook.api('me?fields=id,first_name,last_name,birthday,gender,email,location,picture').then(function(user) {
+           $scope.user = user;
+           $scope.usuarioFacebook.idFacebook =$scope.user.id;
+           $scope.usuarioFacebook.nome = $scope.user.first_name;
+           $scope.usuarioFacebook.sobrenome = $scope.user.last_name;
+           $scope.usuarioFacebook.dataDeNascimento = $scope.user.birthday;
+           if($scope.user.gender === 'male'){
+              $scope.usuarioFacebook.sexo ='MASCULINO';
+           }else{
+              $scope.usuarioFacebook.sexo ='FEMININO';
+           }
+           $scope.usuarioFacebook.email = $scope.user.email;
+           $scope.usuarioFacebook.nomeCidade = $scope.user.location.name;
+           $scope.usuarioFacebook.foto =$scope.user.picture.data.url;
+
+
+         loginService.salvarUsuarioFacebook($scope.usuarioFacebook).then(function (response) {
+
+              console.log(response);
+
+          }, function (response) {
+
+          });
+          console.log($scope.usuarioFacebook);
+
         });
-        if($scope.status && $scope.loginFacebook){
-          window.location.href = "#/home";
-        }
-        //window.location.href = "#/home";
+               if($scope.acesso ===true)
+               window.location.href = "#/home";
+
       }
 
     });
 
     $scope.loginFacebook = function() {
-        $facebook.login();
+         $facebook.login();
+         $scope.acesso=true;
 
     };
 
@@ -133,5 +150,9 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
         $scope.friends = friends.data;
       });
     }
+
+
+
+
 
 }]);

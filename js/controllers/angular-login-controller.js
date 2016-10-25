@@ -31,7 +31,7 @@ appoie.controller('loginController', ['$scope','$facebook','loginService', 'mens
 			mensagemFactory.erro(propriedades);
 		});
 	};
-	
+
 	/* $scope.$on('fb.auth.authResponseChange', function() {
 	      $scope.status = $facebook.isConnected();
 	      if($scope.status) {
@@ -55,5 +55,5 @@ appoie.controller('loginController', ['$scope','$facebook','loginService', 'mens
 	        $scope.friends = friends.data;
 	      });
 	    }*/
-	
+
 }]);
