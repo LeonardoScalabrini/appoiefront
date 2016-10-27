@@ -136,11 +136,8 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 		}
 	}
 
-<<<<<<< HEAD
-=======
 	$scope.fecharMenu = function() {
 		menuFactory.buildToggler("left");
 	}
 
->>>>>>> develop
 }]);
