@@ -1,4 +1,4 @@
-appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory) {
+appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', '$location', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory, $location) {
 
 	//$scope.categorias = 
 	
@@ -120,6 +120,11 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 
 	$scope.fecharMenu = function() {
 		menuFactory.buildToggler("left");
+	}
+
+	$scope.logout = function() {
+		// limpar aqui variável que guarda o token
+		$location.path("/login");
 	}
 
 }]);
