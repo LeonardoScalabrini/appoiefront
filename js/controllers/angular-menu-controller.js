@@ -1,11 +1,18 @@
 appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory) {
 
-	$scope.categorias = [];
-	$scope.filtroData = {};
-	$scope.filtroCategoria = {};
-	$scope.filtroTipo = {};
+	//$scope.categorias = 
+	
 	$scope.marcadoresRecuperados = [];
+	
+	$scope.filtro = {
+		dataInicio: null,
+		dataFim: null,
+		situacoes: ["ABERTO"],
+		categorias: ["ARBORIZACAO", "DEFESACIVIL", "FUNDODEVALE", "ILUMINACAO",
+	"PAVIMENTACAO", "SANEAMENTOBASICO", "SEGURANCA", "TERRENOBALDIO", "TRANSPORTEPUBLICO"],
+		filtrarMinhasPublicacoes: true
 
+	}
 	
 
 	$scope.toggleLeft = function () 
@@ -14,7 +21,7 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 	};
 
 	$scope.menuFiltros = [
-	    { nome: 'Abertos', wanted: false },
+	    { nome: 'Abertos', wanted: true },
 	    { nome: 'Fechados', wanted: false },
 	    { nome: 'Minhas publicações', wanted: false }
 	];
@@ -51,11 +58,11 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 
 	});
 
-	$scope.filtrarPorTipo = function() {
-		$scope.filtroTipo = {};
+	$scope.filtrar= function() {
+		$scope.filtro.situacoes = [];
 		var tipos = [];
 
-		$scope.filtroTipo.filtrarMinhasPublicacoes = false;
+		$scope.filtro.filtrarMinhasPublicacoes = false;
 		$scope.menuFiltros.forEach(function(obj) {
 			if(obj.wanted) {
 				switch(obj.nome) {
@@ -65,42 +72,17 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 					case "Fechados": tipos.push("FECHADO");
 					break;
 					
-					case "Minhas publicações": $scope.filtroTipo.filtrarMinhasPublicacoes = true;
+					case "Minhas publicações": $scope.filtro.filtrarMinhasPublicacoes = true;
 					break;					
 				}
 				
 			}
 
 		});
-		$scope.filtroTipo.situacoes = tipos;
-		
-		menuService.filtrarPorTipo($scope.filtroTipo).then(function(response) {
-			$scope.marcadoresRecuperados = response.data;
-			markerService.clearMarker();
-			markerService.initMarkers($scope.marcadoresRecuperados);
-			$scope.fecharMenu();		
+		$scope.filtro.situacoes = tipos;
+		$scope.filtro.situacoes.length = tipos.length;
 
-		}, function(response) {
-
-		})		
-	}
-
-	$scope.filtrarPorData = function() {
-
-		menuService.filtrarPorData($scope.filtroData).then(function(response) {
-			$scope.marcadoresRecuperados = response.data;
-			markerService.clearMarker();
-			markerService.initMarkers($scope.marcadoresRecuperados);
-			$scope.fecharMenu();		
-
-		}, function(response) {
-
-		})		
-	}
-
-	$scope.filtrarPorCategoria = function() {
-		
-		menuService.filtrarPorCategoria($scope.filtroCategoria).then(function(response) {
+		menuService.filtrar($scope.filtro).then(function(response) {
 			$scope.marcadoresRecuperados = response.data;
 			markerService.clearMarker();
 			markerService.initMarkers($scope.marcadoresRecuperados);
@@ -113,27 +95,27 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 
 	adicionaCategoria = function(categoria) {
 		var itemExiste = false;
-		for (var i = 0; i < $scope.categorias.length; i++) {
-			if($scope.categorias[i] == categoria) itemExiste = true;
+		for (var i = 0; i < $scope.filtro.categorias.length; i++) {
+			if($scope.filtro.categorias[i] == categoria) itemExiste = true;
 		}
 
 		if(!itemExiste) {
-			$scope.categorias.push(categoria);
-		    $scope.filtroCategoria.categorias = $scope.categorias;			    
+			$scope.filtro.categorias.push(categoria);
+		    
 		}
 	}
 
 	removeCategoria = function(categoria) {
 		var index;
 
-		for (var i = 0; i < $scope.categorias.length; i++) {
-			if($scope.categorias[i] == categoria) {
-				index = $scope.categorias.indexOf(categoria);								
+		for (var i = 0; i < $scope.filtro.categorias.length; i++) {
+			if($scope.filtro.categorias[i] == categoria) {
+				index = $scope.filtro.categorias.indexOf(categoria);								
 				if(index > -1) {
-					$scope.categorias.splice(index, 1);
+					$scope.filtro.categorias.splice(index, 1);
 				} 				
 			} 
-		}
+		}		
 	}
 
 	$scope.fecharMenu = function() {
