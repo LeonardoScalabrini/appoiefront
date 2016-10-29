@@ -90,7 +90,7 @@ appoie.controller('indexController', ['$scope', 'indexFactory', 'cadastroService
 
       $scope.enderecoCompleto = response.data;
       $scope.cadastro.cidade = $scope.enderecoCompleto.cidade;
-      $scope.cadastro.estado = $scope.enderecoCompleto.estado;
+      $scope.cadastro.estado = $scope.enderecoCompleto.estado_info.nome;
 
 
     }, function (response) {
