@@ -110,6 +110,7 @@
             </md-card>
 
         <form name="filter-form">
+          
 
             <md-card md-theme-watch class="card-date">
 
@@ -131,7 +132,7 @@
                   
                 </div>
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
-                    <md-button class="md-raised md-primary" ng-click="filtrarPorData()">Filtrar</md-button>
+                    <md-button class="md-raised md-primary" ng-click="filtrar()">Filtrar</md-button>
                 </section>
 
               </div>
@@ -146,48 +147,48 @@
 
                 <div layout="row">
                   <div flex>
-                    <img src="/img/categorias/ARBORIZACAO.png" alt="ARBORIZACAO" class="img-disabled img-select">
+                    <img src="/img/categorias/ARBORIZACAO.png" alt="ARBORIZACAO" class="img-select">
                   </div>
 
                   <div flex>
-                    <img src="/img/categorias/DEFESACIVIL.png" alt="DEFESACIVIL" class="img-disabled img-select">
+                    <img src="/img/categorias/DEFESACIVIL.png" alt="DEFESACIVIL" class="img-select">
                   </div>
 
                   <div flex>
-                    <img src="/img/categorias/FUNDODEVALE.png" alt="FUNDODEVALE" class="img-disabled img-select">
-                  </div>
-                </div>
-
-                <div layout="row">
-                  <div flex>
-                    <img src="/img/categorias/ILUMINACAO.png" alt="ILUMINACAO" class="img-disabled img-select">
-                  </div>
-
-                  <div flex>
-                    <img src="/img/categorias/PAVIMENTACAO.png" alt="PAVIMENTACAO" class="img-disabled img-select">
-                  </div>
-
-                  <div flex>
-                    <img src="/img/categorias/SANEAMENTOBASICO.png" alt="SANEAMENTOBASICO" class="img-disabled img-select">
+                    <img src="/img/categorias/FUNDODEVALE.png" alt="FUNDODEVALE" class="img-select">
                   </div>
                 </div>
 
                 <div layout="row">
                   <div flex>
-                    <img src="/img/categorias/SEGURANCA.png" alt="SEGURANCA" class="img-disabled img-select">
+                    <img src="/img/categorias/ILUMINACAO.png" alt="ILUMINACAO" class="img-select">
                   </div>
 
                   <div flex>
-                    <img src="/img/categorias/TERRENOBALDIO.png" alt="TERRENOBALDIO" class="img-disabled img-select">
+                    <img src="/img/categorias/PAVIMENTACAO.png" alt="PAVIMENTACAO" class="img-select">
                   </div>
 
                   <div flex>
-                    <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class="img-disabled img-select">
+                    <img src="/img/categorias/SANEAMENTOBASICO.png" alt="SANEAMENTOBASICO" class="img-select">
+                  </div>
+                </div>
+
+                <div layout="row">
+                  <div flex>
+                    <img src="/img/categorias/SEGURANCA.png" alt="SEGURANCA" class="img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/TERRENOBALDIO.png" alt="TERRENOBALDIO" class="img-select">
+                  </div>
+
+                  <div flex>
+                    <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class=" img-select">
                   </div>
                 </div>
 
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
-                    <md-button class="md-raised md-primary" ng-click="filtrarPorCategoria()">Filtrar</md-button>
+                    <md-button class="md-raised md-primary" ng-click="filtrar()">Filtrar</md-button>
                 </section>
 
               </div>
@@ -206,20 +207,20 @@
                 </md-list-item>
 
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
-                    <md-button class="md-raised md-primary" ng-click="filtrarPorTipo()">Filtrar</md-button>
+                    <md-button class="md-raised md-primary" ng-click="filtrar()">Filtrar</md-button>
                 </section>
 
               </div>
 
 
             </md-card>
-
+          
             <md-card md-theme-watch class="card-config">
               <span class="span">Configurações</span>
             </md-card>
 
             <md-card md-theme-watch class="card-config">
-              <span class="span">Sair</span>
+              <span class="span" ng-click="logout()">Sair</span>
             </md-card>
 
         </form>
