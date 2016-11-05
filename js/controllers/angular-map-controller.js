@@ -1,10 +1,7 @@
-appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'markerService', function ($scope, mapService, $rootScope, markerService) {
+appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'markerService', '$timeout', function ($scope, mapService, $rootScope, markerService, $timeout) {
 
 	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
-
-  	// $scope.icones = [];
-  	// $scope.marcadores = [];
 
   	$rootScope.icones = [];
   	$scope.marcadores = [];
@@ -15,26 +12,17 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 
 	$scope.initMap = function ()
 	{
-	//$(document).ready(function() {	
-		
 		$rootScope.map = new google.maps.Map(document.getElementById('map'), {
 	        center: {
 	            lat: -23.414106,  
 	            lng: -51.9407117
 	        },
-	        zoom: 12,
+	        zoom: 13,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
-
-	    //var infoWindow = new google.maps.InfoWindow({map: map});
-	    
-		 //    if($scope.icones.length > 0 || $scope.marcadores.length > 0) {
-		 //    	$scope.initMarkers();
-				
-			// }
 		
 
-	  	if (navigator.geolocation) // Try HTML5 geolocation.
+	  	if (navigator.geolocation)
 	  	{
 	    	navigator.geolocation.getCurrentPosition(function(position)
 	    	{
@@ -43,16 +31,6 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	        		lng: position.coords.longitude
 	      		};
 
-	      		//infoWindow.setPosition(pos);
-
-	      		// var marker = new google.maps.Marker({
-	      		// 	position: {
-	      		// 		lat: position.coords.latitude, 
-	      		// 		lng: position.coords.longitude
-	      		// 	}, 
-	      		// 	map: map
-	      		// });
-
 	      		$rootScope.map.setCenter(pos);
 	    	}, 
 	    	function() 
@@ -60,15 +38,10 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	      		handleLocationError(true, infoWindow, $rootScope.map.getCenter());
 	    	});
 
-
-
-
-	    	//initMarkers(map, $scope.posts, $scope.icones);
-
 	  	} 
 	  	else 
 	  	{
-	    	handleLocationError(false, infoWindow, $rootScope.map.getCenter()); // Browser doesn't support Geolocation
+	    	handleLocationError(false, infoWindow, $rootScope.map.getCenter());
 	  	}
 
 	  	if ($rootScope.icones.length == 0)
@@ -79,14 +52,11 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	  			//$scope.icones = response.data;
 	  			
 	  			$rootScope.icones = response.data;
-	  			
-
-
 
 	  			mapService.getMarkers().then(function (response) {
 					
 					$scope.marcadores = response.data;
-					markerService.initMarkers($scope.marcadores);
+					markerService.initMarkers($scope.marcadores, $scope);
 					  	  	
 				}, function (response) {
 
@@ -109,9 +79,8 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	  	infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 	}
 
-	
-
-	apoiar = function(idPublicacao) {
+	apoiar = function(idPublicacao) 
+	{
 		// mapService.apoiar(idPublicacao).then(function(response) {
 
 		// }, function() {
@@ -120,5 +89,14 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 
 		alert("apoiou!");
 	}	
+
+	$scope.fecharPublicacaoDetalhada = function () 
+	{
+		$(".appoie-modal").removeClass('animation-modal');
+
+		$("#modal").fadeOut('slow', function() {
+			$(this).addClass('hide-modal');
+		});
+	}
 
 }]);

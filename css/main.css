@@ -1,0 +1,177 @@
+.hide-modal {
+	display: none;
+}
+
+#modal {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+}
+
+.modal-container {
+	height: 100%;
+}
+
+.appoie-modal {
+	position: absolute;
+	z-index: 10;
+	top: 50px;
+	min-width: 700px;
+	min-height: 370px;
+	width: 700px;
+	height: 370px;
+	background-color: #fff;
+	-webkit-box-shadow: 1px 1px 1px 1px #D6D6D6;
+	box-shadow: 1px 1px 1px 1px #D6D6D6;
+	padding: 10px;
+	-moz-transform: scale(1) translateX(0px) translateY(-500%);
+	-webkit-transform: scale(1) translateX(0px) translateY(-500%);
+	-o-transform: scale(1) translateX(0px) translateY(-500%);
+	-ms-transform: scale(1) translateX(0px) translateY(-500%);
+	transform: scale(1) translateX(0px) translateY(-500%);
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.animation-modal {
+	-moz-transform: scale(1) translateX(0px) translateY(0px);
+	-webkit-transform: scale(1) translateX(0px) translateY(0px);
+	-o-transform: scale(1) translateX(0px) translateY(0px);
+	-ms-transform: scale(1) translateX(0px) translateY(0px);
+	transform: scale(1) translateX(0px) translateY(0px);
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+/* ========== MODAL STYLES ========== */
+
+.pd-criticidade {
+	width: 100%;
+	height: 30px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2dd62a+1,faff00+40,faff00+60,ff0000+100 */
+	background: #2dd62a; /* Old browsers */
+	background: -moz-linear-gradient(left,  #2dd62a 1%, #faff00 40%, #faff00 60%, #ff0000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2dd62a', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+}
+
+.pd-criticidade > img {
+	margin: 5px 5px 0 5px;
+}
+
+.pd-titulo {
+	margin-bottom: 10px;
+}
+
+.pd-titulo > span {
+    color: #484848;
+    font-weight: 500;
+}
+
+.pd-foto {
+	padding-right: 10px;
+}
+
+.pd-foto img {
+	width: 100%;
+	height: 100%;
+	-webkit-box-shadow: 0 0 10px 0 #E8D8DA;
+	box-shadow: 0 0 10px 0 #E8D8DA;
+}
+
+.pd-container-user-foto {
+	text-align: center;
+	border-radius: 50%;
+	background-color: #a1a1a1;
+	height: 70px;
+    width: 70px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.pd-container-user-foto > img {
+	width: 50px;
+    height: 50px;
+    margin-top: 8px;
+}
+
+#pd-container-user-info {
+	padding-top: 25px;
+}
+
+.pd-user-nome {
+	margin-bottom: 10px;
+}
+
+.pd-user-nome > span {
+	font-weight: 900;
+    color: #484848;
+}
+
+.pd-user-apoiadas > span, .pd-user-posts > span {
+	font-size: 14px;
+    color: #a1a1a1;
+}
+
+.pd-ico {
+	padding: 3px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.pd-ico > i {
+	font-size: 17px;
+	color: #ccc;
+	cursor: pointer;
+}
+
+.pd-ico > i:hover {
+	color: rgb(63,81,181);
+}
+
+.pd-qtde-apoiadores {
+	padding-top: 3px;
+}
+
+.pd-info {
+	margin: 5px 0 5px 0;
+}
+
+.pd-info-descricao {
+	height: 125px;
+	overflow: auto;
+}
+
+.pd-item {
+	font-weight: bold;
+	color: #484848;
+}
+
+.pd-container-info * {
+	font-size: 14px;
+}
+
+.pd-criticidade-media {
+	text-align: center;
+}
+
+.pd-criticidade-alta, .pd-text-right {
+	text-align: right;
+}
+
+.pd-info-situacao {
+	margin-top: 10px;
+}
