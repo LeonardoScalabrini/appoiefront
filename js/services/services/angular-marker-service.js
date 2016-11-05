@@ -1,5 +1,4 @@
 appoie.service('markerService', ['$http', 'mapService', '$rootScope', function ($http, mapService, $rootScope) {
-
 	var postMin;
 	var infoWindowAnterior;
 
@@ -16,6 +15,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 			  }, 250 * i)
 			 })(i);
 		}
+		
 	
 	}
 

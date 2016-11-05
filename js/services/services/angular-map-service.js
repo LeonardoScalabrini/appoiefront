@@ -30,4 +30,8 @@ appoie.service('mapService', ['$http', function ($http) {
 		return $http.post('publicacao/desapoiar/' + id);
 	}
 
+	this.verificarFechamentoPublicacao =  function(idsPublicacao) {
+		return $http.post('publicacao/status/fechamento', idsPublicacao);
+	}
+
 }]);

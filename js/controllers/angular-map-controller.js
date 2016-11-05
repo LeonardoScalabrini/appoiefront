@@ -86,7 +86,18 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	  			mapService.getMarkers().then(function (response) {
 					
 					$scope.marcadores = response.data;
+
 					markerService.initMarkers($scope.marcadores);
+					var idsPublicacoes = [];
+
+					$scope.marcadores.forEach(function(obj) {
+						idsPublicacoes.push(obj.idPublicacao);
+
+					});
+
+					
+
+					mapService.verificarFechamentoPublicacao(idsPublicacoes);
 					  	  	
 				}, function (response) {
 
