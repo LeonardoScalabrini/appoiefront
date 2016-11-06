@@ -1,4 +1,4 @@
-application.controller('loginController', ['$scope', 'loginService', 'mensagemFactory', function ($scope, loginService, mensagemFactory) {
+appoie.controller('loginController', ['$scope', 'loginService', 'mensagemFactory', function ($scope, loginService, mensagemFactory) {
 
 	$scope.senhaPerdida = false;
 	$scope.modalTitle = "Entre com sua conta";
