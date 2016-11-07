@@ -1,19 +1,10 @@
-appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+appoie.config(function ($stateProvider, $urlRouterProvider, $mdIconProvider) {
 
 	$mdIconProvider
     .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
     .iconSet('device', 'img/icons/sets/device-icons.svg', 24)
     .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24)
     .defaultIconSet('img/icons/sets/core-icons.svg', 24);
-
-	$mdThemingProvider.theme('default')
-
-	.primaryPalette('indigo', {
-		'default': '500',
-      	'hue-1': '100',
-      	'hue-2': '600',
-      	'hue-3': 'A100'
-	});
 
 	$urlRouterProvider.otherwise("/login");
 

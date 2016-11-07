@@ -88,11 +88,11 @@
 						<div layout="row">
 
 							<div flex="60">
-								<span class="pd-item">Categoria:</span>
+								<span class="pd-item">Categoria: </span>Saneamento básico
 							</div>
 
 							<div flex="40">
-								<span class="pd-item">Duração:</span>
+								<span class="pd-item">Aberto há: </span>{{publicacaoDetalhada.diasContados}} Dias
 							</div>
 							
 						</div>
@@ -112,27 +112,21 @@
 					</div>
 
 					<div flex class="pd-info">
-						<span class="pd-item">Nível de criticidade:</span>
+						<span class="pd-item">Nível de criticidade:</span> BAIXA
 					</div>
 
 					<div flex class="pd-info">
 						<div class="pd-criticidade">
-							<img src="/img/logo-apoiar.png" alt="">
+							<img src="/img/logo-criticidade.png" alt="">
 						</div>
 					</div>
 
 					<div flex class="pd-info pd-info-situacao">
 						
 						<div layout="row">
-
-							<div flex>
-								<span><span class="pd-item">Status:</span> {{publicacaoDetalhada.status}}</span>
-							</div>
-
-							<div flex class="pd-text-right">
-								<span>10 dias restantes</span>
-							</div>
-							
+							<span>
+								<span class="pd-item">Status:</span> {{publicacaoDetalhada.status}}
+							</span>
 						</div>
 
 					</div>

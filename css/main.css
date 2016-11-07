@@ -22,10 +22,14 @@
 	position: absolute;
 	z-index: 10;
 	top: 50px;
-	min-width: 700px;
+	/*min-width: 700px;
 	min-height: 370px;
 	width: 700px;
-	height: 370px;
+	height: 370px;*/
+	min-width: 50%;
+	min-height: 60%;
+	width: 50%;
+	height: 60%;
 	background-color: #fff;
 	-webkit-box-shadow: 1px 1px 1px 1px #D6D6D6;
 	box-shadow: 1px 1px 1px 1px #D6D6D6;
@@ -90,6 +94,7 @@
 	height: 100%;
 	-webkit-box-shadow: 0 0 10px 0 #E8D8DA;
 	box-shadow: 0 0 10px 0 #E8D8DA;
+	border-radius: 2px;
 }
 
 .pd-container-user-foto {
@@ -113,7 +118,7 @@
 }
 
 .pd-user-nome {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .pd-user-nome > span {
@@ -134,12 +139,12 @@
 
 .pd-ico > i {
 	font-size: 17px;
-	color: #ccc;
+	color: #a1a1a1;
 	cursor: pointer;
 }
 
 .pd-ico > i:hover {
-	color: rgb(63,81,181);
+	color: #d1d1d1;
 }
 
 .pd-qtde-apoiadores {
@@ -161,7 +166,8 @@
 }
 
 .pd-container-info * {
-	font-size: 14px;
+	font-size: 0.95em;
+	color: #484848;
 }
 
 .pd-criticidade-media {

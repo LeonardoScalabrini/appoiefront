@@ -77,9 +77,10 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							+	'<div class="iw-footer">' 
 							+		'<div layout="row">' 
 
-							+			'<div flex class="apoiar"'
+							+			'<div flex class="apoiar">'
 
-							+				'<img src="/img/logo-apoiar.png">'
+							+				'<div class="img-like img-like-background"></div>'
+
 							+				'<p>Apoiar</p>'
 											    		
 							+			'</div>'
@@ -140,7 +141,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 					});
 
 					var btnApoiar = iwOuter.find('.apoiar > p');
-					var imgApoiar = iwOuter.find('.apoiar > img');
+					var imgApoiar = iwOuter.find('.apoiar > .img-like');
 
 					btnApoiar.on('click', function(event) {
 
@@ -151,11 +152,10 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
 
 								$(this).addClass('apoiado');
-
 								$(this).html('apoiado');
 
-								imgApoiar.removeAttr('src');
-								imgApoiar.attr('src', '/img/logo-apoiado.png');
+								imgApoiar.removeClass('img-like-background');
+								imgApoiar.addClass('img-liked-background');
 
 							// }, function (response) {
 
@@ -166,11 +166,10 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
 
 								$(this).removeClass('apoiado');
-
 								$(this).html('apoiar');
 
-								imgApoiar.removeAttr('src');
-								imgApoiar.attr('src', '/img/logo-apoiar.png');
+								imgApoiar.removeClass('img-liked-background');
+								imgApoiar.addClass('img-like-background');
 
 							// }, function (response) {
 
@@ -239,7 +238,21 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 				$rootScope.publicacaoDetalhada = response.data;
 				tempID = $rootScope.previousPost.idPublicacao;
-				//console.log($rootScope.publicacaoDetalhada);
+
+
+				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
+				var dataPublicada = moment($rootScope.publicacaoDetalhada.dataPublicacao);
+				var dataAtual = moment();
+
+				if ($rootScope.publicacaoDetalhada.status == "ABERTO")
+				{
+					$rootScope.publicacaoDetalhada.diasContados = dataAtual.diff(dataPublicada, 'days');
+				}
+				else
+				{
+					
+				}
+
 				$("#modal").fadeIn('fast', function() {
 					$(this).removeClass('hide-modal');
 					$(".appoie-modal").addClass('animation-modal');

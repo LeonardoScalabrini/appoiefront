@@ -2,7 +2,7 @@
 
     <md-content>
 
-        <md-toolbar class="md-primary">
+        <md-toolbar class="default-primary-color">
           <div class="md-toolbar-tools">
 
             <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
@@ -10,25 +10,20 @@
             </md-button>
 
             <div class="img-logo-header">
-              <span style="font-size: 20px;">Appoie</span>
+              <span style="font-size: 20px;">
+                <img src="/img/logo-escrita.png" alt="">
+              </span>
             </div>
 
             <span flex></span>
-
+            
+            <span class="cont-notification">0</span>
             <md-menu md-position-mode="target-right target" >
               <md-button aria-label="Open demo menu" class="md-icon-button notification-button" ng-click="$mdOpenMenu($event)">
                 <i class="material-icons notification-ico">notifications</i>
               </md-button>
-              <md-menu-content width="4" >
+              <md-menu-content width="3" >
                 <div class="arrow-user-notification"></div>
-                <md-menu-item ng-repeat="item in [1, 2, 3]">
-                  <md-button ng-click="ctrl.announceClick($index)">
-                      <div layout="row" flex>
-                        <p flex>Option {{item}}</p>
-                        <md-icon md-menu-align-target md-svg-icon="call:portable-wifi-off" style="margin: auto 3px auto 0;"></md-icon>
-                      </div>
-                  </md-button>
-                </md-menu-item>
 
               </md-menu-content>
             </md-menu>
@@ -37,7 +32,7 @@
 
             <md-menu md-position-mode="target-right target" >
               <div class="img-user-header">
-                <img aria-label="Open demo menu" src="../img/team/alan.jpg" height="40" width="40" alt="" ng-click="$mdOpenMenu($event)">
+                <img aria-label="Open demo menu" src="../img/team/user-empty.png" height="40" width="40" alt="" ng-click="$mdOpenMenu($event)">
               </div>
               <md-menu-content width="6" >
                 <div class="arrow-user"></div>
@@ -45,7 +40,7 @@
 
                   <div flex class="content-account">
                   
-                    <img src="../img/team/alan.jpg" alt="" class="pic-account-modal">
+                    <img src="../img/team/user-empty.png" alt="" class="pic-account-modal">
 
                   </div>
 
@@ -58,13 +53,13 @@
 
                       <div flex>
     
-                        <button class="btn-perfil btn-action-user" ng-click="viewPerfil()">PERFIL</button>
+                        <button class="btn-perfil btn-action-user default-primary-color" ng-click="viewPerfil()">PERFIL</button>
   
                       </div>
   
                       <div flex>
     
-                        <button class="btn-logout btn-action-user" ng-click="logout()">SAIR</button>
+                        <button class="btn-logout btn-action-user accent-color" ng-click="logout()">SAIR</button>
   
                       </div>
 
@@ -91,11 +86,11 @@
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
 
-      <md-toolbar class="md-theme-indigo">
+      <md-toolbar class="default-primary-color">
         <div layout="row">
 
           <div flex>
-            <h1 class="md-toolbar-tools">MENU</h1>
+            <h1 class="md-toolbar-tools text-primary-color">MENU</h1>
           </div>
 
           <span flex></span>
@@ -107,31 +102,27 @@
         </div>
       </md-toolbar>
 
-      <md-content layout-margin>
-          
-            <md-card md-theme-watch class="card-perfil">
+      <md-content>
 
-              <div layout="row">
-
-                <div flex>
-                  <img src="../img/team/alan.jpg" alt="" class="pic-menu-perfil">
-                </div>
-
-                <div flex>
-                  <div>
-                    <span class="menu-nome-perfil">Alan Freitas</span>
-                  </div>
-                  <div>
-                    <span class="menu-cidade">Maringá - PR</span>
-                  </div>
-                  <div>
-                    <span class="menu-edit">Perfil</span>
-                  </div>
-                </div>
-                
+            <div layout="row" id="user-info-menu" class="dark-primary-color">
+              
+              <div flex="20" class="pic-menu-perfil">
+                <img src="/img/team/user-empty.png" alt="">
               </div>
 
-            </md-card>
+              <div flex="65" class="info-menu-perfil">
+                <span class="text-primary-color info-nome-menu">Alan Freitas</span>
+                <br>
+                <span class="text-primary-color info-cidade-menu">Maringá - PR</span>
+              </div>
+
+              <div flex="15">
+                <div class="btn-editar-perfil-menu" ng-click="viewPerfil()">
+                  <i class="material-icons text-primary-color">create</i>
+                </div>
+              </div>
+
+            </div>
 
         <form name="filter-form">
 
