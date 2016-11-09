@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-appoie.factory('authInterceptor', ['$http', function ($http) {
-
-	
-
-}]);
-=======
 appoie.factory('AuthInterceptor', ['$q', '$window', '$location', '$injector', function ($q, $window, $location, $injector) {
 
     var AppoieStorageService = $injector.get("AppoieStorageService");
@@ -37,4 +30,3 @@ appoie.factory('AuthInterceptor', ['$q', '$window', '$location', '$injector', fu
         }
     };
 }]);
->>>>>>> develop

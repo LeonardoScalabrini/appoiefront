@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-appoie.config(function ($stateProvider, $urlRouterProvider, $mdIconProvider) {
-=======
 appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider,$facebookProvider) {
 	
 	$facebookProvider.setAppId('808688289234821');
->>>>>>> develop
 
 	$mdIconProvider
     .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
