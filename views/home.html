@@ -126,7 +126,7 @@
 
         <form name="filter-form">
 
-            <md-card md-theme-watch class="card-date">
+            <div class="filter-date">
 
               <span class="span">Filtrar por data <i class="material-icons">add</i></span>
               
@@ -151,13 +151,13 @@
 
               </div>
 
-            </md-card>
+            </div>
 
-            <md-card md-theme-watch class="card-category">
+            <div md-theme-watch class="filter-category">
 
               <span class="span">Filtrar por categoria <i class="material-icons">add</i></span>
               
-              <div class="category-container hide">
+              <div class="category-container">
 
                 <div layout="row">
                   <div flex>
@@ -200,16 +200,16 @@
                     <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class="img-disabled img-select">
                   </div>
                 </div>
-
+                <!--
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
                     <md-button class="md-raised md-primary" ng-click="filtrarPorCategoria()">Filtrar</md-button>
-                </section>
+                </section>-->
 
               </div>
 
-            </md-card>
+            </div>
 
-            <md-card md-theme-watch class="card-type">
+            <div md-theme-watch class="filter-type">
 
               <span class="span">Filtrar por Tipo <i class="material-icons">add</i></span>
               
@@ -227,15 +227,15 @@
               </div>
 
 
-            </md-card>
+            </div>
 
-            <md-card md-theme-watch class="card-config">
+            <div md-theme-watch class="filter-config">
               <span class="span">Configurações</span>
-            </md-card>
+            </div>
 
-            <md-card md-theme-watch class="card-config">
+            <div md-theme-watch class="filter-config">
               <span class="span">Sair</span>
-            </md-card>
+            </div>
 
         </form>
 

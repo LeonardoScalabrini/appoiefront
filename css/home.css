@@ -92,10 +92,17 @@
 	padding: 16px;
 }
 
-.card-date span, .card-category span, .card-type span {
-	padding: 10px;
-    color: #484848;
-    cursor: pointer;
+.filter-date, .filter-category, .filter-type, .filter-config {
+	padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.filter-date > span > i,
+.filter-category > span > i,
+.filter-type > span > i {
+	float: right;
+    color: #ccc;
+    margin-right: 10px;
 }
 
 .cont-date {
@@ -130,20 +137,14 @@
 	margin-bottom: 10px;
 }
 
-.card-config span {
-	padding: 10px;
-    color: #484848;
-    cursor: pointer;
-}
-
-.card-category img {
+.filter-category img {
 	cursor: pointer;
 	width: 70px;
 	margin: 0 auto;
 	outline: none;
 }
 
-.card-category .img-disabled {
+.filter-category .img-disabled {
 	-webkit-filter: contrast(20%);
     filter: contrast(20%);
 }
