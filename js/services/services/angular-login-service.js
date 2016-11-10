@@ -2,7 +2,7 @@ appoie.service('loginService', ['$http', function ($http) {
 
 	this.logar = function (login)
 	{
-		return $http.post("/login", login);
+		return $http.post("/usuario/auth", login);
 	};
 
 	this.recuperarSenha = function ()

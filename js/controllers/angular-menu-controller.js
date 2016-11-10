@@ -127,4 +127,9 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 		$location.path("/login");
 	}
 
+	$scope.viewPerfil = function ()
+	{
+	    window.location.href = "#/perfil";
+	}
+
 }]);

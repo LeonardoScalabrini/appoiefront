@@ -124,14 +124,6 @@
 	padding-top: 10px;
 }
 
-.card-date span > i:last-child, 
-.card-category span > i:last-child, 
-.card-type span > i:last-child {
-	position: absolute;
-    right: 20px;
-    color: #ccc;
-}
-
 .category-container, .filter-container, .date-container {
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -181,6 +173,8 @@
     -webkit-box-shadow: 0 1px 5px 1px #948C92;
 	box-shadow: 0 1px 5px 1px #948C92;
 	cursor: pointer;
+	text-decoration: none;
+	outline: none;
 }
 
 .btn-editar-perfil-menu > i {
@@ -234,10 +228,6 @@
 .layout-margin>.flex-gt-sm, 
 .layout-margin>.flex-md {
     margin: 0;
-}
-
-md-card {
-	margin: 8px !important;
 }
 
 .menudemoMenuPositionModes .md-menu-demo {

@@ -104,29 +104,28 @@
 
       <md-content>
 
-            <div layout="row" id="user-info-menu" class="dark-primary-color">
-              
-              <div flex="20" class="pic-menu-perfil">
-                <img src="/img/team/user-empty.png" alt="">
-              </div>
+        <div layout="row" id="user-info-menu" class="dark-primary-color">
+          
+          <div flex="20" class="pic-menu-perfil">
+            <img src="/img/team/user-empty.png" alt="">
+          </div>
 
-              <div flex="65" class="info-menu-perfil">
-                <span class="text-primary-color info-nome-menu">Alan Freitas</span>
-                <br>
-                <span class="text-primary-color info-cidade-menu">Maringá - PR</span>
-              </div>
+          <div flex="65" class="info-menu-perfil">
+            <span class="text-primary-color info-nome-menu">Alan Freitas</span>
+            <br>
+            <span class="text-primary-color info-cidade-menu">Maringá - PR</span>
+          </div>
 
-              <div flex="15">
-                <div class="btn-editar-perfil-menu" ng-click="viewPerfil()">
-                  <i class="material-icons text-primary-color">create</i>
-                </div>
-              </div>
-
+          <div flex="15">
+            <div class="btn-editar-perfil-menu" ng-click="viewPerfil()">
+              <i class="material-icons text-primary-color">create</i>
             </div>
+          </div>
+
+        </div>
 
         <form name="filter-form">
           
-
             <div class="filter-date">
 
               <span class="span">Filtrar por data <i class="material-icons">add</i></span>
@@ -147,10 +146,6 @@
                   
                 </div>
 
-                <div layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
-                    <md-button class="md-raised md-primary" ng-click="filtrarPorData()"><i class="material-icons">search</i></md-button>
-                </div>
-
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
                     <md-button class="md-raised md-primary" ng-click="filtrar()">Filtrar</md-button>
                 </section>
@@ -160,7 +155,7 @@
 
             </div>
 
-            <div md-theme-watch class="filter-category">
+            <div class="filter-category">
 
               <span class="span">Filtrar por categoria <i class="material-icons">add</i></span>
               
@@ -207,12 +202,8 @@
                     <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class=" img-select">
                   </div>
                 </div>
-                <!--
+                
                 <section layout="row" flex-offset="25" flex="55" layout-sm="column" layout-align="center center" layout-wrap class="filter-button">
-
-                    <md-button class="md-raised md-primary" ng-click="filtrarPorCategoria()">Filtrar</md-button>
-                </section>-->
-
                     <md-button class="md-raised md-primary" ng-click="filtrar()">Filtrar</md-button>
                 </section>
 
@@ -221,7 +212,7 @@
 
             </div>
 
-            <div md-theme-watch class="filter-type">
+            <div class="filter-type">
 
               <span class="span">Filtrar por Tipo <i class="material-icons">add</i></span>
               
@@ -238,32 +229,20 @@
 
               </div>
 
-
-
             </div>
 
-            <div md-theme-watch class="filter-config">
-
-            </md-card>
-          
-            <md-card md-theme-watch class="card-config">
-
+            <div class="filter-config">
               <span class="span">Configurações</span>
             </div>
 
-
-            <div md-theme-watch class="filter-config">
+            <div class="filter-config">
               <span class="span">Sair</span>
             </div>
-
-            <md-card md-theme-watch class="card-config">
-              <span class="span" ng-click="logout()">Sair</span>
-            </md-card>
-
 
         </form>
 
       </md-content>
+
     </md-sidenav>
 
     <md-content flex>
