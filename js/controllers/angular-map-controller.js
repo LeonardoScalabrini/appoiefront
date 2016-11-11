@@ -99,4 +99,30 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 		});
 	}
 
+	$scope.apoiarPublicacaoDetalhada = function(publicacao) {
+		if(!publicacao.apoiado) {
+			mapService.apoiar(publicacao.idPublicacao).then(function() {
+				publicacao.qtdApoiadores++;
+				publicacao.apoiado = true;
+			},
+			function(){
+
+			});
+		}      
+
+    }
+
+    $scope.desapoiarPublicacaoDetalhada = function(publicacao) {
+    	if(publicacao.apoiado) {
+			mapService.desapoiar(publicacao.idPublicacao).then(function() {
+				publicacao.qtdApoiadores--;
+				publicacao.apoiado = false;
+			},
+			function(){
+
+			});
+		}    
+    }
+
+
 }]);
