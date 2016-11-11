@@ -98,5 +98,20 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 			$(this).addClass('hide-modal');
 		});
 	}
+	
+	$scope.compartilharFacebook = function(){			
+		var publicacao = markerService.getPublicacao();
+         console.log(publicacao.titulo); 	
+		 FB.ui(
+		    {
+			   method: 'feed',
+			   name: publicacao.titulo,
+			   link: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:9092/#/home/external-xfbml"),
+			   picture: "",
+			   caption: "APPOIE.COM.BR",
+			   description: publicacao.descricao,
+			   message: ''
+		    });		
+	}
 
 }]);
