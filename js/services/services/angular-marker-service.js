@@ -252,6 +252,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 	  }
 	  $rootScope.markers.length = 0;
 	}
+	
+	publicacao= {};
 
 	$rootScope.showDetails = function ()
 	{
@@ -262,6 +264,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 				$rootScope.publicacaoDetalhada = response.data;
 				tempID = $rootScope.previousPost.idPublicacao;
+				publicacao = $rootScope.publicacaoDetalhada;
+				publicacaoCompleta();
 
 
 				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
@@ -293,6 +297,15 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				$(".appoie-modal").addClass('animation-modal');
 			});
 		};
+	}
+	
+	publicacaoCompleta = function(){
+		return publicacao;
+		
+	}
+	
+	this.getPublicacao = function(){
+		return publicacaoCompleta();
 	}
 
 
