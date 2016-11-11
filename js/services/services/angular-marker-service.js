@@ -63,15 +63,18 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 	    marker.addListener('click', function() {
 
 	    	getPostReduzido(marcador.idPublicacao).then(function (response) {
+	    		$rootScope.map.setCenter(marker.position);
 
 	    		$rootScope.previousPost = response.data;
-
+	    		
 	    		previaHTML = '<md-card id="iw-container" ng-controller="mapController">' 
 
-							+	'<div class="iw-title">' + $rootScope.previousPost.titulo + '</div>' 
+							//+	'<div class="iw-title">' + $rootScope.previousPost.titulo + '</div>' 
+							+	'<div class="iw-title">{{previousPost.titulo}}</div>' 
 
 							+	'<div class="iw-content">' 
-							+		'<img class="img-publicacao" src="' + $rootScope.previousPost.foto + '" alt="">' 
+							//+		'<img class="img-publicacao" src="' + $rootScope.previousPost.foto + '" alt="">' 
+							+		'<img class="img-publicacao" ng-src="{{previousPost.foto}}" alt="">' 
 							+	'</div>' 
 
 							+	'<div class="iw-footer">' 
@@ -86,7 +89,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							+			'</div>'
 
 							+			'<div flex class="qtdApoiadores">'
-							+				'<p>' + $rootScope.previousPost.qtdApoiadores + ' Apoiadores</p>'
+							///+				'<p>' + $rootScope.previousPost.qtdApoiadores + ' Apoiadores</p>'
+							+				'<p>{{previousPost.qtdApoiadores}} Apoiadores</p>'
 							+			'</div>'
 
 							+		'</div>'
@@ -143,37 +147,57 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 					var btnApoiar = iwOuter.find('.apoiar > p');
 					var imgApoiar = iwOuter.find('.apoiar > .img-like');
 
+
+					if($rootScope.previousPost.apoiado) {
+						
+						btnApoiar.addClass('apoiado');
+						btnApoiar.html('Apoiado');
+						imgApoiar.removeClass('img-like-background');
+						imgApoiar.addClass('img-liked-background');
+					}
+					else {
+						btnApoiar.removeClass('apoiado');
+						btnApoiar.html('Apoiar');
+						imgApoiar.removeClass('img-liked-background');
+						imgApoiar.addClass('img-like-background');
+					}
+
 					btnApoiar.on('click', function(event) {
 
 						event.preventDefault();
 
-						if (!$(this).hasClass('apoiado'))
+						if (!btnApoiar.hasClass('apoiado'))
 						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
+							    mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
-								$(this).addClass('apoiado');
-								$(this).html('apoiado');
+								btnApoiar.addClass('apoiado');
+								btnApoiar.html('Apoiado')
+								//$(this).html('Apoiado');
 
 								imgApoiar.removeClass('img-like-background');
 								imgApoiar.addClass('img-liked-background');
 
-							// }, function (response) {
+								$rootScope.previousPost.qtdApoiadores++;
 
-							// });
+							 }, function (response) {
+
+							 });
 						}
 						else
 						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
+							    mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
-								$(this).removeClass('apoiado');
-								$(this).html('apoiar');
+								btnApoiar.removeClass('apoiado');
+								btnApoiar.html('Apoiar');
 
 								imgApoiar.removeClass('img-liked-background');
 								imgApoiar.addClass('img-like-background');
 
-							// }, function (response) {
+								$rootScope.previousPost.qtdApoiadores--;
 
-							// });
+							 }, function (response) {
+
+							 });
 						}	
 
 					});
