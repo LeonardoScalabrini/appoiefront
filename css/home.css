@@ -95,6 +95,7 @@
 .filter-date, .filter-category, .filter-type, .filter-config {
 	padding: 15px;
     border-bottom: 1px solid #ccc;
+    cursor: pointer;
 }
 
 .filter-date > span > i,
@@ -105,15 +106,38 @@
     margin-right: 10px;
 }
 
+.btn-filtrar-data, .btn-filtrar-tipo, .btn-filtrar-categoria {
+	background-color: #FF4081;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin: 10px 6px 0 4px;
+    text-align: center;
+    -webkit-box-shadow: 0 1px 5px 1px #948C92;
+	box-shadow: 0 1px 5px 1px #948C92;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+}
+
+.btn-filtrar-data i, .btn-filtrar-tipo i, .btn-filtrar-categoria i {
+	margin-top: 5px;
+    font-size: 18px;
+}
+
+.input-date-prefix {
+	padding-top: 9px;
+}
+
 .cont-date {
 	padding: 0 10px;
 	margin-top: 10px;
 }
 
 .cont-date input {
-	width: 95%; 
 	padding: 5px;
-	border: 1px solid #a1a1a1;
+	border: 1px solid #ccc;
 	color: #ccc;
 	outline: none;
 }
@@ -129,9 +153,21 @@
 	margin-bottom: 10px;
 }
 
+.box-img-categoria {
+	text-align: center;
+}
+
+.box-container {
+	margin-top: 10px;
+}
+
+.descricao-categoria span {
+	font-size: 12px;
+}
+
 .filter-category img {
 	cursor: pointer;
-	width: 70px;
+	width: 50px;
 	margin: 0 auto;
 	outline: none;
 }
@@ -168,7 +204,7 @@
     height: 30px;
     border-radius: 50%;
     margin-right: 5px;
-    margin: 20px 0 0 9px;
+    margin: 20px 0 0 14px;
     text-align: center;
     -webkit-box-shadow: 0 1px 5px 1px #948C92;
 	box-shadow: 0 1px 5px 1px #948C92;
@@ -318,4 +354,22 @@ md-menu-content {
 .filter-button {
 	margin-top: 8px;
 	color: white;
+}
+
+md-sidenav {
+    box-sizing: border-box;
+    position: absolute;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    z-index: 60;
+    width: 370px;
+    max-width: 370px;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+md-list-item .md-list-item-inner .md-secondary, md-list-item .md-list-item-inner .md-secondary-container, md-list-item .md-secondary, md-list-item .md-secondary-container {
+    right: 8px;
 }

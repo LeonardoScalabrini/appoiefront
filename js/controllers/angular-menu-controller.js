@@ -30,17 +30,15 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 
 		if ($(this).next().hasClass('hide') && $(this).children().html() == 'add')
 		{
-			$(this).children().html('remove');
-			$(this).next().slideToggle();
-			$(this).next().removeClass('hide');
-
-
+			$(this).next().toggle('fast', function () {
+				$(this).removeClass('hide');
+			})
 		}
 		else
 		{
-			$(this).children().html('add');
-			$(this).next().slideToggle();
-			$(this).next().addClass('hide');
+			$(this).next().toggle('fast', function () {
+				$(this).addClass('hide');
+			})
 		}
 		
 	});
