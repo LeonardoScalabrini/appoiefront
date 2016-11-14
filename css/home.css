@@ -1,3 +1,8 @@
+.container-system {
+	overflow: hidden !important;
+	position: inherit !important;
+}
+
 .img-user-header img {
 	margin-top: 4px;
 	margin-left: 5px;
@@ -94,15 +99,17 @@
 
 .filter-date, .filter-category, .filter-type, .filter-config {
 	padding: 15px;
-    border-bottom: 1px solid #ccc;
     cursor: pointer;
+}
+
+.border-bottom-menu {
+	border-bottom: 1px solid #ccc;
 }
 
 .filter-date > span > i,
 .filter-category > span > i,
 .filter-type > span > i {
 	float: right;
-    color: #ccc;
     margin-right: 10px;
 }
 
@@ -121,8 +128,12 @@
 	outline: none;
 }
 
+.btn-filtrar-data {
+	margin: 3px 6px 0 4px;
+}
+
 .btn-filtrar-data i, .btn-filtrar-tipo i, .btn-filtrar-categoria i {
-	margin-top: 5px;
+	margin-top: 7px;
     font-size: 18px;
 }
 
@@ -150,7 +161,8 @@
 
 .category-container, .filter-container, .date-container {
 	margin-top: 20px;
-	margin-bottom: 10px;
+	padding-bottom: 25px;
+	padding-right: 15px;
 }
 
 .box-img-categoria {
@@ -165,14 +177,14 @@
 	font-size: 12px;
 }
 
-.filter-category img {
+.category-container img {
 	cursor: pointer;
 	width: 50px;
 	margin: 0 auto;
 	outline: none;
 }
 
-.filter-category .img-disabled {
+.img-disabled {
 	-webkit-filter: contrast(20%);
     filter: contrast(20%);
 }
@@ -370,6 +382,21 @@ md-sidenav {
     -webkit-overflow-scrolling: touch;
 }
 
+*::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+*::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+*::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
 md-list-item .md-list-item-inner .md-secondary, md-list-item .md-list-item-inner .md-secondary-container, md-list-item .md-secondary, md-list-item .md-secondary-container {
     right: 8px;
+}
+
+.color-list-menu {
+	color: #0288D1;
 }

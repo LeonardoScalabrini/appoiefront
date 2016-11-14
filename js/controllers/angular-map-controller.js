@@ -17,7 +17,7 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	            lat: -23.414106,  
 	            lng: -51.9407117
 	        },
-	        zoom: 13,
+	        zoom: 14,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
 		
@@ -92,11 +92,16 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 
 	$scope.fecharPublicacaoDetalhada = function () 
 	{
-		$(".appoie-modal").removeClass('animation-modal');
+		$(".appoie-modal, .appoie-info-modal").removeClass('animation-modal');
 
 		$("#modal").fadeOut('slow', function() {
 			$(this).addClass('hide-modal');
 		});
 	}
+
+	var heightFotoUser = $(".pd-foto-user").width();
+	$(".pd-foto-user").height(heightFotoUser);
+	$(".pd-foto-user > img").width(heightFotoUser - 20);
+	$(".pd-foto-user > img").height(heightFotoUser - 20);
 
 }]);

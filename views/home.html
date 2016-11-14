@@ -126,189 +126,189 @@
 
         <form name="filter-form">
           
-            <div class="filter-date">
+            <div class="filter-date filter border-bottom-menu">
 
               <span class="span">Filtrar por data <i class="material-icons">add</i></span>
-              
-              <div class="date-container hide">
 
-                <div layout="row" class="cont-date">
+            </div>
 
-                  <div flex="25" class="input-date-prefix">
-                      <span>INÍCIO</span>
-                  </div>
+            <div class="date-container hide">
 
-                  <div flex="65">
-                      <input type="date" ng-model="filtroData.dataInicio">
-                  </div>
+              <div layout="row" class="cont-date">
 
-                  <div flex="10"></div>
-                  
+                <div flex="25" class="input-date-prefix">
+                    <span>INÍCIO</span>
                 </div>
 
-                <div layout="row" class="cont-date">
-
-                  <div flex="25" class="input-date-prefix">
-                    <span>FIM</span>
-                  </div>
-
-                  <div flex="65">
-                    <input type="date" ng-model="filtroData.dataFim">
-                  </div>
-
-                  <div flex="10">
-                    <div class="btn-filtrar-data" ng-click="filtrar()">
-                      <i class="material-icons text-primary-color">create</i>
-                    </div>
-                  </div>
-                  
+                <div flex="65">
+                    <input type="date" ng-model="filtroData.dataInicio">
                 </div>
 
+                <div flex="10"></div>
+                
+              </div>
+
+              <div layout="row" class="cont-date">
+
+                <div flex="25" class="input-date-prefix">
+                  <span>FIM</span>
+                </div>
+
+                <div flex="65">
+                  <input type="date" ng-model="filtroData.dataFim">
+                </div>
+
+                <div flex="10">
+                  <div class="btn-filtrar-data" ng-click="filtrar()">
+                    <i class="material-icons text-primary-color">search</i>
+                  </div>
+                </div>
+                
               </div>
 
             </div>
 
-            <div class="filter-category">
+            <div class="filter-category filter">
 
-              <span class="span">Filtrar por categoria <i class="material-icons">add</i></span>
-              
-              <div class="category-container">
+              <span class="span">Filtrar por categoria <i class="material-icons">remove</i></span>
 
-                <div layout="row" class="box-container">
+            </div>
 
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/ARBORIZACAO.png" alt="ARBORIZACAO" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Arborização</span>
-                    </div>
+            <div class="category-container show border-bottom-menu">
+
+              <div layout="row" class="box-container">
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/ARBORIZACAO.png" alt="ARBORIZACAO" class="img-select img-disabled">
                   </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/DEFESACIVIL.png" alt="DEFESACIVIL" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Defesa civil</span>
-                    </div>
-                  </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/FUNDODEVALE.png" alt="FUNDODEVALE" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Fundo de vale</span>
-                    </div>
-                  </div>
-
-                  <div flex="10"></div>
-
-                </div>
-
-                <div layout="row" class="box-container">
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/ILUMINACAO.png" alt="ILUMINACAO" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Iluminação</span>
-                    </div>
-                  </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/PAVIMENTACAO.png" alt="PAVIMENTACAO" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Pavimentação</span>
-                    </div>
-                  </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/SANEAMENTOBASICO.png" alt="SANEAMENTOBASICO" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Saneamento</span>
-                    </div>
-                  </div>
-
-                  <div flex="10"></div>
-
-                </div>
-
-                <div layout="row" class="box-container">
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/SEGURANCA.png" alt="SEGURANCA" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Segurança</span>
-                    </div>
-                  </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/TERRENOBALDIO.png" alt="TERRENOBALDIO" class="img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Terreno baldio</span>
-                    </div>
-                  </div>
-
-                  <div flex="30" class="box-img-categoria">
-                    <div class="img-categoria">
-                      <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class=" img-select">
-                    </div>
-                    <div class="descricao-categoria">
-                      <span>Transporte</span>
-                    </div>
-                  </div>
-
-                  <div flex="10"></div>
-
-                </div>
-
-                <div layout="row" layout-align="end center">
-                  <div class="btn-filtrar-categoria" ng-click="filtrar()">
-                    <i class="material-icons text-primary-color">create</i>
+                  <div class="descricao-categoria">
+                    <span>Arborização</span>
                   </div>
                 </div>
 
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/DEFESACIVIL.png" alt="DEFESACIVIL" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Defesa civil</span>
+                  </div>
+                </div>
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/FUNDODEVALE.png" alt="FUNDODEVALE" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Fundo de vale</span>
+                  </div>
+                </div>
+
+                <div flex="10"></div>
+
+              </div>
+
+              <div layout="row" class="box-container">
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/ILUMINACAO.png" alt="ILUMINACAO" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Iluminação</span>
+                  </div>
+                </div>
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/PAVIMENTACAO.png" alt="PAVIMENTACAO" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Pavimentação</span>
+                  </div>
+                </div>
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/SANEAMENTOBASICO.png" alt="SANEAMENTOBASICO" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Saneamento</span>
+                  </div>
+                </div>
+
+                <div flex="10"></div>
+
+              </div>
+
+              <div layout="row" class="box-container">
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/SEGURANCA.png" alt="SEGURANCA" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Segurança</span>
+                  </div>
+                </div>
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/TERRENOBALDIO.png" alt="TERRENOBALDIO" class="img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Terreno baldio</span>
+                  </div>
+                </div>
+
+                <div flex="30" class="box-img-categoria">
+                  <div class="img-categoria">
+                    <img src="/img/categorias/TRANSPORTEPUBLICO.png" alt="TRANSPORTEPUBLICO" class=" img-select img-disabled">
+                  </div>
+                  <div class="descricao-categoria">
+                    <span>Transporte</span>
+                  </div>
+                </div>
+
+                <div flex="10"></div>
+
+              </div>
+
+              <div layout="row" layout-align="end center">
+                <div class="btn-filtrar-categoria" ng-click="filtrar()">
+                  <i class="material-icons text-primary-color">search</i>
+                </div>
               </div>
 
             </div>
 
-            <div class="filter-type">
+            <div class="filter-type filter border-bottom-menu">
 
               <span class="span">Filtrar por Tipo <i class="material-icons">add</i></span>
-              
-              <div class="filter-container hide">
 
-                <md-list-item ng-repeat="filtro in menuFiltros">
-                  <p> {{ filtro.nome }} </p>
-                  <md-checkbox class="md-secondary" ng-model="filtro.wanted"></md-checkbox>
-                </md-list-item>
+            </div>
 
-                <div layout="row" layout-align="end center">
-                  <div class="btn-filtrar-tipo" ng-click="filtrar()">
-                    <i class="material-icons text-primary-color">create</i>
-                  </div>
+            <div class="filter-container hide">
+
+              <md-list-item ng-repeat="filtro in menuFiltros">
+                <p> {{ filtro.nome }} </p>
+                <md-checkbox class="md-secondary" ng-model="filtro.wanted"></md-checkbox>
+              </md-list-item>
+
+              <div layout="row" layout-align="end center">
+                <div class="btn-filtrar-tipo" ng-click="filtrar()">
+                  <i class="material-icons text-primary-color">search</i>
                 </div>
-
               </div>
 
             </div>
 
-            <div class="filter-config">
+            <div class="filter-config border-bottom-menu">
               <span class="span">Configurações</span>
             </div>
 
-            <div class="filter-config">
+            <div class="filter-config border-bottom-menu" ng-click="logout()">
               <span class="span">Sair</span>
             </div>
 
@@ -318,7 +318,7 @@
 
     </md-sidenav>
 
-    <md-content flex>
+    <md-content flex class="container-system">
       <div layout="column" layout-align="left">
 
         <div ui-view="system-pages"></div> <!-- CORPO DO SITE - VIEWS A SEREM CARREGADAS -->

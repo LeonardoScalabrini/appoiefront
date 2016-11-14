@@ -81,9 +81,10 @@
   border: none;
   outline: none;
   box-sizing: border-box;
+  color: #fff;
 }
 
 .apoiado {
-  color: rgb(63,81,181);
+  color: #0288D1;
   font-weight: 500;
 }

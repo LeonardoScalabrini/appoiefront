@@ -4,41 +4,33 @@
 
 #modal {
 	position: absolute;
-	z-index: 9;
+	z-index: 900000;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.8);
 }
 
-.modal-container {
+.modal-container, .modal-info-container {
 	height: 100%;
 }
 
 .appoie-modal {
 	position: absolute;
-	z-index: 10;
-	top: 50px;
-	/*min-width: 700px;
-	min-height: 370px;
-	width: 700px;
-	height: 370px;*/
-	min-width: 50%;
-	min-height: 60%;
-	width: 50%;
-	height: 60%;
+	z-index: 1000000;
+	top: 75px;
+	left: 50px;
+	min-width: 60%;
+	width: 60%;
 	background-color: #fff;
-	-webkit-box-shadow: 1px 1px 1px 1px #D6D6D6;
-	box-shadow: 1px 1px 1px 1px #D6D6D6;
-	padding: 10px;
-	-moz-transform: scale(1) translateX(0px) translateY(-500%);
-	-webkit-transform: scale(1) translateX(0px) translateY(-500%);
-	-o-transform: scale(1) translateX(0px) translateY(-500%);
-	-ms-transform: scale(1) translateX(0px) translateY(-500%);
-	transform: scale(1) translateX(0px) translateY(-500%);
+	-moz-transform: scale(1) translateX(-1000%);
+	-webkit-transform: scale(1) translateX(-1000%);
+	-o-transform: scale(1) translateX(-1000%);
+	-ms-transform: scale(1) translateX(-1000%);
+	transform: scale(1) translateX(-1000%);
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
@@ -47,11 +39,11 @@
 }
 
 .animation-modal {
-	-moz-transform: scale(1) translateX(0px) translateY(0px);
-	-webkit-transform: scale(1) translateX(0px) translateY(0px);
-	-o-transform: scale(1) translateX(0px) translateY(0px);
-	-ms-transform: scale(1) translateX(0px) translateY(0px);
-	transform: scale(1) translateX(0px) translateY(0px);
+	-moz-transform: scale(1) translateX(0px) translateY(0px) !important;
+	-webkit-transform: scale(1) translateX(0px) translateY(0px) !important;
+	-o-transform: scale(1) translateX(0px) translateY(0px) !important;
+	-ms-transform: scale(1) translateX(0px) translateY(0px) !important;
+	transform: scale(1) translateX(0px) translateY(0px) !important;
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
@@ -59,42 +51,248 @@
 	transition: all 500ms ease;
 }
 
+.appoie-info-modal {
+	position: absolute;
+	z-index: 10000000;
+	top: 0;
+	right: 0;
+	min-width: 32%;
+	width: 32%;
+	min-height: 100%;
+	height: 100%;
+	background-color: #fff;
+	-moz-transform: scale(1) translateX(1000px);
+	-webkit-transform: scale(1) translateX(1000px);
+	-o-transform: scale(1) translateX(1000px);
+	-ms-transform: scale(1) translateX(1000px);
+	transform: scale(1) translateX(1000px);
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.img-width {
+	width: 100%;
+}
+
+.img-height {
+	height: 100%;
+}
+
 /* ========== MODAL STYLES ========== */
 
-.pd-criticidade {
+/* MODAL DE INFORMAÇÕES  --  HEADER */
+
+.pd-info-header-container {
+	background-color: #0288D1;
+	padding: 20px;
+}
+
+.pd-foto-user {
+	width: 100%;
+    background: #fff;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.pd-foto-user > img {
+	width: 27px;
+	height: 27px;
+	margin-top: 10px;
+}
+
+.pd-info-user-name > span {
+	font-weight: bold;
+	font-size: 19px;
+	color: #fff;
+}
+
+.pd-info-data > span, .pd-info-status > span, .pd-info-duracao > span {
+	font-size: 13px;
+	color: #fff;
+}
+
+.pd-info-data > span > span, .pd-info-status > span > span, .pd-info-duracao > span > span {
+	font-weight: bold;
+}
+
+.pd-close-modal-field {
+	background-color: #0288D1;
+	border-radius: 50%;
+	float: right;
+	padding: 2px 7px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+}
+
+.pd-close-modal span {
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+}
+
+.pd-info-user-container {
+	padding-left: 15px;
+}
+
+/* MODAL DE INFORMAÇÕES  --  CORPO */
+
+.pd-info-container {
+	padding: 20px;
+}
+
+.pd-info-titulo > span {
+	font-size: 18px;
+	font-weight: bold;
+	color: #212121;
+}
+
+.pd-info-descricao {
+	margin-top: 10px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+.pd-info-descricao > span {
+	font-size: 14px;
+	color: #757575;
+}
+
+.pd-categoria-container {
+	border-bottom: 1px solid #ccc;
+}
+
+.pd-categoria > span > span {
+	font-weight: bold;
+}
+
+.pd-img-categoria img {
+	float: right;
+	padding-bottom: 2px;
+}
+
+.pd-criticidade-grafico {
+	box-sizing: border-box;
 	width: 100%;
 	height: 30px;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2dd62a+1,faff00+40,faff00+60,ff0000+100 */
-	background: #2dd62a; /* Old browsers */
-	background: -moz-linear-gradient(left,  #2dd62a 1%, #faff00 40%, #faff00 60%, #ff0000 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2dd62a', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+	padding: 0 5px;
+	/*background: #2dd62a;
+	background: -moz-linear-gradient(left,  #2dd62a 1%, #faff00 40%, #faff00 60%, #ff0000 100%);
+	background: -webkit-linear-gradient(left,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%);
+	background: linear-gradient(to right,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2dd62a', endColorstr='#ff0000',GradientType=1 );*/
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#03a9f4+2,ff4081+76 */
+background: #03a9f4; /* Old browsers */
+background: -moz-linear-gradient(left, #03a9f4 2%, #ff4081 76%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #03a9f4 2%,#ff4081 76%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #03a9f4 2%,#ff4081 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a9f4', endColorstr='#ff4081',GradientType=1 ); /* IE6-9 */
+}
+
+.pd-criticidade {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.pd-criticidade > span > span {
+	font-weight: bold;
+}
+
+.pd-criticidade-grafico > img {
+	margin-top: 4px;
+}
+
+.pd-contador-dias {
+	margin-top: 20px;
+}
+
+.pd-contador-dias > span {
+	color: #757575;
+	font-size: 14px;
+}
+
+.pd-contador-dias > span > span {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.pd-actions-container {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.pd-actions-container * {
+	font-size: 13px;
+}
+
+.pd-apoiar {
+	float: left;
+	margin-right: 10px;
+}
+
+.pd-apoiar > span:hover, .pd-denunciar > span:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.pd-qtd-apoiadores {
+	text-align: right;
+}
+
+.pd-qtd-apoiadores > span {
+	margin-right: 47px;
+}
+
+.pd-compartilhar {
+	margin-left: auto;
+    margin-top: 50px;
+    margin-right: auto;
+}
+
+.pd-btn-compartilhar {
+    background: #0288D1;
+    border-radius: 2px;
+    color: #fff;
+    margin-top: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.pd-btn-compartilhar:hover {
+	background: #03A9F4;
+}
+
+.pd-btn-compartilhar-img {
+	float: left;
+	height: 30px;
+}
+
+.pd-btn-text {
+	margin-top: 6px;
+    margin-left: 40px;
+}
+
+/*.pd-criticidade {
+	width: 100%;
+	height: 30px;
+	background: #2dd62a;
+	background: -moz-linear-gradient(left,  #2dd62a 1%, #faff00 40%, #faff00 60%, #ff0000 100%);
+	background: -webkit-linear-gradient(left,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%);
+	background: linear-gradient(to right,  #2dd62a 1%,#faff00 40%,#faff00 60%,#ff0000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2dd62a', endColorstr='#ff0000',GradientType=1 );
 }
 
 .pd-criticidade > img {
 	margin: 5px 5px 0 5px;
-}
-
-.pd-titulo {
-	margin-bottom: 10px;
-}
-
-.pd-titulo > span {
-    color: #484848;
-    font-weight: 500;
-}
-
-.pd-foto {
-	padding-right: 10px;
-}
-
-.pd-foto img {
-	width: 100%;
-	height: 100%;
-	-webkit-box-shadow: 0 0 10px 0 #E8D8DA;
-	box-shadow: 0 0 10px 0 #E8D8DA;
-	border-radius: 2px;
 }
 
 .pd-container-user-foto {
@@ -180,4 +378,4 @@
 
 .pd-info-situacao {
 	margin-top: 10px;
-}
+}*/

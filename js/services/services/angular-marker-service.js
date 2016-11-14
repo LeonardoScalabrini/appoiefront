@@ -96,7 +96,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							+		'<div layout="row">'
 
 							+			'<div flex class="show-modal">'
-							+				'<md-button class="md-button md-raised md-primary" ng-click="showDetails()">VER MAIS</md-button>'
+							+				'<md-button class="md-button md-raised dark-primary-color" ng-click="showDetails()">VER MAIS</md-button>'
 							+			'</div>'
 
 							+		'</div>'
@@ -248,14 +248,18 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				{
 					$rootScope.publicacaoDetalhada.diasContados = dataAtual.diff(dataPublicada, 'days');
 				}
+
+				console.log($rootScope.publicacaoDetalhada);
+
+				// COMPARANDO A ALTURA COM A LARGURA DA IMAGEM
+				if ($rootScope.publicacaoDetalhada.fotos[0].foto.naturalHeight > $rootScope.publicacaoDetalhada.fotos[0].foto.naturalWidth)
+					$(".pd-foto img").addClass('img-height');
 				else
-				{
-					
-				}
+					$(".pd-foto img").addClass('img-width');
 
 				$("#modal").fadeIn('fast', function() {
 					$(this).removeClass('hide-modal');
-					$(".appoie-modal").addClass('animation-modal');
+					$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
 				});
 
 			}, function (response) {
@@ -266,7 +270,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 		{
 			$("#modal").fadeIn('fast', function() {
 				$(this).removeClass('hide-modal');
-				$(".appoie-modal").addClass('animation-modal');
+				$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
 			});
 		};
 	}
