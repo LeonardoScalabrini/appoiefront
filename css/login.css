@@ -3,7 +3,7 @@ html, body {
 }
 
 #content {
-	background-image: url(../img/fundo_login.jpg);
+	background-image: url(../img/fundo_login.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -34,7 +34,7 @@ html, body {
 
 .content-login {
 	width: 100%;
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.4);
 	margin-top: 70px;
 	z-index: 1;
 	padding: 20px;
@@ -42,11 +42,11 @@ html, body {
 
 .logo-login span {
 	font-size: 20px;
-	color: rgb(63,81,181);
+	color: #fff;
 }
 
 .title-login h2 {
-	color: #a1a1a1;
+	color: #fff;
 	font-weight: 400;
 }
 
@@ -70,15 +70,15 @@ md-input-container .md-errors-spacer {
 
 md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
 md-input-container:not(.md-input-has-value).md-input-focused .md-select {
-	border-color: rgb(63,81,181);
+	border-color: #fff;
 }
 
 md-input-container:not(.md-input-invlalid).md-input-focused label {
-	color: rgb(63,81,181);
+	color: #fff;
 }
 
 .appoieButton {
-	background-color: rgb(63,81,181);
+	background-color: #FF4081;
 	margin: 5px 0 0 0;
 	color: #ffffff;
 	border: none;
@@ -95,7 +95,7 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
 
 .linkAlternative span {
 	font-size: 10px;
-	color: #a1a1a1;
+	color: #ccc;
 	width: auto;
 }
 
@@ -104,7 +104,7 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
 }
 
 .linkAlternative span > a:hover {
-	color: rgb(63,81,181);
+	color: #fff;
 }
 
 .cadastrarLink {
