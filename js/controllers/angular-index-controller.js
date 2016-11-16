@@ -58,7 +58,7 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
 
     }, function (response) {
 
-      indexFactory.notification('alert-error', 'Login ou senha inválidos');
+      indexFactory.notification('custom-alert alert-position-right alert-error', 'Login ou senha inválidos');
 
     })
   }
@@ -67,18 +67,18 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
   {
     if ($scope.cadastroForm.$invalid)
     {
-      indexFactory.notification('alert-error', 'Informe os campos corretamente');
+      indexFactory.notification('custom-alert alert-position-left alert-error', 'Informe os campos corretamente');
     }
     else
     {
       cadastroService.salvar(usuario).then(function (response) {
 
-        indexFactory.notification('alert-success', 'Cadastrado com sucesso');
+        indexFactory.notification('custom-alert alert-position-left alert-success', 'Cadastrado com sucesso');
         $scope.hideCadastro();
 
       }, function (response) {
 
-        indexFactory.notification('alert-error', 'Informe os campos corretamente');
+        indexFactory.notification('custom-alert alert-position-left alert-error', 'Informe os campos corretamente');
 
       });
     }

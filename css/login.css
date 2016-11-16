@@ -326,32 +326,33 @@ md-select:not([disabled]):focus .md-select-value {
 	transition: all 5s ease;
 }
 
-.alert-error {
-	background-color: #F44336;
-    width: 300px;
-    position: absolute;
-    right: 10px;
+.custom-alert {
+	background: none;
+	width: 300px;
     z-index: 10;
     text-align: center;
     padding: 20px;
-    color: #fff;
     margin-top: 10px;
-    -webkit-box-shadow: 0px 1px 1px 0 #ccc;
-	box-shadow: 0px 1px 1px 0 #ccc;
+}
+
+.alert-error {
+	border: 2px solid #F44336;
+	color: #F44336;
 }
 
 .alert-success {
-	background-color: #4CAF50;
-    width: 300px;
-    position: absolute;
-    right: 10px;
-    z-index: 10;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    margin-top: 10px;
-    -webkit-box-shadow: 0px 1px 1px 0 #ccc;
-	box-shadow: 0px 1px 1px 0 #ccc;
+	border: 2px solid #4CAF50;
+	color: #4CAF50;
+}
+
+.alert-position-left {
+	position: absolute;
+	left: 10px;
+}
+
+.alert-position-right {
+	position: absolute;
+	right: 10px;
 }
 
 .direitos {
