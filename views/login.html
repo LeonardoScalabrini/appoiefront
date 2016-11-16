@@ -18,7 +18,7 @@
 
                 <md-input-container class="md-block">
                     <label>E-mail</label>
-                    <input required type="email" name="emailLogin" ng-model="login.username" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                    <input required type="email" name="emailLogin" ng-model="login.email" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
                     <div ng-messages="loginForm.emailLogin.$error" role="alert">
                         <div class="errorMsg" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Informe um Email válido</div>
                     </div>
@@ -26,13 +26,13 @@
 
                 <md-input-container class="md-block">
                     <label>Senha</label>
-                    <input required type="password" name="senhaLogin" ng-model="login.password" minlength="6">
+                    <input required type="password" name="senhaLogin" ng-model="login.senha" minlength="6">
                     <div ng-messages="loginForm.senhaLogin.$error">
                         <div class="errorMsg" ng-message="required">Informe uma senha válida</div>
                     </div>
                 </md-input-container>
 
-                <button class="submitLogin appoieButton md-primary" ng-click="logar(login)">ENTRAR</button>
+                <button name='appoieButton' class="submitLogin appoieButton md-primary" ng-click="logar(login)">ENTRAR</button>
 
             </form>
 
@@ -42,7 +42,7 @@
                 </div>
 
                 <div flex="50" layout="column" class="linkAlternative cadastrarLink">
-                    <span><a ng-click="showCadastro()">Cadastre-se</a></span>
+                    <span><a name='cadastrar-se' ng-click="showCadastro()">Cadastre-se</a></span>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
 
                       <md-input-container>
                         <label>Sexo</label>
-                        <md-select ng-model="cadastro.sexo" required>
+                        <md-select name = "sexo" ng-model="cadastro.sexo" required>
                           <md-option>Masculino</md-option>
                           <md-option>Feminino</md-option>
                         </md-select>
@@ -224,7 +224,7 @@
                 <div layout="row">
                     <div layout="column" flex="100">
 
-                        <button class="appoieButton" ng-click="cadastrar(cadastro)">Cadastrar</button>
+                        <button name="cadastrar" class="appoieButton" ng-click="cadastrar(cadastro)">Cadastrar</button>
 
                     </div>
                 </div>

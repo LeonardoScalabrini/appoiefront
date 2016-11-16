@@ -1,8 +1,8 @@
-appoie.controller('loginController', ['$scope','$facebook','loginService', 'mensagemFactory', function ($scope,$facebook, loginService, mensagemFactory) {
+appoie.controller('loginController', ['$scope','$facebook','loginService', 'mensagemFactory', function ($scope, $facebook, loginService, mensagemFactory) {
 
 	$scope.senhaPerdida = false;
 	$scope.modalTitle = "Entre com sua conta";
-
+	
 	$scope.recuperarSenha = function ()
 	{
 		$scope.senhaPerdida = !$scope.senhaPerdida;
@@ -16,11 +16,9 @@ appoie.controller('loginController', ['$scope','$facebook','loginService', 'mens
 		$scope.recuperarSenha();
 	};
 
-	$scope.logar = function (usuario)
-	{
-		if (!usuario) usuario = {};
-
-		loginService.logar(usuario).then(function (response)
+	$scope.logar = function (login){	
+		
+		loginService.logar(login).then(function (response)
 		{
 			// Capturar token do backend
 			window.location.href = "#/home";

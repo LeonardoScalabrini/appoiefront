@@ -58,7 +58,7 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
 
     }, function (response) {
 
-      indexFactory.notification('alert-error', 'Login ou senha inválidos');
+      indexFactory.notification('alert-error', response.data.message);
 
     })
   }
@@ -77,8 +77,8 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
         $scope.hideCadastro();
 
       }, function (response) {
-
-        indexFactory.notification('alert-error', 'Informe os campos corretamente');
+    	  console.log(response);
+        indexFactory.notification('alert-error', response.data.message);
 
       });
     }

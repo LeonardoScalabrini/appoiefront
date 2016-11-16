@@ -1,8 +1,15 @@
 appoie.service('loginService', ['$http', function ($http) {
 
+	var vazio = {};
+	vazio.email = '';
+	vazio.senha = '';
+	
 	this.logar = function (login)
-	{
-		return $http.post("/login", login);
+	{	
+		if(login == undefined){
+			return $http.post("/usuario/auth", vazio); 
+		}
+		return $http.post("/usuario/auth", login);
 	};
 
 	this.recuperarSenha = function ()
