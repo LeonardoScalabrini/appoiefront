@@ -14,7 +14,6 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 
 	}
 	
-
 	$scope.toggleLeft = function () 
 	{
 		menuFactory.buildToggler('left');
@@ -26,22 +25,40 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 	    { nome: 'Minhas publicações', wanted: false }
 	];
 
-	$('.span').on('click', function(event) {
+	$('.filter').on('click', function(event) {
 
-		if ($(this).next().hasClass('hide') && $(this).children().html() == 'add')
+		if ($(this).next().hasClass('hide') && $(this).children().children().html() == 'add')
 		{
-			$(this).children().html('remove');
-			$(this).next().slideToggle();
-			$(this).next().removeClass('hide');
-
-
+			$(this).children().children().html('remove');
+			$(this).removeClass('border-bottom-menu');
+			$(this).next().addClass('border-bottom-menu');
+			$(this).next().fadeToggle('fast', function () {
+				$(this).removeClass('hide');
+				$(this).addClass('show');
+			});
 		}
 		else
 		{
-			$(this).children().html('add');
-			$(this).next().slideToggle();
-			$(this).next().addClass('hide');
+			$(this).children().children().html('add');
+			$(this).next().removeClass('border-bottom-menu');
+			$(this).addClass('border-bottom-menu');
+			$(this).next().fadeToggle('fast', function () {
+				$(this).addClass('hide');
+				$(this).removeClass('show');
+			});
 		}
+		
+	});
+
+	$('.filter, .filter-config').hover(function() {
+
+		$(this).find('.span').addClass('color-list-menu');
+		$(this).find('.span').children().addClass('color-list-menu');
+		
+	}, function() {
+
+		$(this).find('.span').removeClass('color-list-menu');
+		$(this).find('.span').children().removeClass('color-list-menu');
 		
 	});
 
@@ -125,6 +142,11 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 	$scope.logout = function() {
 		// limpar aqui variável que guarda o token
 		$location.path("/login");
+	}
+
+	$scope.viewPerfil = function ()
+	{
+	    window.location.href = "#/perfil";
 	}
 
 }]);

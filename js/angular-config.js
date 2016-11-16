@@ -8,15 +8,6 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
     .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24)
     .defaultIconSet('img/icons/sets/core-icons.svg', 24);
 
-	$mdThemingProvider.theme('default')
-
-	.primaryPalette('indigo', {
-		'default': '500',
-      	'hue-1': '100',
-      	'hue-2': '600',
-      	'hue-3': 'A100'
-	});
-
 	$urlRouterProvider.otherwise("/login");
 
 	$stateProvider
@@ -36,6 +27,19 @@ appoie.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider, 
 			'system-pages@home': {
 				templateUrl: "views/main.html",
 				controller: 'mapController'
+			}
+		}
+	})
+
+	.state("perfil", {
+		url: "/perfil",
+		controller: "perfilController",
+		views: 
+		{
+			'': {templateUrl: "views/home.html"},
+			'system-pages@perfil': {
+				templateUrl: "views/perfil.html",
+				controller: 'perfilController'
 			}
 		}
 	});

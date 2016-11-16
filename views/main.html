@@ -1,1 +1,126 @@
 <div id="map" ng-init="initMap()"></div>
+
+<div id="modal" class="hide-modal" ng-click="fecharPublicacaoDetalhada()"></div>
+	
+<div layout="row" layout-align="center center" class="modal-container">
+
+	<div class="appoie-modal">
+
+		<div class="pd-foto">
+			<img src={{publicacaoDetalhada.fotos[0].foto}} alt="">
+		</div>
+
+	</div>
+
+</div>
+
+<div layout="row" layout-align="center center" class="modal-info-container">
+
+	<div class="appoie-info-modal">
+
+		<div layout="row" class="pd-info-header-container"> <!-- HEADER DA PUBLICAÇÃO DETALHADA -->
+
+			<div flex="20">
+				<div class="pd-foto-user">
+					<img src="../img/team/user-empty.png" alt="">
+				</div>
+			</div>
+
+			<div flex="70" class="pd-info-user-container">
+				<div class="pd-info-user-name">
+					<span>Alan Mariano Freitas</span>
+				</div>
+				<div class="pd-info-data">
+					<span><span>Dia da publicação: </span>{{publicacaoDetalhada.dataPublicacao | date: 'dd/MM/yyyy'}}</span>
+				</div>
+				<div class="pd-info-status">
+					<span><span>Status: </span>{{publicacaoDetalhada.status}}</span>
+				</div>
+				<div class="pd-info-duracao">
+					<span><span>Aberto há: </span>{{publicacaoDetalhada.diasContados}} dias</span>
+				</div>
+			</div>
+
+			<div flex="10" class="pd-close-modal">
+				<div class="pd-close-modal-field" ng-click="fecharPublicacaoDetalhada()">
+					<span>X</span>
+				</div>
+			</div>
+			
+		</div>
+
+		<div layout="column" class="pd-info-container"> <!-- CORPO DA PUBLICAÇÃO DETALHADA -->
+
+			<div flex class="pd-info-titulo">
+
+				<span>{{publicacaoDetalhada.titulo | uppercase}}</span>
+				
+			</div>
+
+			<div flex class="pd-info-descricao">
+
+				<span>{{publicacaoDetalhada.descricao}}</span>
+				
+			</div>
+
+			<div layout="row" layout-align="start center" class="pd-categoria-container">
+
+				<div flex="70" class="pd-categoria">
+					<span><span>CATEGORIA: </span> TRANSPORTE PÚBLICO</span>
+				</div>
+
+				<div flex="30" class="pd-img-categoria">
+					<img src="../img/categorias/ILUMINACAO.png" height="50" width="50" alt="">
+				</div>
+				
+			</div>
+
+			<div flex class="pd-criticidade-container">
+
+				<div class="pd-criticidade">
+					<span><span>NÍVEL DE CRITICIDADE:</span> BAIXA</span>
+				</div>
+
+				<div class="pd-criticidade-grafico">
+					<img src="../img/logo-criticidade.png" height="20" width="20" alt="">
+				</div>
+				
+			</div>
+
+			<div layout="row" class="pd-compartilhar">
+
+				<div class="pd-btn-compartilhar">
+					<div class="pd-btn-compartilhar-img">
+						<img src="../img/facebook_ico_button.png" height="30" width="30" alt="">
+					</div>
+					<div class="pd-btn-text">
+						<span>Compartilhe com o facebook</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<div layout="row" class="pd-actions-container">
+
+				<div flex="20" class="pd-apoiar">
+					<i class="material-icons">thumb_up</i>
+					<span>Apoiar</span>
+				</div>
+
+				<div flex="30" class="pd-denunciar">
+					<i class="material-icons">report_problem</i>
+					<span>Denunciar</span>
+				</div>
+				
+
+				<div flex="50" class="pd-qtd-apoiadores">
+					<span>{{publicacaoDetalhada.qtdApoiadores}} Apoiadores</span>
+				</div>
+				
+			</div>
+			
+		</div>
+
+	</div>
+
+</div>

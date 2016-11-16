@@ -24,5 +24,30 @@ appoie.controller('homeController', ['$scope', 'menuFactory', '$mdDialog', funct
       );
       originatorEv = null;
     };
+
+  $('.input-search').focus(function(event) {
+    $(this).removeAttr('placeholder');
+    $(this).removeClass('material-icons');
+  });
+
+  $('.input-search').blur(function(event) {
+
+    if ($(this).val())
+      $(this).val("");
+
+    $(this).addClass('material-icons');
+    $(this).attr('placeholder', 'search');
+
+  });
+
+  $scope.viewPerfil = function ()
+  {
+    window.location.href = "#/perfil";
+  }
+
+  $scope.logout = function ()
+  {
+    window.location.href = "#/login";
+  }
 	
 }]);

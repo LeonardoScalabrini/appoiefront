@@ -3,7 +3,7 @@ html, body {
 }
 
 #content {
-	background-image: url(../img/fundo_login.jpg);
+	background-image: url(../img/fundo_login.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -34,7 +34,7 @@ html, body {
 
 .content-login {
 	width: 100%;
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.4);
 	margin-top: 70px;
 	z-index: 1;
 	padding: 20px;
@@ -42,11 +42,21 @@ html, body {
 
 .logo-login span {
 	font-size: 20px;
-	color: rgb(63,81,181);
+	color: #fff;
 }
 
 .title-login h2 {
-	color: #a1a1a1;
+	color: #fff;
+	font-weight: 400;
+}
+
+#content-cadastro .logo-login span {
+	font-size: 20px;
+	color: #ccc;
+}
+
+#content-cadastro .title-login h2 {
+	color: #ccc;
 	font-weight: 400;
 }
 
@@ -68,17 +78,26 @@ md-input-container .md-errors-spacer {
     min-height: 15px;
 }
 
-md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
-md-input-container:not(.md-input-has-value).md-input-focused .md-select {
-	border-color: rgb(63,81,181);
+#content md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
+#content md-input-container:not(.md-input-has-value).md-input-focused .md-select {
+	border-color: #fff;
 }
 
-md-input-container:not(.md-input-invlalid).md-input-focused label {
-	color: rgb(63,81,181);
+#content md-input-container:not(.md-input-invlalid).md-input-focused label {
+	color: #fff;
+}
+
+#content-cadastro md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
+#content-cadastro md-input-container:not(.md-input-has-value).md-input-focused .md-select {
+	border-color: #ccc;
+}
+
+#content-cadastro md-input-container:not(.md-input-invlalid).md-input-focused label {
+	color: #ccc;
 }
 
 .appoieButton {
-	background-color: rgb(63,81,181);
+	background-color: #FF4081;
 	margin: 5px 0 0 0;
 	color: #ffffff;
 	border: none;
@@ -95,7 +114,7 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
 
 .linkAlternative span {
 	font-size: 10px;
-	color: #a1a1a1;
+	color: #ccc;
 	width: auto;
 }
 
@@ -104,7 +123,7 @@ md-input-container:not(.md-input-invlalid).md-input-focused label {
 }
 
 .linkAlternative span > a:hover {
-	color: rgb(63,81,181);
+	color: #fff;
 }
 
 .cadastrarLink {
@@ -186,7 +205,7 @@ md-input-container {
 }
 
 md-select:not([disabled]):focus .md-select-value {
-	border-bottom-color: rgb(63,81,181);
+	border-bottom-color: #ccc;
 }
 
 .sucesso {
@@ -198,6 +217,7 @@ md-select:not([disabled]):focus .md-select-value {
 }
 
 .content-cadastro {
+	height: 100%;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -220,18 +240,21 @@ md-select:not([disabled]):focus .md-select-value {
 	transition: all 1s ease;
 }
 
+.field-cadastro {
+	height: 100%;
+}
+
 .cont-content-cadastro {
 	width: 100%;
 	height: 100%;
 	background: #fff;
 	z-index: 1;
 	padding: 20px;
-	margin-top: 10px;
 }
 
 .close-cadastro {
 	font-size: 25px;
-    color: #000;
+    color: #a1a1a1;
     font-weight: 400;
     float: right;
     cursor: pointer;
@@ -251,7 +274,7 @@ md-select:not([disabled]):focus .md-select-value {
     font-weight: bold;
     position: relative;
     bottom: 7px;
-    color: rgb(63,81,181);
+    color: #ccc;
 }
 
 .back-position {
@@ -303,30 +326,41 @@ md-select:not([disabled]):focus .md-select-value {
 	transition: all 5s ease;
 }
 
-.alert-error {
-	background-color: #F44336;
-    width: 300px;
-    position: absolute;
-    right: 10px;
+.custom-alert {
+	background: none;
+	width: 300px;
     z-index: 10;
     text-align: center;
     padding: 20px;
-    color: #fff;
     margin-top: 10px;
-    -webkit-box-shadow: 0px 1px 1px 0 #ccc;
-	box-shadow: 0px 1px 1px 0 #ccc;
+}
+
+.alert-error {
+	border: 2px solid #F44336;
+	color: #F44336;
 }
 
 .alert-success {
-	background-color: #4CAF50;
-    width: 300px;
-    position: absolute;
-    right: 10px;
-    z-index: 10;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    margin-top: 10px;
-    -webkit-box-shadow: 0px 1px 1px 0 #ccc;
-	box-shadow: 0px 1px 1px 0 #ccc;
+	border: 2px solid #4CAF50;
+	color: #4CAF50;
+}
+
+.alert-position-left {
+	position: absolute;
+	left: 10px;
+}
+
+.alert-position-right {
+	position: absolute;
+	right: 10px;
+}
+
+.direitos {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.direitos > span {
+	font-size: 11px;
+	color: #ccc;
 }

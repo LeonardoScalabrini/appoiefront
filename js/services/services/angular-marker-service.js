@@ -1,22 +1,33 @@
-appoie.service('markerService', ['$http', 'mapService', '$rootScope', function ($http, mapService, $rootScope) {
+appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile', '$mdPanel', function ($http, mapService, $rootScope, $compile, $mdPanel) {
 
-	var postMin;
 	var infoWindowAnterior;
+	var content = '';
+	var previaHTML;
+	var infowindow;
+	var tempID;
 
-	this.initMarkers = function(marcadores)
+	this.initMarkers = function(marcadores, scope)
 	{		
 		for (var i = 0; i < marcadores.length; i++) {
 	 	
 			(function(i){
+
 			    setTimeout(function(){
 
 			 		marcador = {};
 					marcador = marcadores[i];
-			        setMarker(marcador);
-			  }, 250 * i)
-			 })(i);
+			        setMarker(marcador, scope);
+
+			  	}, 250 * i)
+
+			})(i);
 		}
 	
+	}
+
+	getPublicacaoDetalhada = function (id)
+	{
+		return $http.get('publicacao/detalhada/' + id);
 	}
 
 	this.getPostMin = function(id) {
@@ -27,11 +38,10 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 		return $http.get('publicacao/previa/' + id);
 	}
 
-	setMarker= function(marcador)
+	setMarker= function(marcador, scope)
 	{	
   		
   		var icone = new Image();
-  		postMin = {};
 
 		for (var i = 0; i < $rootScope.icones.length; i++) {
 			if($rootScope.icones[i].categoria == marcador.categoria)
@@ -40,106 +50,80 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 
 		if (icone.src == "") return;
 	
-			var marker = new google.maps.Marker({
-	      		position: new google.maps.LatLng(marcador.lat, marcador.lng),
-	      		map: $rootScope.map,
-	      		icon: icone.src,
-	      		animation: google.maps.Animation.DROP,
-	      		draggable: false
-	      	});
+		var marker = new google.maps.Marker({
+	      	position: new google.maps.LatLng(marcador.lat, marcador.lng),
+	      	map: $rootScope.map,
+	      	icon: icone.src,
+	      	animation: google.maps.Animation.DROP,
+	      	draggable: false
+	    });
 
-	      	$rootScope.markers.push(marker);
+	    $rootScope.markers.push(marker);
 
-	      	getPostReduzido(marcador.idPublicacao).then(function(response) {	      		
-	      		postMin = response.data;
-	      		idPublicacao = postMin.idPublicacao;
-	      		
-	      		var infowindow = new google.maps.InfoWindow({
-			    content: '<md-card id="iw-container" ng-controller="mapController">'
+	    marker.addListener('click', function() {
 
-			    		+	'<div class="iw-title">'+ postMin.titulo +'</div>'
+	    	getPostReduzido(marcador.idPublicacao).then(function (response) {
+	    		$rootScope.map.setCenter(marker.position);
 
-			    		+	'<div class="iw-content">'
-			    		+		'<img class="img-publicacao" src="'+ postMin.foto +'" alt="">'
-			    		+ 	'</div>'
+	    		$rootScope.previousPost = response.data;
+	    		
+	    		previaHTML = '<md-card id="iw-container" ng-controller="mapController">' 
 
-			    		+	'<div class="iw-footer">'
-			    		+		'<div layout="row">'
+							//+	'<div class="iw-title">' + $rootScope.previousPost.titulo + '</div>' 
+							+	'<div class="iw-title">{{previousPost.titulo}}</div>' 
 
-			    		+			'<div flex class="apoiar">'
+							+	'<div class="iw-content">' 
+							//+		'<img class="img-publicacao" src="' + $rootScope.previousPost.foto + '" alt="">' 
+							+		'<img class="img-publicacao" ng-src="{{previousPost.foto}}" alt="">' 
+							+	'</div>' 
 
-			    		+				'<img src="/img/logo-apoiar.png">'
-			    		+				'<p>Apoiar</p>'
-			    		
-			    		+			'</div>'
+							+	'<div class="iw-footer">' 
+							+		'<div layout="row">' 
 
-			    		+			'<div flex class="qtdApoiadores">'
-			    		+				'<p>'+ postMin.qtdApoiadores +' Apoiadores</p>'
-			    		+			'</div>'
+							+			'<div flex class="apoiar">'
 
-			    		+		'</div>'
-			    		+ 	'</div>'
+							+				'<div class="img-like img-like-background"></div>'
 
-			    		+	'<div class="iw-btn-modal">'
-			    		+		'<div layout="row">'
+							+				'<p>Apoiar</p>'
+											    		
+							+			'</div>'
 
-			    		+			'<div flex class="show-modal">'
-			    		+				'<md-button class="md-button md-raised md-primary">VER MAIS</md-button>'
-			    		+			'</div>'
+							+			'<div flex class="qtdApoiadores">'
+							///+				'<p>' + $rootScope.previousPost.qtdApoiadores + ' Apoiadores</p>'
+							+				'<p>{{previousPost.qtdApoiadores}} Apoiadores</p>'
+							+			'</div>'
 
-			    		+		'</div>'
-			    		+ 	'</div>'
-			    		+'</md-card>'		    		 
+							+		'</div>'
+							+	'</div>'
 
-				});				
-				  
-				marker.addListener('click', function() {
-					if(infoWindowAnterior != null) {
-						if(infoWindowAnterior == infowindow) {
-							if(isInfoWindowOpen(infowindow)) { 
-								infoWindowAnterior = infowindow;
-								infowindow.close();	
-							}
-							else{
-								infowindow.open($rootScope.map, marker);
-								infowindowAnterior = infowindow;
-							}
-						}
-						else {
-							infoWindowAnterior.close();
-							infoWindowAnterior = infowindow;
-							infowindow.open($rootScope.map, marker);		
-						}						
-					}		
-					else {
-						infoWindowAnterior = infowindow;
-						infowindow.open($rootScope.map, marker);
-					}		  
-				});
+							+	'<div class="iw-btn-modal">'
+							+		'<div layout="row">'
 
-				google.maps.event.addListener(infowindow, 'domready', function() {
+							+			'<div flex class="show-modal">'
+							+				'<md-button class="md-button md-raised dark-primary-color" ng-click="showDetails()">VER MAIS</md-button>'
+							+			'</div>'
 
-				   // Referência ao DIV que recebe o conteúdo da infowindow recorrendo ao jQuery
-				   var iwOuter = $('.gm-style-iw');
+							+		'</div>'
+							+	'</div>'
 
-				   /* Uma vez que o div pretendido está numa posição anterior ao div .gm-style-iw.
-				    * Recorremos ao jQuery e criamos uma variável iwBackground,
-				    * e aproveitamos a referência já existente do .gm-style-iw para obter o div anterior com .prev().
-				    */
-				   var iwBackground = iwOuter.prev();
+							+  '<md-card>';
 
-				   // Remover o div da sombra do fundo
-				   iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+				// PROBLEMA RESOLVIDO COMPILANDO O TEMPLATE ACIMA COM A FUNÇÃO $compile DO ANGULARJS.
+				compiled = $compile(previaHTML)(scope);
 
-				   // Remover o div de fundo branco
-				   iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+				// CRIA UM NOVO INFOWINDOW E LOGO EM SEGUIDA SETA O TEMPLATE COMPILADO DENTRO DO CONTEÚDO DELE.
+				infowindow = new google.maps.InfoWindow();
+				infowindow.setContent(compiled[0]);
 
-					iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px'});
+	    		google.maps.event.addListener(infowindow, 'domready', function() {
 
-					// Aproveitando a referência já criada ao div .gm-style-iw com a variável iwOuter.
-					// Criamos uma nova variável iwCloseBtn.
-					// Utilizando o método .next() do JQuery referenciamos o div seguinte ao div .gm-style-iw.
-					// É este div que agrupa os elementos do botão fechar.
+				   	var iwOuter = $('.gm-style-iw');
+				   	var iwBackground = iwOuter.prev();
+
+				   	iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+				   	iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+				   	iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px'});
+
 					var iwCloseBtn = iwOuter.next();
 					var indicador = iwOuter.prev();
 
@@ -147,70 +131,115 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 						zIndex: 1
 					})
 
-					// Aplica o efeito desejado ao botão fechar
 					iwCloseBtn.css({
-					  opacity: '1', // por padrão o botão fechar tem uma opacidade de 0.7
+					  opacity: '1',
 					  right: '28px', 
-					  top: '8px', // reposicionamento do botão
-					  border: '1px solid #48b5e9', // aumento da borda do botão e nova cor
-					  'border-radius': '13px', // efeito circular
-					  'box-shadow': '0 0 5px #3990B9' // efeito 3D para salientar o botão
+					  top: '8px',
+					  border: '1px solid #48b5e9',
+					  'border-radius': '13px',
+					  'box-shadow': '0 0 5px #3990B9'
 					});
 
-					// A API aplica automaticamente 0.7 de opacidade ao botão após o evento mouseout.
-					// Esta função reverte esse evento para o valor desejado.
 					iwCloseBtn.mouseout(function(){
 					  $(this).css({opacity: '1'});
 					});
 
 					var btnApoiar = iwOuter.find('.apoiar > p');
-					var imgApoiar = iwOuter.find('.apoiar > img');
+					var imgApoiar = iwOuter.find('.apoiar > .img-like');
+
+
+					if($rootScope.previousPost.apoiado) {
+						
+						btnApoiar.addClass('apoiado');
+						btnApoiar.html('Apoiado');
+						imgApoiar.removeClass('img-like-background');
+						imgApoiar.addClass('img-liked-background');
+					}
+					else {
+						btnApoiar.removeClass('apoiado');
+						btnApoiar.html('Apoiar');
+						imgApoiar.removeClass('img-liked-background');
+						imgApoiar.addClass('img-like-background');
+					}
 
 					btnApoiar.on('click', function(event) {
 
 						event.preventDefault();
 
-						if (!$(this).hasClass('apoiado'))
+						if (!btnApoiar.hasClass('apoiado'))
 						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
+							    mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
-								$(this).addClass('apoiado');
+								btnApoiar.addClass('apoiado');
+								btnApoiar.html('Apoiado')
+								//$(this).html('Apoiado');
 
-								$(this).html('apoiado');
+								imgApoiar.removeClass('img-like-background');
+								imgApoiar.addClass('img-liked-background');
 
-								imgApoiar.removeAttr('src');
-								imgApoiar.attr('src', '/img/logo-apoiado.png');
+								$rootScope.previousPost.qtdApoiadores++;
 
-							// }, function (response) {
+							 }, function (response) {
 
-							// });
+							 });
 						}
 						else
 						{
-							// mapService.apoiar($scope.postMin.idPublicacao).then(function (response) {
+							    mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
-								$(this).removeClass('apoiado');
+								btnApoiar.removeClass('apoiado');
+								btnApoiar.html('Apoiar');
 
-								$(this).html('apoiar');
+								imgApoiar.removeClass('img-liked-background');
+								imgApoiar.addClass('img-like-background');
 
-								imgApoiar.removeAttr('src');
-								imgApoiar.attr('src', '/img/logo-apoiar.png');
+								$rootScope.previousPost.qtdApoiadores--;
 
-							// }, function (response) {
+							 }, function (response) {
 
-							// });
-						}
-						
+							 });
+						}	
 
 					});
 
 				});
 
-			}, function(response) {
+				if(infoWindowAnterior != null)
+				{
+					if(infoWindowAnterior == infowindow) 
+					{
+						if(isInfoWindowOpen(infowindow)) 
+						{ 
+							infoWindowAnterior = infowindow;
+							infowindow.close();	
+						}
+						else
+						{
+							infowindow.open($rootScope.map, marker);
+							infowindowAnterior = infowindow;
+						}
+					}
+					else 
+					{
+						infoWindowAnterior.close();
+						infoWindowAnterior = infowindow;
+						infowindow.open($rootScope.map, marker);		
+					}						
+				}		
+				else 
+				{
+					infoWindowAnterior = infowindow;
+					infowindow.open($rootScope.map, marker);
+				}
 
-			});	      	
+	    	}, function (response) {
+
+	    	});
+
+		});
 		
 	}
+
 	isInfoWindowOpen = function(infoWindow){
 	    var map = infoWindow.getMap();
 	    return (map !== null && typeof map !== "undefined");
@@ -224,5 +253,65 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', function (
 	  $rootScope.markers.length = 0;
 	}
 	
+	publicacao= {};
+
+	$rootScope.showDetails = function ()
+	{
+		// COMPARANDO SE O ID JÁ REQUISITADO É O MESMO DA VARIÁVEL TEMPORÁRIA tempID. SE FOR IGUAL, ELE NÃO FAZ A REQUISIÇÃO NOVAMENTE.
+		if (tempID != $rootScope.previousPost.idPublicacao)
+		{
+			getPublicacaoDetalhada($rootScope.previousPost.idPublicacao).then(function (response) {
+
+				$rootScope.publicacaoDetalhada = response.data;
+				tempID = $rootScope.previousPost.idPublicacao;
+				publicacao = $rootScope.publicacaoDetalhada;
+				publicacaoCompleta();
+
+
+				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
+				var dataPublicada = moment($rootScope.publicacaoDetalhada.dataPublicacao);
+				var dataAtual = moment();
+
+				if ($rootScope.publicacaoDetalhada.status == "ABERTO")
+				{
+					$rootScope.publicacaoDetalhada.diasContados = dataAtual.diff(dataPublicada, 'days');
+				}
+
+				console.log($rootScope.publicacaoDetalhada);
+
+				// COMPARANDO A ALTURA COM A LARGURA DA IMAGEM
+				if ($rootScope.publicacaoDetalhada.fotos[0].foto.naturalHeight > $rootScope.publicacaoDetalhada.fotos[0].foto.naturalWidth)
+					$(".pd-foto img").addClass('img-height');
+				else
+					$(".pd-foto img").addClass('img-width');
+
+				$("#modal").fadeIn('fast', function() {
+					$(this).removeClass('hide-modal');
+					$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
+				});
+
+			}, function (response) {
+
+			});
+		}
+		else
+		{
+			$("#modal").fadeIn('fast', function() {
+				$(this).removeClass('hide-modal');
+				$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
+			});
+		};
+	}
 	
-}])
+	publicacaoCompleta = function(){
+		return publicacao;
+		
+	}
+	
+	this.getPublicacao = function(){
+		return publicacaoCompleta();
+	}
+
+
+
+}]);

@@ -42,10 +42,22 @@
   float: right;
 }
 
-.apoiar img {
+.img-like-background {
+  background-image: url(../img/logo-apoiar.png);
+}
+
+.img-liked-background {
+  background-image: url(../img/logo-apoiado.png);
+}
+
+.img-like {
   width: 15px;
+  height: 15px;
   margin: 12px 5px 0 0;
   float: left;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .qtdApoiadores p, .apoiar p {
@@ -56,7 +68,7 @@
   text-decoration: underline;
 }
 
-.md-button {
+.show-modal .md-button {
   padding: 0 6px 0 6px;
   margin: 0 0 10px 0 !important;
   width: 100%;
@@ -69,10 +81,10 @@
   border: none;
   outline: none;
   box-sizing: border-box;
+  color: #fff;
 }
 
 .apoiado {
-  color: rgb(63,81,181);
-  font-weight: bold;
-  text-shadow: 1px 1px 2px #94a4ff;
+  color: #0288D1;
+  font-weight: 500;
 }
