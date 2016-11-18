@@ -1,10 +1,11 @@
-appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cadastroService', 'loginService', function ($scope,$facebook, indexFactory, cadastroService, loginService) {
+appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cadastroService', 'loginService', '$rootScope', function ($scope,$facebook, indexFactory, cadastroService, loginService, $rootScope) {
 
   // ALGUMAS CONFIGURAÇÕES DA INDEX
 
   $scope.cadastroForm = {};
   $scope.enderecoCompleto = {};
   $scope.tipoToast = "";
+  $rootScope.user = {};
 
   var height = window.innerHeight;
   $("#content, #map").css('height', height);
@@ -53,6 +54,11 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
   $scope.logar = function (usuario)
   {
     loginService.logar(usuario).then(function (response) {
+
+      $rootScope.user = response.data;
+
+      if ($rootScope.user.primeiroAcesso)
+        $rootScope.primeiroAcesso = false;
 
       window.location.href = "#/home";
 
@@ -123,16 +129,20 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
 
          loginService.salvarUsuarioFacebook($scope.usuarioFacebook).then(function (response) {
 
-              console.log(response);
+              $rootScope.user = response.data;
+
+              if (!$rootScope.user.primeiroAcesso)
+                $rootScope.primeiroAcesso = false;
+
+              if($scope.acesso === true)
+                  window.location.href = "#/home";
 
           }, function (response) {
 
           });
-          console.log($scope.usuarioFacebook);
+         
 
         });
-               if($scope.acesso ===true)
-               window.location.href = "#/home";
 
       }
 

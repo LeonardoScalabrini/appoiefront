@@ -3,11 +3,43 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
 
+  	$scope.estados = [
+		{nome: "Acre"},
+		{nome: "Alagoas"},
+		{nome: "Amapá"},
+		{nome: "Amazonas"},
+		{nome: "Bahia"},
+		{nome: "Ceará"},
+		{nome: "Distrito Federal"},
+		{nome: "Espírito Santo"},
+		{nome: "Goiás"},
+		{nome: "Maranhão"},
+		{nome: "Mato Grosso"},
+		{nome: "Mato Grosso do Sul"},
+		{nome: "Minas Gerais"},
+		{nome: "Pará"},
+		{nome: "Paraíba"},
+		{nome: "Paraná"},
+		{nome: "Pernambuco"},
+		{nome: "Piauí"},
+		{nome: "Rio de Janeiro"},
+		{nome: "Rio Grande do Norte"},
+		{nome: "Rio Grande do Sul"},
+		{nome: "Rondônia"},
+		{nome: "Roraima"},
+		{nome: "Santa Catarina"},
+		{nome: "São Paulo"},
+		{nome: "Sergipe"},
+		{nome: "Tocantins"},
+		{nome: "Acre"}	
+	]
+
   	$rootScope.icones = [];
   	$scope.marcadores = [];
   	$rootScope.map;
   	$scope.postMin;
   	$rootScope.markers = [];
+  	$rootScope.primeiroAcesso = true;
 
 
 	$scope.initMap = function ()
@@ -79,17 +111,6 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	  	infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 	}
 
-	apoiar = function(idPublicacao) 
-	{
-		// mapService.apoiar(idPublicacao).then(function(response) {
-
-		// }, function() {
-
-		// });
-
-		alert("apoiou!");
-	}	
-
 	$scope.fecharPublicacaoDetalhada = function () 
 	{
 		$(".appoie-modal, .appoie-info-modal").removeClass('animation-modal');
@@ -137,6 +158,15 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 
 			});
 		}    
+    }
+
+
+    $scope.enviarEstado = function (estado) {
+    	mapService.selectEstado(estado).then(function (response) {
+    		$rootScope.primeiroAcesso = false;
+    	}, function (response) {
+
+    	});
     }
 
 

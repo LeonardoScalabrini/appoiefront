@@ -1,5 +1,41 @@
 <div id="map" ng-init="initMap()"></div>
 
+<!-- SELECIONAR ESTADO QUANDO FOR O PRIMEIRO LOGIN COM O FACEBOOK -->
+
+<div layout="row" layout-align="center center" class="select-estado-modal" ng-hide="!primeiroAcesso">
+	
+	<div layout="column" layout-align="center center" class="select-container">
+
+		<div flex class="title-select">
+			<span>Selecione seu estado:</span>
+		</div>
+
+		<form name="form-select-estado">
+
+			<div flex class="input-select">
+				<md-input-container>
+	                <label>Selecione o estado</label>
+	                <md-select ng-model="selectEstado" name="selectEstado" required>
+	                    <md-option><em>Selecione</em></md-option>
+	                    <md-option ng-repeat="estado in estados" ng-value="estado.nome">
+			              {{estado.nome}}
+			            </md-option>
+	                </md-select>
+	            </md-input-container>
+			</div>
+
+			<div flex class="estado-submit-btn">
+				<button class="appoieButton" ng-class="{'btn-disabled': !selectEstado}" ng-click="enviarEstado(selectEstado)" ng-disabled="!selectEstado">ESCOLHER</button>
+			</div>
+
+		</form>
+		
+	</div>
+
+</div>
+
+<!-- PUBLICAÇÃO DETALHADA -->
+
 <div id="modal" class="hide-modal" ng-click="fecharPublicacaoDetalhada()"></div>
 	
 <div layout="row" layout-align="center center" class="modal-container">

@@ -273,3 +273,52 @@
 	margin-top: 6px;
     margin-left: 40px;
 }
+
+/* SELECT ESTADOS */
+
+.select-estado-modal {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.8);
+}
+
+.select-container {
+	background: #fff;
+	width: 350px;
+	border-radius: 3px;
+}
+
+.select-estado-modal .title-select {
+	width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #03A9F4;
+    border-radius: 3px 3px 0 0;
+}
+
+.select-estado-modal .title-select > span {
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.select-estado-modal .input-select {
+	padding: 20px;
+}
+
+.input-select md-select {
+	width: 250px;
+}
+
+.estado-submit-btn {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.btn-disabled {
+	background-color: #ccc;
+}

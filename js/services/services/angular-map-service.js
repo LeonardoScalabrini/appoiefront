@@ -30,4 +30,8 @@ appoie.service('mapService', ['$http', function ($http) {
 		return $http.post('publicacao/desapoiar/' + id);
 	}
 
+	this.selectEstado = function (estado) {
+		return $http.post("/usuario/estado/" + estado);
+	}
+
 }]);
