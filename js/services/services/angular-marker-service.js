@@ -1,4 +1,4 @@
-appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile', '$mdPanel', 'apoiarService', function ($http, mapService, $rootScope, $compile, $mdPanel, apoiarService) {
+appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile', '$mdPanel', function ($http, mapService, $rootScope, $compile, $mdPanel) {
 
 	var infoWindowAnterior;
 	var content = '';
