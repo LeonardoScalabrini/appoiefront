@@ -1,4 +1,6 @@
-appoie.controller('homeController', ['$scope', 'menuFactory', '$mdDialog', function ($scope, menuFactory, $mdDialog) {
+appoie.controller('homeController', ['$scope', '$localStorage', '$rootScope', 'menuFactory', '$mdDialog', function ($scope, $localStorage, $rootScope, menuFactory, $mdDialog) {
+
+  $scope.ROOT = $localStorage;
 
 	$scope.toggleLeft = function () 
 	{
@@ -47,6 +49,7 @@ appoie.controller('homeController', ['$scope', 'menuFactory', '$mdDialog', funct
 
   $scope.logout = function ()
   {
+    $localStorage.$reset();
     window.location.href = "#/login";
   }
 	

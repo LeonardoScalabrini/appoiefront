@@ -46,8 +46,8 @@
 
                   <div flex class="content-account-info">
                   
-                    <p><span>Olá,</span> Alan Freitas!</p>
-                    <span class="info-email">alanfreitas@gmail.com</span>
+                    <p><span>Olá,</span> {{ROOT.nome}} {{ROOT.sobrenome}}!</p>
+                    <span class="info-email">{{ROOT.email}}</span>
 
                     <div layout="row" class="action-btn-user-content">
 
@@ -111,9 +111,9 @@
           </div>
 
           <div flex="65" class="info-menu-perfil">
-            <span class="text-primary-color info-nome-menu">Alan Freitas</span>
+            <span class="text-primary-color info-nome-menu">{{ROOT.nome}} {{ROOT.sobrenome}}</span>
             <br>
-            <span class="text-primary-color info-cidade-menu">Maringá - PR</span>
+            <span class="text-primary-color info-cidade-menu">{{ROOT.cidade}} - {{ROOT.estado}}</span>
           </div>
 
           <div flex="15">

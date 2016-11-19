@@ -1,4 +1,4 @@
-appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'markerService', '$timeout', function ($scope, mapService, $rootScope, markerService, $timeout) {
+appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$rootScope', 'markerService', '$timeout', function ($scope, $localStorage, mapService, $rootScope, markerService, $timeout) {
 
 	mapHeight = window.innerHeight - 64;
   	$("#map").css('height', mapHeight);
@@ -39,8 +39,8 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
   	$rootScope.map;
   	$scope.postMin;
   	$rootScope.markers = [];
-  	$rootScope.primeiroAcesso = true;
 
+  	$scope.ROOT = $localStorage;
 
 	$scope.initMap = function ()
 	{
@@ -76,12 +76,9 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 	    	handleLocationError(false, infoWindow, $rootScope.map.getCenter());
 	  	}
 
-	  	if ($rootScope.icones.length == 0)
+	  	if ($rootScope.icones.length == 0 && !$scope.ROOT.primeiroAcesso)
 	  	{
-
-
 	  		mapService.getIcons().then(function (response) {
-	  			//$scope.icones = response.data;
 	  			
 	  			$rootScope.icones = response.data;
 
@@ -90,15 +87,9 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 					$scope.marcadores = response.data;
 					markerService.initMarkers($scope.marcadores, $scope);
 					  	  	
-				}, function (response) {
-
-				
-				});
-	  		}, function (response) {
-
-	  		});
-
-	  	} 
+				}, function (response) {});
+	  		}, function (response) {});
+	  	}
 	  	 	  
   	  	
 	  	
@@ -163,7 +154,8 @@ appoie.controller('mapController', ['$scope', 'mapService', '$rootScope', 'marke
 
     $scope.enviarEstado = function (estado) {
     	mapService.selectEstado(estado).then(function (response) {
-    		$rootScope.primeiroAcesso = false;
+    		$rootScope.root.primeiroAcesso = false;
+    		$scope.initMap();
     	}, function (response) {
 
     	});

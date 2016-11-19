@@ -2,7 +2,7 @@
 
 <!-- SELECIONAR ESTADO QUANDO FOR O PRIMEIRO LOGIN COM O FACEBOOK -->
 
-<div layout="row" layout-align="center center" class="select-estado-modal" ng-hide="!primeiroAcesso">
+<div layout="row" layout-align="center center" class="select-estado-modal" ng-hide="!ROOT.primeiroAcesso">
 	
 	<div layout="column" layout-align="center center" class="select-container">
 
@@ -102,11 +102,11 @@
 			<div layout="row" layout-align="start center" class="pd-categoria-container">
 
 				<div flex="70" class="pd-categoria">
-					<span><span>CATEGORIA: </span> TRANSPORTE PÚBLICO</span>
+					<span><span>CATEGORIA: </span> {{publicacaoDetalhada.categoria}}</span>
 				</div>
 
 				<div flex="30" class="pd-img-categoria">
-					<img src="../img/categorias/ILUMINACAO.png" height="50" width="50" alt="">
+					<img src="../img/categorias/{{publicacaoDetalhada.categoria}}.png" height="50" width="50" alt="">
 				</div>
 				
 			</div>
@@ -114,7 +114,7 @@
 			<div flex class="pd-criticidade-container">
 
 				<div class="pd-criticidade">
-					<span><span>NÍVEL DE CRITICIDADE:</span> BAIXA</span>
+					<span><span>NÍVEL DE CRITICIDADE:</span> {{publicacaoDetalhada.criticidade}}</span>
 				</div>
 
 				<div class="pd-criticidade-grafico">
@@ -125,7 +125,7 @@
 
 			<div layout="row" class="pd-compartilhar">
 
-				<div class="pd-btn-compartilhar">
+				<div class="pd-btn-compartilhar" ng-click="fecharPublicacaoDetalhada(); compartilharFacebook()">
 					<div class="pd-btn-compartilhar-img">
 						<img src="../img/facebook_ico_button.png" height="30" width="30" alt="">
 					</div>
@@ -139,7 +139,7 @@
 			<div layout="row" class="pd-actions-container">
 
 				<div flex="20" class="pd-apoiar">
-					<i class="material-icons">thumb_up</i>
+					<img src="../img/logo-apoiar.png" height="20" width="20" alt="">
 					<span>Apoiar</span>
 				</div>
 

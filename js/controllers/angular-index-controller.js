@@ -1,11 +1,10 @@
-appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cadastroService', 'loginService', '$rootScope', function ($scope,$facebook, indexFactory, cadastroService, loginService, $rootScope) {
+appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'indexFactory', 'cadastroService', 'loginService', '$rootScope', function ($scope, $localStorage, $facebook, indexFactory, cadastroService, loginService, $rootScope) {
 
   // ALGUMAS CONFIGURAÇÕES DA INDEX
 
   $scope.cadastroForm = {};
   $scope.enderecoCompleto = {};
   $scope.tipoToast = "";
-  $rootScope.user = {};
 
   var height = window.innerHeight;
   $("#content, #map").css('height', height);
@@ -55,13 +54,10 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
   {
     loginService.logar(usuario).then(function (response) {
 
-      $rootScope.user = response.data;
-
-      if ($rootScope.user.primeiroAcesso)
-        $rootScope.primeiroAcesso = false;
+      $scope.ROOT = $localStorage.$default(response.data);
 
       window.location.href = "#/home";
-
+      
     }, function (response) {
 
       indexFactory.notification('custom-alert alert-position-right alert-error', 'Login ou senha inválidos');
@@ -112,27 +108,27 @@ appoie.controller('indexController', ['$scope','$facebook', 'indexFactory', 'cad
       $scope.status = $facebook.isConnected();
       if($scope.status && $scope.acesso ===true ) {
         $facebook.api('me?fields=id,first_name,last_name,birthday,gender,email,location,picture').then(function(user) {
+
            $scope.user = user;
            $scope.usuarioFacebook.idFacebook =$scope.user.id;
            $scope.usuarioFacebook.nome = $scope.user.first_name;
            $scope.usuarioFacebook.sobrenome = $scope.user.last_name;
-           $scope.usuarioFacebook.dataDeNascimento = $scope.user.birthday;
-           if($scope.user.gender === 'male'){
+           $scope.usuarioFacebook.dataDeNascimento = '27/12/1990'; //$scope.user.birthday;
+
+           if($scope.user.gender === 'male')
               $scope.usuarioFacebook.sexo ='MASCULINO';
-           }else{
+           else
               $scope.usuarioFacebook.sexo ='FEMININO';
-           }
+           
            $scope.usuarioFacebook.email = $scope.user.email;
-           $scope.usuarioFacebook.nomeCidade = $scope.user.location.name;
+           $scope.usuarioFacebook.nomeCidade = 'Maringá';//$scope.user.location.name;
            $scope.usuarioFacebook.foto =$scope.user.picture.data.url;
 
+           console.log($scope.usuarioFacebook);
 
          loginService.salvarUsuarioFacebook($scope.usuarioFacebook).then(function (response) {
 
-              $rootScope.user = response.data;
-
-              if (!$rootScope.user.primeiroAcesso)
-                $rootScope.primeiroAcesso = false;
+              $scope.ROOT = $localStorage.$default(response.data);
 
               if($scope.acesso === true)
                   window.location.href = "#/home";

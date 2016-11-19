@@ -1,6 +1,6 @@
-appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', '$location', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory, $location) {
+appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', '$location', '$localStorage', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory, $location, $localStorage) {
 
-	//$scope.categorias = 
+	$scope.ROOT  = $localStorage;
 	
 	$scope.marcadoresRecuperados = [];
 	
@@ -140,7 +140,7 @@ appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$r
 	}
 
 	$scope.logout = function() {
-		// limpar aqui variável que guarda o token
+		$localStorage.$reset();
 		$location.path("/login");
 	}
 

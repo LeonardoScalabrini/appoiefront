@@ -1,1 +1,1 @@
-appoie = angular.module('appoie', ['ui.router', 'ngMaterial', 'ngMessages','ngFacebook']);
+appoie = angular.module('appoie', ['ui.router', 'ngMaterial', 'ngMessages','ngFacebook', 'ngStorage']);

@@ -168,24 +168,23 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 						if (!btnApoiar.hasClass('apoiado'))
 						{
-							    mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
+							mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
 								btnApoiar.addClass('apoiado');
-								btnApoiar.html('Apoiado')
-								//$(this).html('Apoiado');
+								btnApoiar.html('Apoiado');
 
 								imgApoiar.removeClass('img-like-background');
 								imgApoiar.addClass('img-liked-background');
 
 								$rootScope.previousPost.qtdApoiadores++;
 
-							 }, function (response) {
+							}, function (response) {
 
-							 });
+							});
 						}
 						else
 						{
-							    mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
+							mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
 								btnApoiar.removeClass('apoiado');
 								btnApoiar.html('Apoiar');
@@ -195,9 +194,9 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 								$rootScope.previousPost.qtdApoiadores--;
 
-							 }, function (response) {
+							}, function (response) {
 
-							 });
+							});
 						}	
 
 					});
@@ -267,7 +266,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				publicacao = $rootScope.publicacaoDetalhada;
 				publicacaoCompleta();
 
-
 				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
 				var dataPublicada = moment($rootScope.publicacaoDetalhada.dataPublicacao);
 				var dataAtual = moment();
@@ -284,6 +282,21 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 					$(".pd-foto img").addClass('img-height');
 				else
 					$(".pd-foto img").addClass('img-width');
+
+				// ANALISANDO A CRITICIDADE E APLICANDO A POSIÇÃO DO GRÁFICO
+				switch ($rootScope.publicacaoDetalhada.criticidade) {
+					case 'BAIXA':
+						$(".pd-criticidade-grafico").css('text-align', 'left');
+						break;
+
+					case 'MEDIA':
+						$(".pd-criticidade-grafico").css('text-align', 'center');
+						break;
+
+					case 'ALTA':
+						$(".pd-criticidade-grafico").css('text-align', 'right');
+						break;
+				};
 
 				$("#modal").fadeIn('fast', function() {
 					$(this).removeClass('hide-modal');
