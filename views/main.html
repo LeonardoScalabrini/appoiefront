@@ -64,7 +64,7 @@
 
 			<div flex="70" class="pd-info-user-container">
 				<div class="pd-info-user-name">
-					<span>Alan Mariano Freitas</span>
+					<span>{{publicacaoDetalhada.usuario}} {{publicacaoDetalhada.sobrenomeUsuario}}</span>
 				</div>
 				<div class="pd-info-data">
 					<span><span>Dia da publicação: </span>{{publicacaoDetalhada.dataPublicacao | date: 'dd/MM/yyyy'}}</span>
@@ -106,7 +106,7 @@
 				</div>
 
 				<div flex="30" class="pd-img-categoria">
-					<img src="../img/categorias/{{publicacaoDetalhada.categoria}}.png" height="50" width="50" alt="">
+					<img src="../img/categorias/{{publicacaoDetalhada.nomeCategoria}}.png" height="50" width="50" alt="">
 				</div>
 				
 			</div>

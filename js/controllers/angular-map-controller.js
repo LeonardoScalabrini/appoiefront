@@ -41,9 +41,10 @@ appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$r
   	$rootScope.markers = [];
 
   	$scope.ROOT = $localStorage;
-
+	
 	$scope.initMap = function ()
 	{
+
 		$rootScope.map = new google.maps.Map(document.getElementById('map'), {
 	        center: {
 	            lat: -23.414106,  
