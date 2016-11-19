@@ -227,9 +227,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 		var btnApoiarPD = $('.pd-apoiar > p');
 		var imgApoiarPD = $('.pd-apoiar .pd-img-like');
 
-		// COMPARANDO SE O ID JÁ REQUISITADO É O MESMO DA VARIÁVEL TEMPORÁRIA tempID. SE FOR IGUAL, ELE NÃO FAZ A REQUISIÇÃO NOVAMENTE.
-		// if (tempID != $rootScope.previousPost.idPublicacao || $rootScope.previousPost.apoiado)
-		// {
 			getPublicacaoDetalhada($rootScope.previousPost.idPublicacao).then(function (response) {
 
 				$rootScope.publicacaoDetalhada = response.data;
@@ -298,14 +295,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				apoiar($(this), imgApoiarPD);	
 
 			});
-		// }
-		// else
-		// {
-		// 	$("#modal").fadeIn('fast', function() {
-		// 		$(this).removeClass('hide-modal');
-		// 		$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
-		// 	});
-		// };
 	}
 	
 	publicacaoCompleta = function(){
