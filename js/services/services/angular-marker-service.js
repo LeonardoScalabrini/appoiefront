@@ -1,4 +1,4 @@
-appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile', '$mdPanel', function ($http, mapService, $rootScope, $compile, $mdPanel) {
+appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile', '$mdPanel', 'apoiarService', function ($http, mapService, $rootScope, $compile, $mdPanel, apoiarService) {
 
 	var infoWindowAnterior;
 	var content = '';
@@ -89,7 +89,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 							+			'</div>'
 
 							+			'<div flex class="qtdApoiadores">'
-							///+				'<p>' + $rootScope.previousPost.qtdApoiadores + ' Apoiadores</p>'
 							+				'<p>{{previousPost.qtdApoiadores}} Apoiadores</p>'
 							+			'</div>'
 
@@ -166,38 +165,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 						event.preventDefault();
 
-						if (!btnApoiar.hasClass('apoiado'))
-						{
-							mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
-
-								btnApoiar.addClass('apoiado');
-								btnApoiar.html('Apoiado');
-
-								imgApoiar.removeClass('img-like-background');
-								imgApoiar.addClass('img-liked-background');
-
-								$rootScope.previousPost.qtdApoiadores++;
-
-							}, function (response) {
-
-							});
-						}
-						else
-						{
-							mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
-
-								btnApoiar.removeClass('apoiado');
-								btnApoiar.html('Apoiar');
-
-								imgApoiar.removeClass('img-liked-background');
-								imgApoiar.addClass('img-like-background');
-
-								$rootScope.previousPost.qtdApoiadores--;
-
-							}, function (response) {
-
-							});
-						}	
+						apoiar($(this), imgApoiar);	
 
 					});
 
@@ -256,6 +224,9 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 	$rootScope.showDetails = function ()
 	{
+		var btnApoiarPD = $('.pd-apoiar > p');
+		var imgApoiarPD = $('.pd-apoiar .pd-img-like');
+
 		// COMPARANDO SE O ID JÁ REQUISITADO É O MESMO DA VARIÁVEL TEMPORÁRIA tempID. SE FOR IGUAL, ELE NÃO FAZ A REQUISIÇÃO NOVAMENTE.
 		if (tempID != $rootScope.previousPost.idPublicacao)
 		{
@@ -266,6 +237,29 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				publicacao = $rootScope.publicacaoDetalhada;
 				publicacaoCompleta();
 
+				if ($rootScope.publicacaoDetalhada.apoiado)
+				{
+					btnApoiarPD.addClass('apoiado');
+					btnApoiarPD.html('Apoiado');
+					imgApoiarPD.removeClass('img-like-background');
+					imgApoiarPD.addClass('img-liked-background');
+				}
+				else
+				{
+					btnApoiarPD.removeClass('apoiado');
+					btnApoiarPD.html('Apoiar');
+					imgApoiarPD.removeClass('img-liked-background');
+					imgApoiarPD.addClass('img-like-background');
+				}
+
+				btnApoiarPD.on('click', function(event) {
+
+					event.preventDefault();
+
+					apoiar($(this), imgApoiarPD);	
+
+				});
+
 				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
 				var dataPublicada = moment($rootScope.publicacaoDetalhada.dataPublicacao);
 				var dataAtual = moment();
@@ -274,8 +268,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				{
 					$rootScope.publicacaoDetalhada.diasContados = dataAtual.diff(dataPublicada, 'days');
 				}
-
-				console.log($rootScope.publicacaoDetalhada);
 
 				// COMPARANDO A ALTURA COM A LARGURA DA IMAGEM
 				if ($rootScope.publicacaoDetalhada.fotos[0].foto.naturalHeight > $rootScope.publicacaoDetalhada.fotos[0].foto.naturalWidth)
@@ -323,6 +315,42 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 	
 	this.getPublicacao = function(){
 		return publicacaoCompleta();
+	}
+
+	apoiar = function (btnApoiar, imgApoiar)
+	{
+		if (!btnApoiar.hasClass('apoiado'))
+		{
+			mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
+
+				btnApoiar.addClass('apoiado');
+				btnApoiar.html('Apoiado');
+
+				imgApoiar.removeClass('img-like-background');
+				imgApoiar.addClass('img-liked-background');
+
+				$rootScope.previousPost.qtdApoiadores++;
+
+			}, function (response) {
+
+			});
+		}
+		else
+		{
+			mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
+
+				btnApoiar.removeClass('apoiado');
+				btnApoiar.html('Apoiar');
+
+				imgApoiar.removeClass('img-liked-background');
+				imgApoiar.addClass('img-like-background');
+
+				$rootScope.previousPost.qtdApoiadores--;
+
+			}, function (response) {
+
+			});
+		}
 	}
 
 

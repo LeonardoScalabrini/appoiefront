@@ -60,6 +60,16 @@
   background-repeat: no-repeat;
 }
 
+.pd-img-like {
+  width: 15px;
+  height: 15px;
+  margin: 0 10px 0 0;
+  float: left;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .qtdApoiadores p, .apoiar p {
   cursor: pointer;
 }
