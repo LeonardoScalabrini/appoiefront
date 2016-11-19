@@ -228,8 +228,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 		var imgApoiarPD = $('.pd-apoiar .pd-img-like');
 
 		// COMPARANDO SE O ID JÁ REQUISITADO É O MESMO DA VARIÁVEL TEMPORÁRIA tempID. SE FOR IGUAL, ELE NÃO FAZ A REQUISIÇÃO NOVAMENTE.
-		if (tempID != $rootScope.previousPost.idPublicacao)
-		{
+		// if (tempID != $rootScope.previousPost.idPublicacao || $rootScope.previousPost.apoiado)
+		// {
 			getPublicacaoDetalhada($rootScope.previousPost.idPublicacao).then(function (response) {
 
 				$rootScope.publicacaoDetalhada = response.data;
@@ -251,14 +251,6 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 					imgApoiarPD.removeClass('img-liked-background');
 					imgApoiarPD.addClass('img-like-background');
 				}
-
-				btnApoiarPD.on('click', function(event) {
-
-					event.preventDefault();
-
-					apoiar($(this), imgApoiarPD);	
-
-				});
 
 				// Verificando há quantos dias a publicação está aberta dependendo do status da publicação.
 				var dataPublicada = moment($rootScope.publicacaoDetalhada.dataPublicacao);
@@ -298,14 +290,22 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 			}, function (response) {
 
 			});
-		}
-		else
-		{
-			$("#modal").fadeIn('fast', function() {
-				$(this).removeClass('hide-modal');
-				$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
+
+			btnApoiarPD.on('click', function(event) {
+
+				event.preventDefault();
+
+				apoiar($(this), imgApoiarPD);	
+
 			});
-		};
+		// }
+		// else
+		// {
+		// 	$("#modal").fadeIn('fast', function() {
+		// 		$(this).removeClass('hide-modal');
+		// 		$(".appoie-modal, .appoie-info-modal").addClass('animation-modal');
+		// 	});
+		// };
 	}
 	
 	publicacaoCompleta = function(){
