@@ -3,9 +3,9 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   // ALGUMAS CONFIGURAÇÕES DA INDEX
 
   $scope.cadastroForm = {};
-  $scope.enderecoCompleto = {};
   $scope.tipoToast = "";
   $scope.recuperar = false;
+  $scope.cadastro = {};
 
   var height = window.innerHeight;
   $("#content, #map").css('height', height);
@@ -55,9 +55,14 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   {
     loginService.logar(usuario).then(function (response) {
 
-      $scope.ROOT = $localStorage.$default(response.data);
+      $localStorage.user = response.data;
+      $scope.ROOT = $localStorage.user;
+
+      $scope.ROOT.foto = "/img/team/user-empty.png";
 
       window.location.href = "#/home";
+
+      console.log($scope.ROOT);
       
     }, function (response) {
 
@@ -70,13 +75,13 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   {
     if ($scope.cadastroForm.$invalid)
     {
-      indexFactory.notification('custom-alert alert-position-left alert-error', response.data.message);
+      indexFactory.notification('custom-alert alert-position-left alert-error', "Preencha os campos corretamente!");
     }
     else
     {
       cadastroService.salvar(usuario).then(function (response) {
 
-        indexFactory.notification('custom-alert alert-position-left alert-success', 'Cadastrado com sucesso');
+        indexFactory.notification('custom-alert alert-position-left alert-success', response.data.message);
         $scope.hideCadastro();
 
       }, function (response) {
@@ -91,10 +96,8 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   {
     cadastroService.buscarCep(cep).then(function (response) {
 
-      $scope.enderecoCompleto = response.data;
-      $scope.cadastro.cidade = $scope.enderecoCompleto.cidade;
-      $scope.cadastro.estado = $scope.enderecoCompleto.estado_info.nome;
-
+      $scope.cadastro.cidade = response.data.cidade;
+      $scope.cadastro.estado = response.data.estado_info.nome;
 
     }, function (response) {
 
@@ -122,14 +125,17 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
               $scope.usuarioFacebook.sexo ='FEMININO';
            
            $scope.usuarioFacebook.email = $scope.user.email;
-           $scope.usuarioFacebook.nomeCidade = 'Maringá';//$scope.user.location.name;
+           $scope.usuarioFacebook.cidade = 'Maringá';//$scope.user.location.name;
            $scope.usuarioFacebook.foto =$scope.user.picture.data.url;
 
            console.log($scope.usuarioFacebook);
 
          loginService.salvarUsuarioFacebook($scope.usuarioFacebook).then(function (response) {
 
-              $scope.ROOT = $localStorage.$default(response.data);
+              $localStorage.user = response.data;
+              $scope.ROOT = $localStorage.user;
+
+              $scope.foto = $scope.ROOT.foto;
 
               if($scope.acesso === true)
                   window.location.href = "#/home";

@@ -40,7 +40,7 @@ appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$r
   	$scope.postMin;
   	$rootScope.markers = [];
 
-  	$scope.ROOT = $localStorage;
+  	$scope.ROOT = $localStorage.user;
 	
 	$scope.initMap = function ()
 	{
@@ -155,8 +155,8 @@ appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$r
 
     $scope.enviarEstado = function (estado) {
     	mapService.selectEstado(estado).then(function (response) {
-    		$rootScope.root.primeiroAcesso = false;
     		$scope.initMap();
+    		$scope.estadoEscolhido = true;
     	}, function (response) {
 
     	});

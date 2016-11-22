@@ -1,6 +1,6 @@
 appoie.controller('menuController', ['$scope', 'menuFactory', 'menuService', '$rootScope', 'markerService', 'menuFactory', '$location', '$localStorage', function ($scope, menuFactory, menuService, $rootScope, markerService, menuFactory, $location, $localStorage) {
 
-	$scope.ROOT  = $localStorage;
+	$scope.ROOT  = $localStorage.user;
 	
 	$scope.marcadoresRecuperados = [];
 	

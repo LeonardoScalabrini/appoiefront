@@ -1,6 +1,6 @@
 appoie.controller('homeController', ['$scope', '$localStorage', '$rootScope', 'menuFactory', '$mdDialog', function ($scope, $localStorage, $rootScope, menuFactory, $mdDialog) {
 
-  $scope.ROOT = $localStorage;
+  $scope.ROOT = $localStorage.user;
 
 	$scope.toggleLeft = function () 
 	{
