@@ -6,6 +6,9 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   $scope.tipoToast = "";
   $scope.recuperar = false;
   $scope.cadastro = {};
+  $scope.login = {};
+  $scope.login.email = "";
+  $scope.login.senha = "";
 
   var height = window.innerHeight;
   $("#content, #map").css('height', height);
@@ -51,9 +54,10 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
 
   // INTERAÇÕES DO CADASTRO E LOGIN - VERIFICAÇÕES EM ROTAS DO BACK END
 
-  $scope.logar = function (usuario)
+  $scope.logar = function ()
   {
-    loginService.logar(usuario).then(function (response) {
+	console.log();
+    loginService.logar($scope.login).then(function (response) {
 
       $localStorage.user = response.data;
       $scope.ROOT = $localStorage.user;
@@ -81,7 +85,7 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
     {
       cadastroService.salvar(usuario).then(function (response) {
 
-        indexFactory.notification('custom-alert alert-position-left alert-success', response.data.message);
+        indexFactory.notification('custom-alert alert-position-left alert-success', 'Cadastrado com sucesso');
         $scope.hideCadastro();
 
       }, function (response) {
