@@ -60,7 +60,7 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
       
     }, function (response) {
 
-      indexFactory.notification('custom-alert alert-position-right alert-error', 'Login ou senha inválidos');
+      indexFactory.notification('custom-alert alert-position-right alert-error', response.data.message);
 
     })
   }
@@ -69,7 +69,7 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   {
     if ($scope.cadastroForm.$invalid)
     {
-      indexFactory.notification('custom-alert alert-position-left alert-error', 'Informe os campos corretamente');
+      indexFactory.notification('custom-alert alert-position-left alert-error', response.data.message);
     }
     else
     {
@@ -80,7 +80,7 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
 
       }, function (response) {
 
-        indexFactory.notification('custom-alert alert-position-left alert-error', 'Informe os campos corretamente');
+        indexFactory.notification('custom-alert alert-position-left alert-error', response.data.message);
 
       });
     }
