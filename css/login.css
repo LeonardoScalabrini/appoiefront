@@ -40,6 +40,14 @@ html, body {
 	padding: 20px;
 }
 
+.content-recupera-senha {
+	width: 100%;
+	background: rgba(255,255,255,0.4);
+	margin-top: 70px;
+	z-index: 1;
+	padding: 20px;
+}
+
 .logo-login span {
 	font-size: 20px;
 	color: #fff;
@@ -93,6 +101,15 @@ md-input-container .md-errors-spacer {
 }
 
 #content-cadastro md-input-container:not(.md-input-invlalid).md-input-focused label {
+	color: #ccc;
+}
+
+#content-recupera-senha md-input-container:not(.md-input-invlalid).md-input-focused .md-input,
+#content-recupera-senha md-input-container:not(.md-input-has-value).md-input-focused .md-select {
+	border-color: #ccc;
+}
+
+#content-recupera-senha md-input-container:not(.md-input-invlalid).md-input-focused label {
 	color: #ccc;
 }
 
@@ -363,4 +380,26 @@ md-select:not([disabled]):focus .md-select-value {
 .direitos > span {
 	font-size: 11px;
 	color: #ccc;
+}
+
+#content-recupera-senha {
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.cancelar-recuperar-senha {
+	text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.cancelar-recuperar-senha span {
+	font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cancelar-recuperar-senha span:hover {
+    color: #FF4081;
+    text-decoration: underline;
 }

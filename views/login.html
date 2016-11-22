@@ -38,7 +38,7 @@
 
             <div layout="row">
                 <div flex="50" layout="column" class="linkAlternative recuperaSenhaLink">
-                    <span><a>Esqueci minha senha</a></span>
+                    <span><a ng-click="recuperar()">Esqueci minha senha</a></span>
                 </div>
 
                 <div flex="50" layout="column" class="linkAlternative cadastrarLink">
@@ -59,6 +59,43 @@
                 </div>
             </div>
 
+
+        </div>
+    </div>
+
+</div>
+
+<div id="content-recupera-senha" screenHeight ng-controller="indexController">
+
+    <div layout="row" layout-align="center center">
+        <div flex="25" class="content-recupera-senha hide">
+
+            <div layout="column" layout-align="center center" class="logo-login">
+                <img src="../img/loogo.png" height="50" width="50" alt="">
+                <span>Appoie</span>
+            </div>
+
+            <div layout="column" layout-align="center center" class="title-login">
+                <h2>INSIRA SEU E-MAIL</h2>
+            </div>
+
+            <form name="recuperarSenhaForm">
+
+                <md-input-container class="md-block">
+                    <label>E-mail</label>
+                    <input required type="email" name="RecuperarSenhaEmail" ng-model="RecuperarSenhaEmail.email" minlength="4" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+                    <div ng-messages="recuperarSenhaForm.RecuperarSenhaEmail.$error" role="alert">
+                        <div class="errorMsg" ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Informe um Email válido</div>
+                    </div>
+                </md-input-container>
+
+                <button name="appoieButton" class="submitLogin appoieButton md-primary" ng-click="recuperarSenha(RecuperarSenhaEmail)">ENVIAR</button>
+
+            </form>
+
+            <div class="cancelar-recuperar-senha">
+                <span ng-click="recuperar()">Cancelar</span>
+            </div>
 
         </div>
     </div>

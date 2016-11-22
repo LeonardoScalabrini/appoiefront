@@ -5,6 +5,7 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
   $scope.cadastroForm = {};
   $scope.enderecoCompleto = {};
   $scope.tipoToast = "";
+  $scope.recuperar = false;
 
   var height = window.innerHeight;
   $("#content, #map").css('height', height);
@@ -157,8 +158,48 @@ appoie.controller('indexController', ['$scope', '$localStorage', '$facebook', 'i
       });
     }
 
+    $scope.recuperar = function () {
+      
+      if (!$(".content-login").hasClass('hide'))
+      {
+        $(".content-login").fadeOut('fast', function() {
+          $(this).addClass('hide');
+          $(".content-recupera-senha").fadeIn('fast', function() {
+            $(this).removeClass('hide');
+          });
+        });
+      }
+      else
+      {
+        $(".content-recupera-senha").fadeOut('fast', function() {
+          $(this).addClass('hide');
+          $(".content-login").fadeIn('fast', function() {
+            $(this).removeClass('hide');
+          });
+        });
+      }
 
+    };
 
+    $scope.recuperarSenha = function (obj) {
 
+      loginService.recuperarSenha(obj).then(function (response) {
+
+        indexFactory.notification('custom-alert alert-position-right alert-success', response.data.message);
+
+        $(".content-recupera-senha").fadeOut('fast', function() {
+          $(this).addClass('hide');
+          $(".content-login").fadeIn('fast', function() {
+            $(this).removeClass('hide');
+          });
+        });
+
+      }, function (response) {
+
+        indexFactory.notification('custom-alert alert-position-right alert-error', response.data.message);
+
+      })
+
+    }
 
 }]);
