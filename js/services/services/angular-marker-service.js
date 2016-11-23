@@ -320,6 +320,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				imgApoiar.addClass('img-liked-background');
 
 				$rootScope.previousPost.apoiado = true;
+				$rootScope.publicacaoDetalhada.apoiado = true;
+				$rootScope.publicacaoDetalhada.qtdApoiadores++;
 				$rootScope.previousPost.qtdApoiadores++;
 
 			}, function (response) {
@@ -336,6 +338,8 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				imgApoiar.removeClass('img-liked-background');
 				imgApoiar.addClass('img-like-background');
 				$rootScope.previousPost.apoiado = false;
+				$rootScope.publicacaoDetalhada.apoiado = false;
+				$rootScope.publicacaoDetalhada.qtdApoiadores--;
 				$rootScope.previousPost.qtdApoiadores--;
 
 			}, function (response) {
