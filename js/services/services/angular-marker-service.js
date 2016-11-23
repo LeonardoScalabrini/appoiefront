@@ -67,6 +67,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 	    		$rootScope.previousPost = response.data;
 	    		
+	    		
 	    		previaHTML = '<md-card id="iw-container" ng-controller="mapController">' 
 
 							//+	'<div class="iw-title">' + $rootScope.previousPost.titulo + '</div>' 
@@ -308,7 +309,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 
 	apoiar = function (btnApoiar, imgApoiar)
 	{
-		if (!btnApoiar.hasClass('apoiado'))
+		if (!btnApoiar.hasClass('apoiado') && !$rootScope.previousPost.apoiado)
 		{
 			mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
@@ -318,6 +319,7 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 				imgApoiar.removeClass('img-like-background');
 				imgApoiar.addClass('img-liked-background');
 
+				$rootScope.previousPost.apoiado = true;
 				$rootScope.previousPost.qtdApoiadores++;
 
 			}, function (response) {
@@ -326,14 +328,14 @@ appoie.service('markerService', ['$http', 'mapService', '$rootScope', '$compile'
 		}
 		else
 		{
-			mapService.desapoiar($rootScope.previousPost.idPublicacao).then(function (response) {
+			mapService.apoiar($rootScope.previousPost.idPublicacao).then(function (response) {
 
 				btnApoiar.removeClass('apoiado');
 				btnApoiar.html('Apoiar');
 
 				imgApoiar.removeClass('img-liked-background');
 				imgApoiar.addClass('img-like-background');
-
+				$rootScope.previousPost.apoiado = false;
 				$rootScope.previousPost.qtdApoiadores--;
 
 			}, function (response) {

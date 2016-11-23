@@ -34,4 +34,8 @@ appoie.service('mapService', ['$http', function ($http) {
 		return $http.post("/usuario/estado/" + estado);
 	}
 
+	this.verificarNovasPublicacoes = function(index) {
+		return $http.post("/publicacao/verificar/novasPublicacoes/" + index);
+	}
+
 }]);

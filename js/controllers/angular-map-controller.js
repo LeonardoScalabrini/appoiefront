@@ -39,8 +39,33 @@ appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$r
   	$rootScope.map;
   	$scope.postMin;
   	$rootScope.markers = [];
+  	$rootScope.totalPublicacoes;
 
   	$scope.ROOT = $localStorage.user;
+
+
+var notificacao = setInterval(verificarPublicacoes, 10000);
+
+function verificarPublicacoes() {
+	
+	if($rootScope.totalPublicacoes >= 0 && $scope.ROOT != undefined) {
+		mapService.verificarNovasPublicacoes($rootScope.totalPublicacoes).then(function (response) {
+			$scope.marcadores = response.data;
+			console.log("totalPublicacoes: " + $rootScope.totalPublicacoes);
+			
+			if($scope.marcadores.length > 0) {
+				$rootScope.totalPublicacoes = $scope.marcadores[0].totalPublicacoes;
+				markerService.initMarkers($scope.marcadores, $scope);
+			}
+			
+
+		}, function(response) {
+
+		});
+	}
+    
+}
+
 	
 	$scope.initMap = function ()
 	{
@@ -86,7 +111,12 @@ appoie.controller('mapController', ['$scope', '$localStorage', 'mapService', '$r
 	  			mapService.getMarkers().then(function (response) {
 					
 					$scope.marcadores = response.data;
-					markerService.initMarkers($scope.marcadores, $scope);
+					
+					if($scope.marcadores.length > 0) {
+						$rootScope.totalPublicacoes = $scope.marcadores[0].totalPublicacoes;
+						markerService.initMarkers($scope.marcadores, $scope);
+					}
+					
 					  	  	
 				}, function (response) {});
 	  		}, function (response) {});
